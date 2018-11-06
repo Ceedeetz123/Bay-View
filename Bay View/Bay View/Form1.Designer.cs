@@ -28,24 +28,64 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblUsername = new System.Windows.Forms.Label();
+            this.lblPassword = new System.Windows.Forms.Label();
+            this.tbUsername = new System.Windows.Forms.TextBox();
+            this.tbPassword = new System.Windows.Forms.TextBox();
+            this.btnLogin = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // label1
+            // lblUsername
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(167, 124);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(39, 15);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Test";
+            this.lblUsername.AutoSize = true;
+            this.lblUsername.Location = new System.Drawing.Point(199, 116);
+            this.lblUsername.Name = "lblUsername";
+            this.lblUsername.Size = new System.Drawing.Size(71, 15);
+            this.lblUsername.TabIndex = 0;
+            this.lblUsername.Text = "Username";
+            // 
+            // lblPassword
+            // 
+            this.lblPassword.AutoSize = true;
+            this.lblPassword.Location = new System.Drawing.Point(199, 178);
+            this.lblPassword.Name = "lblPassword";
+            this.lblPassword.Size = new System.Drawing.Size(71, 15);
+            this.lblPassword.TabIndex = 1;
+            this.lblPassword.Text = "Password";
+            // 
+            // tbUsername
+            // 
+            this.tbUsername.Location = new System.Drawing.Point(303, 113);
+            this.tbUsername.Name = "tbUsername";
+            this.tbUsername.Size = new System.Drawing.Size(100, 25);
+            this.tbUsername.TabIndex = 2;
+            // 
+            // tbPassword
+            // 
+            this.tbPassword.Location = new System.Drawing.Point(303, 168);
+            this.tbPassword.Name = "tbPassword";
+            this.tbPassword.Size = new System.Drawing.Size(100, 25);
+            this.tbPassword.TabIndex = 3;
+            // 
+            // btnLogin
+            // 
+            this.btnLogin.Location = new System.Drawing.Point(615, 337);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Size = new System.Drawing.Size(75, 23);
+            this.btnLogin.TabIndex = 4;
+            this.btnLogin.Text = "Log in";
+            this.btnLogin.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.btnLogin);
+            this.Controls.Add(this.tbPassword);
+            this.Controls.Add(this.tbUsername);
+            this.Controls.Add(this.lblPassword);
+            this.Controls.Add(this.lblUsername);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -55,7 +95,11 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblUsername;
+        private System.Windows.Forms.Label lblPassword;
+        private System.Windows.Forms.TextBox tbUsername;
+        private System.Windows.Forms.TextBox tbPassword;
+        private System.Windows.Forms.Button btnLogin;
     }
 }
 
