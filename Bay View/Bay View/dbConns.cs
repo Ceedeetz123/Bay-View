@@ -9,6 +9,6 @@ namespace Bay_View
     class dbConns
     {
         public static string
-        Source = @"Data Source=F:\University\Year 2\Team_Information System Development\Implementation\Database\Bay-View.db";
+        dbSource = @"Data Source=F:\University\Year 2\Team Information System Development\Implementation\Database\Bay-View.db";
     }
 }

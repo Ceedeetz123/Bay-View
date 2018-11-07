@@ -19,7 +19,7 @@ namespace Bay_View
         }
 
         string conString;
-        SQLiteConnection Conn = new SQLiteConnection(@"Data Source=F:\University\Year 2\Team InformationSystemDevelopment\Implementation\Database\Bay-View.db");
+        SQLiteConnection Conn = new SQLiteConnection(dbConns.dbSource);
         //Connection Object for linking the database
         private void btnLogin_Click(object sender, EventArgs e)
         {
@@ -28,8 +28,8 @@ namespace Bay_View
             {
                 using (SQLiteConnection Conn = new SQLiteConnection())
                 {
-                    Conn.ConnectionString = @"Data Source=F:\University\Year 2\Team Information System Development\Implementation\Database\Bay-View.db";
-                    string sql = "SELECT Staff_ID,Password FROM Staff WHERE Staff_ID= @Username";
+                    Conn.ConnectionString = dbConns.dbSource;
+                    string sql = "SELECT Staff_ID,Password FROM Staff WHERE Staff_ID = @Username";
                     using (SQLiteCommand cmd = new SQLiteCommand(sql, Conn))
                     {
                         cmd.Parameters.AddWithValue("@Username", tbUsername.Text);
