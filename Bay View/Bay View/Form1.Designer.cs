@@ -39,7 +39,7 @@
             // lblUsername
             // 
             this.lblUsername.AutoSize = true;
-            this.lblUsername.Location = new System.Drawing.Point(199, 116);
+            this.lblUsername.Location = new System.Drawing.Point(286, 90);
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Size = new System.Drawing.Size(71, 15);
             this.lblUsername.TabIndex = 0;
@@ -48,7 +48,7 @@
             // lblPassword
             // 
             this.lblPassword.AutoSize = true;
-            this.lblPassword.Location = new System.Drawing.Point(199, 178);
+            this.lblPassword.Location = new System.Drawing.Point(286, 152);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(71, 15);
             this.lblPassword.TabIndex = 1;
@@ -56,23 +56,23 @@
             // 
             // tbUsername
             // 
-            this.tbUsername.Location = new System.Drawing.Point(303, 113);
+            this.tbUsername.Location = new System.Drawing.Point(390, 87);
             this.tbUsername.Name = "tbUsername";
             this.tbUsername.Size = new System.Drawing.Size(100, 25);
             this.tbUsername.TabIndex = 2;
             // 
             // tbPassword
             // 
-            this.tbPassword.Location = new System.Drawing.Point(303, 168);
+            this.tbPassword.Location = new System.Drawing.Point(390, 142);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.Size = new System.Drawing.Size(100, 25);
             this.tbPassword.TabIndex = 3;
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(615, 337);
+            this.btnLogin.Location = new System.Drawing.Point(309, 274);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(75, 23);
+            this.btnLogin.Size = new System.Drawing.Size(157, 105);
             this.btnLogin.TabIndex = 4;
             this.btnLogin.Text = "Log in";
             this.btnLogin.UseVisualStyleBackColor = true;
