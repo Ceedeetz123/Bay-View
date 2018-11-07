@@ -19,38 +19,56 @@ namespace Bay_View
         }
 
         string conString;
-        SQLiteConnection Conn = new SQLiteConnection(dbConns.Source);
+        SQLiteConnection Conn = new SQLiteConnection(@"Data Source=F:\University\Year 2\Team InformationSystemDevelopment\Implementation\Database\Bay-View.db");
         //Connection Object for linking the database
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            using (SQLiteConnection Conn = new SQLiteConnection())
+            try
+
             {
-                Conn.ConnectionString = dbConns.Source;
-                string sql = "SELECT Password, FROM staff WHERE Staff_ID=@Username,";
-                using (SQLiteCommand cmd = new SQLiteCommand(sql, Conn))
+                using (SQLiteConnection Conn = new SQLiteConnection())
                 {
-                    cmd.Parameters.AddWithValue("Username", tbUsername);
-                    Conn.Open();
-                    using (SQLiteDataReader DataRead = cmd.ExecuteReader())
+                    Conn.ConnectionString = @"Data Source=F:\University\Year 2\Team Information System Development\Implementation\Database\Bay-View.db";
+                    string sql = "SELECT Staff_ID,Password FROM Staff WHERE Staff_ID= @Username";
+                    using (SQLiteCommand cmd = new SQLiteCommand(sql, Conn))
                     {
-                        if (!DataRead.HasRows)
-                            throw new Exception();
-                        //When the password is not correct according to the Database
-                        DataRead.Read();
-                        if (tbPassword.Text != DataRead[0].ToString())
-                            throw new Exception();
-                        //If username and Password match the record in the database
-                        string Message = "Successfull Login";
-                        MessageBox.Show(Message);
-                        Conn.Close();
+                        cmd.Parameters.AddWithValue("@Username", tbUsername.Text);
+
+                        Conn.Open();
+                        using (SQLiteDataReader DataRead = cmd.ExecuteReader())
+                        {
+                            //If there is no records
+                            if (!DataRead.HasRows)
+                                MessageBox.Show("No Rows!");
+                            //When the password is not correct according to the Database
+                            DataRead.Read();
+                            if (tbPassword.Text != DataRead[0].ToString())
+                                MessageBox.Show("Password Incorrect!");
+                            //If username and Password match the record in the database
+                            else
+                            {
+                                string Message = "Successfull Login";
+                                MessageBox.Show(Message);
+                            }
+
+                            Conn.Close();
 
 
+                        }
                     }
-
                 }
-            }
 
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
+
+
+    
+
+
 
         private void btnConnect_Click(object sender, EventArgs e)
         {
@@ -61,7 +79,7 @@ namespace Bay_View
             openFileDialog1.FileName = "";
             if (openFileDialog1.ShowDialog() != DialogResult.Cancel)
             {
-                Conn = @"Data Source =" + openFileDialog1.FileName;
+  
 
 
             }
@@ -82,6 +100,11 @@ namespace Bay_View
                 MessageBox.Show(ex.Message);
             }
 }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 
