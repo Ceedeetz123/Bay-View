@@ -29,12 +29,12 @@ namespace Bay_View
                 using (SQLiteConnection Conn = new SQLiteConnection())
                 {
                     Conn.ConnectionString = dbConns.dbSource;
-                    string sql = "SELECT Staff_ID,Password FROM Staff WHERE Staff_ID = @Username";
-                    using (SQLiteCommand cmd = new SQLiteCommand(sql, Conn))
+                    string sql = "SELECT Staff_ID,Password FROM Staff WHERE Staff_ID = @Username"; //SQL code
+                    using (SQLiteCommand cmd = new SQLiteCommand(sql, Conn)) //Creates a connection between the sql code and the database connection
                     {
-                        cmd.Parameters.AddWithValue("@Username", tbUsername.Text);
+                        cmd.Parameters.AddWithValue("@Username", tbUsername.Text);//Prevents injection attacks using parameters
 
-                        Conn.Open();
+                        Conn.Open();//Database can be edited
                         using (SQLiteDataReader DataRead = cmd.ExecuteReader())
                         {
                             //If there is no records
@@ -42,7 +42,7 @@ namespace Bay_View
                                 MessageBox.Show("No Rows!");
                             //When the password is not correct according to the Database
                             DataRead.Read();
-                            if (tbPassword.Text != DataRead[0].ToString())
+                            if (tbPassword.Text != DataRead[1].ToString())
                                 MessageBox.Show("Password Incorrect!");
                             //If username and Password match the record in the database
                             else
@@ -51,7 +51,7 @@ namespace Bay_View
                                 MessageBox.Show(Message);
                             }
 
-                            Conn.Close();
+                            Conn.Close();//Closes the database for editing
 
 
                         }
@@ -59,18 +59,22 @@ namespace Bay_View
                 }
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+        
+           
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
+
         }
 
 
-    
 
 
 
-        private void btnConnect_Click(object sender, EventArgs e)
+            private void btnConnect_Click(object sender, EventArgs e)
         {
             openFileDialog1.Title = "Select SQLite database file";
             openFileDialog1.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
