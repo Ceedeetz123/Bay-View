@@ -74,41 +74,6 @@ namespace Bay_View
 
 
 
-            private void btnConnect_Click(object sender, EventArgs e)
-        {
-            openFileDialog1.Title = "Select SQLite database file";
-            openFileDialog1.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-            openFileDialog1.Filter = "Database files (*.db)|*.db";
-            openFileDialog1.FilterIndex = 1;
-            openFileDialog1.FileName = "";
-            if (openFileDialog1.ShowDialog() != DialogResult.Cancel)
-            {
-  
-
-
-            }
-        }
-    
-        private void btnTest_Click(object sender, EventArgs e)
-        { 
-            try
-         {
-            Conn.ConnectionString = conString;
-            Conn.Open();
-         }
-            catch (Exception ex)
-         {
-                if (Conn.State == System.Data.ConnectionState.Open)
-                    Conn.Close();
-               
-                MessageBox.Show(ex.Message);
-            }
-}
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }
 
