@@ -70,10 +70,11 @@ namespace Bay_View
 
         }
 
-
-
-
-
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            Form2 form2 = new Form2(conString); //Sends connection to form 2 to be used for editing Staff details
+            form2.ShowDialog();
+        }
     }
 }
 
