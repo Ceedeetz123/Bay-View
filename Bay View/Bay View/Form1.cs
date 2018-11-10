@@ -29,6 +29,7 @@ namespace Bay_View
                 using (SQLiteConnection Conn = new SQLiteConnection())
                 {
                     Conn.ConnectionString = dbConns.dbSource;
+                    Conn.ConnectionString = conString;
                     string sql = "SELECT Staff_ID,Password FROM Staff WHERE Staff_ID = @Username"; //SQL code
                     using (SQLiteCommand cmd = new SQLiteCommand(sql, Conn)) //Creates a connection between the sql code and the database connection
                     {
@@ -48,6 +49,7 @@ namespace Bay_View
                             else
                             {
                                 string Message = "Successfull Login";
+                            
                                 MessageBox.Show(Message);
                                 Conn.Close();//Closes the database for editing
                             }
