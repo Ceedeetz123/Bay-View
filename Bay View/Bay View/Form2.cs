@@ -16,12 +16,9 @@ namespace Bay_View
         public Form2(String inString)
         {
             InitializeComponent();
-
-
             conString = inString; //Uses the connection in this form
         }
         string conString;
-
         SQLiteConnection Conn = new SQLiteConnection(dbConns.dbSource);
 
         SQLiteDataAdapter daStaff; //Used to communicate with the database
@@ -36,10 +33,12 @@ namespace Bay_View
             {
 
                 //Uses the database connection
-                using (SQLiteConnection Conn = new SQLiteConnection(dbConns.dbSource))
 
-                    daStaff = new SQLiteDataAdapter(sql, Conn);
+
+                daStaff = new SQLiteDataAdapter(sql, Conn);
+                dataGridView1.DataSource = dtStaff;
                 daStaff.Fill(dtStaff);
+
             }
 
             catch (Exception ex)
@@ -55,8 +54,9 @@ namespace Bay_View
 
             try
             {
-                dv.RowFilter = string.Format("@Username like '%" + tbtStaffID.Text + "%'");
-
+                dv.RowFilter = string.Format("Staff_ID like '%{0}%'",tbtStaffID.Text);
+                dataGridView1.DataSource = dv.ToTable();
+  
             }
             catch(Exception ex)
             {
@@ -64,8 +64,29 @@ namespace Bay_View
             }           
     }
 
-      
-
-
+        private void btnSubmit_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (SQLiteConnection Conn = new SQLiteConnection(dbConns.dbSource))
+                {
+                    using (SQLiteCommand cmd = Conn.CreateCommand())
+                    {
+                        cmd.CommandText = @"Update Staff SET Password = @Password  LIMIT 1";
+                        cmd.Parameters.AddWithValue("Password", Convert.ToInt32(tbtPassword.Text));
+                        Conn.Open();
+                        int recordsChanged = cmd.ExecuteNonQuery();
+                        MessageBox.Show(recordsChanged.ToString() + " records Updated");
+                        
+                        Conn.Close();
+                        Conn.Dispose();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
     }
 }
