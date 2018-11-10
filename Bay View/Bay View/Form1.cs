@@ -49,9 +49,8 @@ namespace Bay_View
                             {
                                 string Message = "Successfull Login";
                                 MessageBox.Show(Message);
+                                Conn.Close();//Closes the database for editing
                             }
-
-                            Conn.Close();//Closes the database for editing
 
 
                         }
@@ -62,10 +61,8 @@ namespace Bay_View
             catch (Exception ex)
             {
         
-           
-                {
                     MessageBox.Show(ex.Message);
-                }
+                
             }
 
         }
@@ -75,6 +72,8 @@ namespace Bay_View
             Form2 form2 = new Form2(conString); //Sends connection to form 2 to be used for editing Staff details
             form2.ShowDialog();
         }
+
+      
     }
 }
 
