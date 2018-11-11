@@ -18,7 +18,7 @@ namespace Bay_View
             InitializeComponent();
         }
 
-        string conString;
+        string conString = dbConns.dbSource;
         SQLiteConnection Conn = new SQLiteConnection(dbConns.dbSource);
         //Connection Object for linking the database
         private void btnLogin_Click(object sender, EventArgs e)
@@ -75,7 +75,10 @@ namespace Bay_View
             form2.ShowDialog();
         }
 
-      
+        private void tbPassword_TextChanged(object sender, EventArgs e)
+        {
+            tbPassword.PasswordChar = '*';
+        }
     }
 }
 

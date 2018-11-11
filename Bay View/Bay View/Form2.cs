@@ -13,14 +13,15 @@ namespace Bay_View
 {
     public partial class Form2 : Form
     {
-        public Form2(String inString)
+        public Form2(string instring)
         {
             InitializeComponent();
-            conString = inString; //Uses the connection in this form
+            instring = dbConns.dbSource;
+            conString = instring;
         }
         string conString;
-        SQLiteConnection Conn = new SQLiteConnection(dbConns.dbSource);
 
+        SQLiteConnection Conn = new SQLiteConnection(dbConns.dbSource);
         SQLiteDataAdapter daStaff; //Used to communicate with the database
 
         DataTable dtStaff = new DataTable(); //Used for storing all staff details in a table
@@ -31,13 +32,14 @@ namespace Bay_View
         {
             try
             {
-
-                //Uses the database connection
+                //Possible security problem for sql injections
+                //Cant use using connection in this section 
 
 
                 daStaff = new SQLiteDataAdapter(sql, Conn);
-                dataGridView1.DataSource = dtStaff;
+                //dataGridView1.DataSource = dtStaff;
                 daStaff.Fill(dtStaff);
+
 
             }
 
@@ -48,45 +50,62 @@ namespace Bay_View
 
         }
 
-        private void tbtStaffID_TextChanged(object sender, EventArgs e)
-        {
-            DataView dv = dtStaff.DefaultView;
+        //used for reports or other feature 
+        //private void tbtStaffID_TextChanged(object sender, EventArgs e)
+       // {
+           // DataView dv = dtStaff.DefaultView;
 
-            try
-            {
-                dv.RowFilter = string.Format("Staff_ID like '%{0}%'",tbtStaffID.Text);
-                dataGridView1.DataSource = dv.ToTable();
+           // try
+           // {
+                //dv.RowFilter = string.Format("Staff_ID like '%{0}%'",tbtStaffID.Text);
+                //dataGridView1.DataSource = dv.ToTable();
   
-            }
-            catch(Exception ex)
-            {
-
-            }           
-    }
+            //}
+            //catch(Exception ex)
+            //{
+               // MessageBox.Show(ex.Message);
+          //  }           
+   // }
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             try
             {
-                using (SQLiteConnection Conn = new SQLiteConnection(dbConns.dbSource))
+                using (SQLiteConnection Conn = new SQLiteConnection(conString))
                 {
                     using (SQLiteCommand cmd = Conn.CreateCommand())
                     {
-                        cmd.CommandText = @"Update Staff SET Password = @Password  LIMIT 1";
-                        cmd.Parameters.AddWithValue("Password", Convert.ToInt32(tbtPassword.Text));
+                        cmd.CommandText = @"Update Staff SET Password = @Password  WHERE Staff_ID = @id ";
+                        cmd.Parameters.AddWithValue("id", tbtStaffID.Text);
+                        cmd.Parameters.AddWithValue("Password", tbtPassword.Text);
                         Conn.Open();
-                        int recordsChanged = cmd.ExecuteNonQuery();
-                        MessageBox.Show(recordsChanged.ToString() + " records Updated");
+                        int UpdatedRow= cmd.ExecuteNonQuery();
+                        MessageBox.Show( " Your Password Have been updated");
                         
                         Conn.Close();
                         Conn.Dispose();
+                        this.Close();
+                        this.Dispose();
                     }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);
+                MessageBox.Show(ex.Message);
             }
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            //closes and disposes anything in the form that
+            this.Close();
+            this.Dispose();
+        }
+
+        private void tbtPassword_TextChanged(object sender, EventArgs e)
+        {
+
+            tbtPassword.PasswordChar = '*';
         }
     }
 }

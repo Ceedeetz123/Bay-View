@@ -33,9 +33,7 @@
             this.lblStaffID = new System.Windows.Forms.Label();
             this.tbtStaffID = new System.Windows.Forms.TextBox();
             this.btnSubmit = new System.Windows.Forms.Button();
-            this.lblValid = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.btnReset = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // tbtPassword
@@ -44,6 +42,7 @@
             this.tbtPassword.Name = "tbtPassword";
             this.tbtPassword.Size = new System.Drawing.Size(100, 25);
             this.tbtPassword.TabIndex = 6;
+            this.tbtPassword.TextChanged += new System.EventHandler(this.tbtPassword_TextChanged);
             // 
             // lblPassword
             // 
@@ -69,7 +68,6 @@
             this.tbtStaffID.Name = "tbtStaffID";
             this.tbtStaffID.Size = new System.Drawing.Size(100, 25);
             this.tbtStaffID.TabIndex = 8;
-            this.tbtStaffID.TextChanged += new System.EventHandler(this.tbtStaffID_TextChanged);
             // 
             // btnSubmit
             // 
@@ -81,31 +79,22 @@
             this.btnSubmit.UseVisualStyleBackColor = true;
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
-            // lblValid
+            // btnReset
             // 
-            this.lblValid.AutoSize = true;
-            this.lblValid.Location = new System.Drawing.Point(204, 173);
-            this.lblValid.Name = "lblValid";
-            this.lblValid.Size = new System.Drawing.Size(47, 15);
-            this.lblValid.TabIndex = 10;
-            this.lblValid.Text = "Check";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(68, 239);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 27;
-            this.dataGridView1.Size = new System.Drawing.Size(222, 161);
-            this.dataGridView1.TabIndex = 11;
+            this.btnReset.Location = new System.Drawing.Point(36, 22);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(116, 54);
+            this.btnReset.TabIndex = 10;
+            this.btnReset.Text = "Reset";
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.lblValid);
+            this.Controls.Add(this.btnReset);
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.tbtStaffID);
             this.Controls.Add(this.tbtPassword);
@@ -114,7 +103,6 @@
             this.Name = "Form2";
             this.Text = "Form2";
             this.Load += new System.EventHandler(this.Form2_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -126,7 +114,6 @@
         private System.Windows.Forms.Label lblStaffID;
         private System.Windows.Forms.TextBox tbtStaffID;
         private System.Windows.Forms.Button btnSubmit;
-        private System.Windows.Forms.Label lblValid;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button btnReset;
     }
 }
