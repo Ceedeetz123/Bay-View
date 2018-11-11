@@ -48,7 +48,7 @@ namespace Bay_View
                             //If username and Password match the record in the database
                             else
                             {
-                                string Message = "Successfull Login";
+                                string Message = "Successful Login";
                             
                                 MessageBox.Show(Message);
                                 Conn.Close();//Closes the database for editing

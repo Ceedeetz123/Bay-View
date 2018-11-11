@@ -107,5 +107,13 @@ namespace Bay_View
 
             tbtPassword.PasswordChar = '*';
         }
+
+        private void Form2_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                btnSubmit_Click(this, new EventArgs());
+            }
+        }
     }
 }

@@ -43,6 +43,7 @@
             this.tbtPassword.Size = new System.Drawing.Size(100, 25);
             this.tbtPassword.TabIndex = 6;
             this.tbtPassword.TextChanged += new System.EventHandler(this.tbtPassword_TextChanged);
+            this.tbtPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form2_KeyDown);
             // 
             // lblPassword
             // 
@@ -68,6 +69,7 @@
             this.tbtStaffID.Name = "tbtStaffID";
             this.tbtStaffID.Size = new System.Drawing.Size(100, 25);
             this.tbtStaffID.TabIndex = 8;
+            this.tbtStaffID.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form2_KeyDown);
             // 
             // btnSubmit
             // 
@@ -103,6 +105,7 @@
             this.Name = "Form2";
             this.Text = "Form2";
             this.Load += new System.EventHandler(this.Form2_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form2_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
