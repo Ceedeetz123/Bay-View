@@ -52,6 +52,9 @@ namespace Bay_View
                             
                                 MessageBox.Show(Message);
                                 Conn.Close();//Closes the database for editing
+
+                                Form3 form3 = new Form3(conString); //Sends connection to form 3 to be used for editing Staff details
+                                form3.ShowDialog();
                             }
 
 
@@ -79,6 +82,8 @@ namespace Bay_View
         {
             tbPassword.PasswordChar = '*';
         }
+
+       
     }
 }
 

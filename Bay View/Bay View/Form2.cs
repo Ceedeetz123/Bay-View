@@ -35,8 +35,7 @@ namespace Bay_View
                 //Possible security problem for sql injections
                 //Cant use using connection in this section 
 
-
-                daStaff = new SQLiteDataAdapter(sql, Conn);
+                 daStaff = new SQLiteDataAdapter(sql, Conn);
                 //dataGridView1.DataSource = dtStaff;
                 daStaff.Fill(dtStaff);
 
@@ -75,8 +74,8 @@ namespace Bay_View
                 {
                     using (SQLiteCommand cmd = Conn.CreateCommand())
                     {
-                        cmd.CommandText = @"Update Staff SET Password = @Password  WHERE Staff_ID = @id ";
-                        cmd.Parameters.AddWithValue("id", tbtStaffID.Text);
+                        cmd.CommandText = @"Update Staff SET Password = @Password  WHERE Staff_ID = @id "; //update sql command
+                        cmd.Parameters.AddWithValue("id", tbtStaffID.Text); 
                         cmd.Parameters.AddWithValue("Password", tbtPassword.Text);
                         Conn.Open();
                         int UpdatedRow= cmd.ExecuteNonQuery();
