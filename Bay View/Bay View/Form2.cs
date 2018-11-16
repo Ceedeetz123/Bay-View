@@ -16,12 +16,11 @@ namespace Bay_View
         public Form2(string instring)
         {
             InitializeComponent();
-            instring = dbConns.dbSource;
             conString = instring;
         }
         string conString;
 
-        SQLiteConnection Conn = new SQLiteConnection(dbConns.dbSource);
+        //SQLiteConnection Conn = new SQLiteConnection(dbConns.dbSource);
         SQLiteDataAdapter daStaff; //Used to communicate with the database
 
         DataTable dtStaff = new DataTable(); //Used for storing all staff details in a table
@@ -32,13 +31,14 @@ namespace Bay_View
         {
             try
             {
-                //Possible security problem for sql injections
-                //Cant use using connection in this section 
 
-                 daStaff = new SQLiteDataAdapter(sql, Conn);
-                //dataGridView1.DataSource = dtStaff;
-                daStaff.Fill(dtStaff);
+                using (SQLiteConnection Conn = new SQLiteConnection(conString))
+                {
 
+                    daStaff = new SQLiteDataAdapter(sql, Conn);
+                    //dataGridView1.DataSource = dtStaff;
+                    daStaff.Fill(dtStaff);
+                }
 
             }
 
@@ -75,8 +75,8 @@ namespace Bay_View
                     using (SQLiteCommand cmd = Conn.CreateCommand())
                     {
                         cmd.CommandText = @"Update Staff SET Password = @Password  WHERE Staff_ID = @id "; //update sql command
-                        cmd.Parameters.AddWithValue("id", tbtStaffID.Text); 
-                        cmd.Parameters.AddWithValue("Password", tbtPassword.Text);
+                        cmd.Parameters.AddWithValue("id", tbtStaffID.Text); //Security for Customer ID
+                        cmd.Parameters.AddWithValue("Password", tbtPassword.Text); //Security for Password
                         Conn.Open();
                         int UpdatedRow= cmd.ExecuteNonQuery();
                         MessageBox.Show( " Your Password Have been updated");
@@ -104,14 +104,14 @@ namespace Bay_View
         private void tbtPassword_TextChanged(object sender, EventArgs e)
         {
 
-            tbtPassword.PasswordChar = '*';
+            tbtPassword.PasswordChar = '*';//hides the password text
         }
-
+        //when the user presses enter it triggers the submit button event to reset the password
         private void Form2_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.Enter)
+            if(e.KeyCode == Keys.Enter)//when the user presses the enter button
             {
-                btnSubmit_Click(this, new EventArgs());
+                btnSubmit_Click(this, new EventArgs());//calls the submit button function
             }
         }
     }

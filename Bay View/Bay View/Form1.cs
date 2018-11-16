@@ -19,14 +19,13 @@ namespace Bay_View
         }
 
         string conString = dbConns.dbSource;
-        SQLiteConnection Conn = new SQLiteConnection(dbConns.dbSource);
-        //Connection Object for linking the database
+
         private void btnLogin_Click(object sender, EventArgs e)
         {
             try
 
             {
-                using (SQLiteConnection Conn = new SQLiteConnection())
+                using (SQLiteConnection Conn = new SQLiteConnection(conString)) //Connection Object for linking the database
                 {
                     Conn.ConnectionString = dbConns.dbSource;
                     Conn.ConnectionString = conString;
@@ -75,7 +74,9 @@ namespace Bay_View
         private void btnReset_Click(object sender, EventArgs e)
         {
             Form2 form2 = new Form2(conString); //Sends connection to form 2 to be used for editing Staff details
+            this.Hide();
             form2.ShowDialog();
+            this.Show();
         }
 
         private void tbPassword_TextChanged(object sender, EventArgs e)
