@@ -48,7 +48,7 @@ namespace Bay_View
                       cbCustID.ValueMember = "Customer_ID";//The 
                       cbCustID.DisplayMember = "Customer_ID";//Displays Customer ID's only in the combobox 
                       cbCustID.SelectedIndex = 0; //Displays the first record
-
+                      
                     }
                 
                 }
@@ -66,7 +66,7 @@ namespace Bay_View
                 using (SQLiteConnection Conn = new SQLiteConnection(conString))
                 {
                     DataView dv = dtData.DefaultView; //Uses Text
-                    dv.RowFilter = "CONVERT(Customer_ID, 'System.String') LIKE '%" + cbCustID.SelectedValue.ToString() + "%'";
+                    dv.RowFilter = "CONVERT(Customer_ID, 'System.String') LIKE '%" + cbCustID.SelectedIndex.ToString() + "%'";
 
                     tbtCustomerID.Text = dv[0]["Customer_ID"].ToString();
                     tbtBookRefNo.Text = dv[0]["Booking_Ref_No"].ToString();

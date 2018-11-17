@@ -48,7 +48,7 @@ namespace Bay_View
                             else
                             {
                                 string Message = "Successful Login";
-                            
+
                                 MessageBox.Show(Message);
                                 Conn.Close();//Closes the database for editing
 
@@ -64,9 +64,9 @@ namespace Bay_View
             }
             catch (Exception ex)
             {
-        
-                    MessageBox.Show(ex.Message);
-                
+
+                MessageBox.Show(ex.Message);
+
             }
 
         }
@@ -84,7 +84,13 @@ namespace Bay_View
             tbPassword.PasswordChar = '*';
         }
 
-       
+        private void Form1_KeyDown(object sender, KeyEventArgs e) //Used in the Username and password Textboxes too
+        {
+            if (e.KeyCode == Keys.Enter)//when the user presses the enter button
+            {
+                btnLogin_Click(this, new EventArgs());//calls the login button function
+            }
+        }
     }
 }
 

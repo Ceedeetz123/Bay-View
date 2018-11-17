@@ -40,46 +40,43 @@
             // lblUsername
             // 
             this.lblUsername.AutoSize = true;
-            this.lblUsername.Location = new System.Drawing.Point(214, 78);
-            this.lblUsername.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblUsername.Location = new System.Drawing.Point(285, 90);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(55, 13);
+            this.lblUsername.Size = new System.Drawing.Size(71, 15);
             this.lblUsername.TabIndex = 0;
             this.lblUsername.Text = "Username";
             // 
             // lblPassword
             // 
             this.lblPassword.AutoSize = true;
-            this.lblPassword.Location = new System.Drawing.Point(214, 132);
-            this.lblPassword.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblPassword.Location = new System.Drawing.Point(285, 152);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(53, 13);
+            this.lblPassword.Size = new System.Drawing.Size(71, 15);
             this.lblPassword.TabIndex = 1;
             this.lblPassword.Text = "Password";
             // 
             // tbUsername
             // 
-            this.tbUsername.Location = new System.Drawing.Point(292, 75);
-            this.tbUsername.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.tbUsername.Location = new System.Drawing.Point(389, 87);
             this.tbUsername.Name = "tbUsername";
-            this.tbUsername.Size = new System.Drawing.Size(76, 20);
+            this.tbUsername.Size = new System.Drawing.Size(100, 25);
             this.tbUsername.TabIndex = 2;
+            this.tbUsername.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             // 
             // tbPassword
             // 
-            this.tbPassword.Location = new System.Drawing.Point(292, 123);
-            this.tbPassword.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.tbPassword.Location = new System.Drawing.Point(389, 142);
             this.tbPassword.Name = "tbPassword";
-            this.tbPassword.Size = new System.Drawing.Size(76, 20);
+            this.tbPassword.Size = new System.Drawing.Size(100, 25);
             this.tbPassword.TabIndex = 3;
             this.tbPassword.TextChanged += new System.EventHandler(this.tbPassword_TextChanged);
+            this.tbPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(232, 237);
-            this.btnLogin.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnLogin.Location = new System.Drawing.Point(309, 273);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(118, 91);
+            this.btnLogin.Size = new System.Drawing.Size(157, 105);
             this.btnLogin.TabIndex = 4;
             this.btnLogin.Text = "Log in";
             this.btnLogin.UseVisualStyleBackColor = true;
@@ -91,10 +88,9 @@
             // 
             // btnReset
             // 
-            this.btnReset.Location = new System.Drawing.Point(446, 274);
-            this.btnReset.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnReset.Location = new System.Drawing.Point(595, 316);
             this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(87, 47);
+            this.btnReset.Size = new System.Drawing.Size(116, 54);
             this.btnReset.TabIndex = 5;
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = true;
@@ -102,18 +98,18 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(600, 390);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.tbPassword);
             this.Controls.Add(this.tbUsername);
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblUsername);
-            this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
