@@ -201,7 +201,7 @@
             // lblCustomers
             // 
             this.lblCustomers.AutoSize = true;
-            this.lblCustomers.Location = new System.Drawing.Point(459, 36);
+            this.lblCustomers.Location = new System.Drawing.Point(474, 23);
             this.lblCustomers.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCustomers.Name = "lblCustomers";
             this.lblCustomers.Size = new System.Drawing.Size(79, 15);

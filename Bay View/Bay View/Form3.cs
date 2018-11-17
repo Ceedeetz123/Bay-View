@@ -21,8 +21,11 @@ namespace Bay_View
         string conString;
 
         SQLiteDataAdapter daCustomerID; //For the customer ID combobox.
+        SQLiteDataAdapter daData; //For the Text Field combobox.
+
 
         DataTable dtCustomerID = new DataTable(); //For the customer ID Combobox.
+        DataTable dtData = new DataTable(); //For the customer ID Combobox.
 
 
         private void Form3_Load(object sender, EventArgs e)
@@ -32,15 +35,20 @@ namespace Bay_View
                     
                     using (SQLiteConnection Conn = new SQLiteConnection(conString))
                     {
-                        string ID = "SELECT * from Guests"; //For the customer ID Combobox
-                        //Sets a connection between the SQL code and the Database for the Customer ID combobox.
-                        daCustomerID = new SQLiteDataAdapter(ID, Conn);
-                       cbCustID.DataSource = dtCustomerID;
-                       daCustomerID.Fill(dtCustomerID);
-                       cbCustID.ValueMember = "Customer_ID";
-                       cbCustID.DisplayMember = "name";
-                        cbCustID.SelectedIndex = -1;
-                        dataGridView1.DataSource = dtCustomerID;
+                       string ID = "SELECT Customer_ID, Name from Guests"; //For the customer ID Combobox
+                       string Datas = "SELECT * FROM Guests";
+                       
+                       //Sets a connection between the SQL code and the Database for the Customer ID combobox.
+                       daCustomerID = new SQLiteDataAdapter(ID, Conn);
+
+                      daCustomerID.Fill(dtCustomerID);
+                      daData = new SQLiteDataAdapter(Datas, Conn);
+                      daData.Fill(dtData);
+                      cbCustID.DataSource = dtCustomerID;
+                      cbCustID.ValueMember = "Customer_ID";//The 
+                      cbCustID.DisplayMember = "Customer_ID";//Displays Customer ID's only in the combobox 
+                      cbCustID.SelectedIndex = 0; //Displays the first record
+
                     }
                 
                 }
@@ -57,8 +65,8 @@ namespace Bay_View
             {
                 using (SQLiteConnection Conn = new SQLiteConnection(conString))
                 {
-                    DataView dv = dtCustomerID.DefaultView;
-                    dv.RowFilter = string.Format("Customer_ID LIKE '%{0}%'",cbCustID.SelectedValue.ToString());
+                    DataView dv = dtData.DefaultView; //Uses Text
+                    dv.RowFilter = "CONVERT(Customer_ID, 'System.String') LIKE '%" + cbCustID.SelectedValue.ToString() + "%'";
 
                     tbtCustomerID.Text = dv[0]["Customer_ID"].ToString();
                     tbtBookRefNo.Text = dv[0]["Booking_Ref_No"].ToString();
@@ -73,7 +81,7 @@ namespace Bay_View
 
            catch (Exception ex)
             {
-                //MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message);
            }
         }
     }
