@@ -36,17 +36,20 @@ namespace Bay_View
                     
                     using (SQLiteConnection Conn = new SQLiteConnection(conString))
                     {
-                       string ID = "SELECT Customer_ID, Name from Guests"; //For the customer ID Combobox
-                       string Datas = "SELECT * FROM Guests";
-                       
-                       //Sets a connection between the SQL code and the Database for the Customer ID combobox.
-                       daCustomerID = new SQLiteDataAdapter(ID, Conn);
+                    //string ID = "SELECT ltrim(Customer_ID,'CI') as new from Guests order by CAST(new as INT)"; //For the customer ID Combobox
+                    //string Datas = "SELECT *, ltrim(Customer_ID,'CI') as new from Guests order by CAST(new as INT);";
+                    string ID = "SELECT Customer_ID, Name from Guests"; //For the customer ID Combobox
+                    string Datas = "SELECT * FROM Guests";
+
+
+                    //Sets a connection between the SQL code and the Database for the Customer ID combobox.
+                    daCustomerID = new SQLiteDataAdapter(ID, Conn);
 
                       daCustomerID.Fill(dtCustomerID);
                       daData = new SQLiteDataAdapter(Datas, Conn);
                       daData.Fill(dtData);
                       cbCustID.DataSource = dtCustomerID;
-                      cbCustID.ValueMember = "Customer_ID";//The 
+                      cbCustID.ValueMember = "Customer_ID";//Gets the value of the Customer_ID
                       cbCustID.DisplayMember = "Customer_ID";//Displays Customer ID's only in the combobox 
                       cbCustID.SelectedIndex = 0; //Displays the first record
                       
@@ -67,8 +70,8 @@ namespace Bay_View
                 using (SQLiteConnection Conn = new SQLiteConnection(conString))
                 {
                     DataView dv = dtData.DefaultView; //Uses Text
-                    dv.RowFilter = "CONVERT(Customer_ID, 'System.String') LIKE '%" + cbCustID.SelectedIndex.ToString() + "%'";
-
+                    dv.RowFilter = "CONVERT(Customer_ID, 'System.String') LIKE '%" + cbCustID.SelectedValue.ToString() + "%'";
+                    //dv.RowFilter = string.Format("Customer_ID = " + cbCustID.SelectedIndex.ToString());
                     tbtCustomerID.Text = dv[0]["Customer_ID"].ToString();
                     tbtBookRefNo.Text = dv[0]["Booking_Ref_No"].ToString();
                     tbtName.Text = dv[0]["Name"].ToString();
@@ -87,29 +90,7 @@ namespace Bay_View
         }
         private void cbCustID_TextChanged(object sender, EventArgs e)
         {
-            try
-            {
-                using (SQLiteConnection Conn = new SQLiteConnection(conString))
-                {
-                    DataView dv = dtData.DefaultView; //Uses Text
-                    dv.RowFilter = "CONVERT(Customer_ID, 'System.String') LIKE '%" + cbCustID.Text.ToString() + "%'";
 
-                    tbtCustomerID.Text = dv[0]["Customer_ID"].ToString();
-                    tbtBookRefNo.Text = dv[0]["Booking_Ref_No"].ToString();
-                    tbtName.Text = dv[0]["Name"].ToString();
-                    tbtAddress.Text = dv[0]["Address"].ToString();
-                    tbtPostCode.Text = dv[0]["Postcode"].ToString();
-                    tbtMobile.Text = dv[0]["Mobile"].ToString();
-                    tbtEmail.Text = dv[0]["Email"].ToString();
-                    tbtNumOfGuests.Text = dv[0]["Num_Of_Guests"].ToString();
-                }
-           
-            }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message); //always triggers when it has found no records
-            }
         }
         private void btnClear_Click(object sender, EventArgs e)
         {
@@ -180,7 +161,7 @@ namespace Bay_View
                         cmd.ExecuteNonQuery();
                         cmd.Parameters.Clear();
                         cmd.Cancel();
-                        MessageBox.Show(" Your Password Have been updated");
+                        MessageBox.Show("Your Password Have been updated");
                         Conn.Dispose();
                         cmd.Dispose();
                         Conn.Close();
