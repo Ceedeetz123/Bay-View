@@ -84,5 +84,43 @@ namespace Bay_View
                 MessageBox.Show(ex.Message);
            }
         }
+        private void cbCustID_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                using (SQLiteConnection Conn = new SQLiteConnection(conString))
+                {
+                    DataView dv = dtData.DefaultView; //Uses Text
+                    dv.RowFilter = "CONVERT(Customer_ID, 'System.String') LIKE '%" + cbCustID.Text.ToString() + "%'";
+
+                    tbtCustomerID.Text = dv[0]["Customer_ID"].ToString();
+                    tbtBookRefNo.Text = dv[0]["Booking_Ref_No"].ToString();
+                    tbtName.Text = dv[0]["Name"].ToString();
+                    tbtAddress.Text = dv[0]["Address"].ToString();
+                    tbtPostCode.Text = dv[0]["Postcode"].ToString();
+                    tbtMobile.Text = dv[0]["Mobile"].ToString();
+                    tbtEmail.Text = dv[0]["Email"].ToString();
+                    tbtNumOfGuests.Text = dv[0]["Num_Of_Guests"].ToString();
+                }
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message); //always triggers when it has found no records
+            }
+        }
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+
+            tbtCustomerID.Text = String.Empty; //auto fill customer ID field with a new value?
+            tbtBookRefNo.Text = String.Empty;
+            tbtName.Text = String.Empty;
+            tbtAddress.Text = String.Empty;
+            tbtPostCode.Text = String.Empty;
+            tbtMobile.Text = String.Empty;
+            tbtEmail.Text = String.Empty;
+            tbtNumOfGuests.Text = String.Empty;
+        }
+
     }
 }
