@@ -36,14 +36,14 @@ namespace Bay_View
                     
                     using (SQLiteConnection Conn = new SQLiteConnection(conString))
                     {
-                    //string ID = "SELECT ltrim(Customer_ID,'CI') as new from Guests order by CAST(new as INT)"; //For the customer ID Combobox
+                    //string ID = "SELECT ltrim(Customer_ID,'CI') as new from Guests order by CAST(new as INT)"; //For the customer ID Combobox 
                     //string Datas = "SELECT *, ltrim(Customer_ID,'CI') as new from Guests order by CAST(new as INT);";
                     string ID = "SELECT Customer_ID, Name from Guests"; //For the customer ID Combobox
                     string Datas = "SELECT * FROM Guests";
 
 
-                    //Sets a connection between the SQL code and the Database for the Customer ID combobox.
-                    daCustomerID = new SQLiteDataAdapter(ID, Conn);
+                     //Sets a connection between the SQL code and the Database for the Customer ID combobox.
+                     daCustomerID = new SQLiteDataAdapter(ID, Conn);
 
                       daCustomerID.Fill(dtCustomerID);
                       daData = new SQLiteDataAdapter(Datas, Conn);
@@ -52,10 +52,22 @@ namespace Bay_View
                       cbCustID.ValueMember = "Customer_ID";//Gets the value of the Customer_ID
                       cbCustID.DisplayMember = "Customer_ID";//Displays Customer ID's only in the combobox 
                       cbCustID.SelectedIndex = 0; //Displays the first record
-                      
+
+                      DataView dv = dtData.DefaultView;
+                    if (dv!= null)
+                    {
+                        tbtCustomerID.Text = dv[0]["Customer_ID"].ToString();
+                        tbtBookRefNo.Text = dv[0]["Booking_Ref_No"].ToString();
+                        tbtName.Text = dv[0]["Name"].ToString();
+                        tbtAddress.Text = dv[0]["Address"].ToString();
+                        tbtPostCode.Text = dv[0]["Postcode"].ToString();
+                        tbtMobile.Text = dv[0]["Mobile"].ToString();
+                        tbtEmail.Text = dv[0]["Email"].ToString();
+                        tbtNumOfGuests.Text = dv[0]["Num_Of_Guests"].ToString();
                     }
-                
                 }
+
+            }
                 catch(Exception ex)
                 {
                     MessageBox.Show(ex.Message);
@@ -80,6 +92,8 @@ namespace Bay_View
                     tbtMobile.Text = dv[0]["Mobile"].ToString();
                     tbtEmail.Text = dv[0]["Email"].ToString();
                     tbtNumOfGuests.Text = dv[0]["Num_Of_Guests"].ToString();
+
+              
                 }
             }
 
@@ -87,10 +101,6 @@ namespace Bay_View
             {
                 MessageBox.Show(ex.Message);
            }
-        }
-        private void cbCustID_TextChanged(object sender, EventArgs e)
-        {
-
         }
         private void btnClear_Click(object sender, EventArgs e)
         {
@@ -124,7 +134,6 @@ namespace Bay_View
                         cmd.Parameters.AddWithValue("emails", tbtEmail.Text);
                         cmd.Parameters.AddWithValue("guestamount", tbtNumOfGuests.Text);
                         cmd.ExecuteNonQuery();
-                        MessageBox.Show(" Your Password Have been updated");
                         Conn.Dispose();
                         cmd.Dispose();
                         Conn.Close();
@@ -161,7 +170,6 @@ namespace Bay_View
                         cmd.ExecuteNonQuery();
                         cmd.Parameters.Clear();
                         cmd.Cancel();
-                        MessageBox.Show("Your Password Have been updated");
                         Conn.Dispose();
                         cmd.Dispose();
                         Conn.Close();
@@ -176,6 +184,43 @@ namespace Bay_View
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+        private void cbCustID_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                using (SQLiteConnection Conn = new SQLiteConnection(conString))
+                {
+                    DataView dv = dtData.DefaultView; //Uses Text
+                    dv.RowFilter = "CONVERT(Customer_ID, 'System.String') LIKE '%" + cbCustID.Text.ToString() + "%'";
+
+                    tbtCustomerID.Text = dv[0]["Customer_ID"].ToString();
+                    tbtBookRefNo.Text = dv[0]["Booking_Ref_No"].ToString();
+                    tbtName.Text = dv[0]["Name"].ToString();
+                    tbtAddress.Text = dv[0]["Address"].ToString();
+                    tbtPostCode.Text = dv[0]["Postcode"].ToString();
+                    tbtMobile.Text = dv[0]["Mobile"].ToString();
+                    tbtEmail.Text = dv[0]["Email"].ToString();
+                    tbtNumOfGuests.Text = dv[0]["Num_Of_Guests"].ToString();
+                }
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message); //always triggers when it has found no records
+            }
+        }
+
+    
+
+     
+        //When
+        private void cbCustID_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                cbCustID_TextChanged(this, new EventArgs());
             }
         }
     }

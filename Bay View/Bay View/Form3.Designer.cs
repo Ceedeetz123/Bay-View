@@ -220,6 +220,7 @@
             this.cbCustID.Size = new System.Drawing.Size(121, 23);
             this.cbCustID.TabIndex = 17;
             this.cbCustID.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.cbCustID.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cbCustID_KeyDown);
             // 
             // btnClear
             // 
