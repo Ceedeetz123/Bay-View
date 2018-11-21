@@ -26,8 +26,9 @@ namespace Bay_View
 
         DataTable dtCustomerID = new DataTable(); //For the customer ID Combobox.
         DataTable dtData = new DataTable(); //For the customer ID Combobox.
-
-
+        string insert = "INSERT INTO Guests (Customer_ID, Booking_Ref_No, Name, Address, Postcode, Mobile, Email, Num_of_Guests) VALUES (@id, @ref, @fullname, @addr, @post, @mobilenum, @emails, @guestamount)";
+        string edit = "Update Guests SET Booking_Ref_No = @ref, Name = @fullname, Address = @addr, Postcode = @post, Mobile = @mobilenum, Email = @emails, Num_of_Guests = @guestamount WHERE Customer_ID = @id";
+        string delete = "DELETE FROM Guests WHERE Customer_ID =";
         private void Form3_Load(object sender, EventArgs e)
         {
                 try
@@ -102,6 +103,7 @@ namespace Bay_View
                     tbtEmail.Text = dv[0]["Email"].ToString();
                     tbtNumOfGuests.Text = dv[0]["Num_Of_Guests"].ToString();
                 }
+           
             }
 
             catch (Exception ex)
@@ -122,5 +124,78 @@ namespace Bay_View
             tbtNumOfGuests.Text = String.Empty;
         }
 
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (SQLiteConnection Conn = new SQLiteConnection(conString))
+                {
+                    Conn.Open();
+                    using (SQLiteCommand cmd = new SQLiteCommand(insert, Conn))
+                    {
+                        //cmd.CommandText = "INSERT INTO Guests (Customer_ID, Booking_Ref_No, Name, Address, Postcode, Mobile, Email, Num_of_Guests) VALUES (@id, @ref, @fullname, @addr, @post, @mobilenum, @emails, @guestamount)";
+                        cmd.Parameters.AddWithValue("id", tbtCustomerID.Text);
+                        cmd.Parameters.AddWithValue("ref", tbtBookRefNo.Text);
+                        cmd.Parameters.AddWithValue("fullname", tbtName.Text);
+                        cmd.Parameters.AddWithValue("addr", tbtAddress.Text);
+                        cmd.Parameters.AddWithValue("post", tbtPostCode.Text);
+                        cmd.Parameters.AddWithValue("mobilenum", tbtMobile.Text);
+                        cmd.Parameters.AddWithValue("emails", tbtEmail.Text);
+                        cmd.Parameters.AddWithValue("guestamount", tbtNumOfGuests.Text);
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show(" Your Password Have been updated");
+                        Conn.Dispose();
+                        cmd.Dispose();
+                        Conn.Close();
+                        this.Close();
+                        this.Dispose();
+                    }
+                    Conn.Dispose();
+                    Conn.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+               MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (SQLiteConnection Conn = new SQLiteConnection(conString))
+                {
+                    Conn.Open();
+                    using (SQLiteCommand cmd = new SQLiteCommand(edit, Conn))
+                    {
+                        cmd.Parameters.AddWithValue("@id", tbtCustomerID.Text);
+                        cmd.Parameters.AddWithValue("@ref", tbtBookRefNo.Text);
+                        cmd.Parameters.AddWithValue("@fullname", tbtName.Text);
+                        cmd.Parameters.AddWithValue("@addr", tbtAddress.Text);
+                        cmd.Parameters.AddWithValue("@post", tbtPostCode.Text);
+                        cmd.Parameters.AddWithValue("@mobilenum", tbtMobile.Text);
+                        cmd.Parameters.AddWithValue("@emails", tbtEmail.Text);
+                        cmd.Parameters.AddWithValue("@guestamount", tbtNumOfGuests.Text);
+                        cmd.ExecuteNonQuery();
+                        cmd.Parameters.Clear();
+                        cmd.Cancel();
+                        MessageBox.Show(" Your Password Have been updated");
+                        Conn.Dispose();
+                        cmd.Dispose();
+                        Conn.Close();
+                        this.Close();
+                        this.Dispose();
+                    }
+                    Conn.Dispose();
+                    Conn.Close();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
-}
+    }
