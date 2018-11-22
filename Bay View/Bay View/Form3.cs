@@ -20,9 +20,6 @@ namespace Bay_View
         }
         string conString;
 
-        SQLiteDataAdapter daCustomerID; //For the customer ID combobox.
-        SQLiteDataAdapter daData; //For the Text Field combobox.
-
 
         DataTable dtCustomerID = new DataTable(); //For the customer ID Combobox.
         DataTable dtData = new DataTable(); //For the customer ID Combobox.
@@ -31,47 +28,51 @@ namespace Bay_View
         string delete = "DELETE FROM Guests WHERE Customer_ID =";
         private void Form3_Load(object sender, EventArgs e)
         {
-                try
+            try
+            {
+
+                using (SQLiteConnection Conn = new SQLiteConnection(conString))
                 {
-                    
-                    using (SQLiteConnection Conn = new SQLiteConnection(conString))
-                    {
                     //string ID = "SELECT ltrim(Customer_ID,'CI') as new from Guests order by CAST(new as INT)"; //For the customer ID Combobox 
                     //string Datas = "SELECT *, ltrim(Customer_ID,'CI') as new from Guests order by CAST(new as INT);";
                     string ID = "SELECT Customer_ID, Name from Guests"; //For the customer ID Combobox
                     string Datas = "SELECT * FROM Guests";
 
 
-                     //Sets a connection between the SQL code and the Database for the Customer ID combobox.
-                     daCustomerID = new SQLiteDataAdapter(ID, Conn);
-
-                      daCustomerID.Fill(dtCustomerID);
-                      daData = new SQLiteDataAdapter(Datas, Conn);
-                      daData.Fill(dtData);
-                      cbCustID.DataSource = dtCustomerID;
-                      cbCustID.ValueMember = "Customer_ID";//Gets the value of the Customer_ID
-                      cbCustID.DisplayMember = "Customer_ID";//Displays Customer ID's only in the combobox 
-                      cbCustID.SelectedIndex = 0; //Displays the first record
-
-                      DataView dv = dtData.DefaultView;
-                    if (dv!= null)
+                    //Sets a connection between the SQL code and the Database for the Customer ID combobox.
+                    using (SQLiteDataAdapter daCustomerID = new SQLiteDataAdapter(ID, Conn))
                     {
-                        tbtCustomerID.Text = dv[0]["Customer_ID"].ToString();
-                        tbtBookRefNo.Text = dv[0]["Booking_Ref_No"].ToString();
-                        tbtName.Text = dv[0]["Name"].ToString();
-                        tbtAddress.Text = dv[0]["Address"].ToString();
-                        tbtPostCode.Text = dv[0]["Postcode"].ToString();
-                        tbtMobile.Text = dv[0]["Mobile"].ToString();
-                        tbtEmail.Text = dv[0]["Email"].ToString();
-                        tbtNumOfGuests.Text = dv[0]["Num_Of_Guests"].ToString();
+                        daCustomerID.Fill(dtCustomerID);
                     }
-                }
+                    using (SQLiteDataAdapter daData = new SQLiteDataAdapter(Datas, Conn))
+                    {
+                        daData.Fill(dtData);
+                    }
+                            cbCustID.DataSource = dtCustomerID;
+                            cbCustID.ValueMember = "Customer_ID";//Gets the value of the Customer_ID
+                            cbCustID.DisplayMember = "Customer_ID";//Displays Customer ID's only in the combobox 
+                            cbCustID.SelectedIndex = 0; //Displays the first record
 
+                            //while(dtData.Rows.Count>0)
+                            // {
+                            //tbtCustomerID.Text = dtData.Rows[0]["Customer_ID"].ToString();
+                            //tbtBookRefNo.Text = dtData.Rows[0]["Booking_Ref_No"].ToString();
+                            //tbtName.Text = dtData.Rows[0]["Name"].ToString();
+                            //tbtAddress.Text = dtData.Rows[0]["Address"].ToString();
+                            //tbtPostCode.Text = dtData.Rows[0]["Postcode"].ToString();
+                            //tbtMobile.Text = dtData.Rows[0]["Mobile"].ToString();
+                            //tbtEmail.Text = dtData.Rows[0]["Email"].ToString();
+                            //tbtNumOfGuests.Text = dtData.Rows[0]["Num_Of_Guests"].ToString();
+                            // }
+                     
+
+                 }
+
+             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
-                catch(Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
         }
 
 
@@ -81,26 +82,28 @@ namespace Bay_View
             {
                 using (SQLiteConnection Conn = new SQLiteConnection(conString))
                 {
-                    DataView dv = dtData.DefaultView; //Uses Text
-                    dv.RowFilter = "CONVERT(Customer_ID, 'System.String') LIKE '%" + cbCustID.SelectedValue.ToString() + "%'";
-                    //dv.RowFilter = string.Format("Customer_ID = " + cbCustID.SelectedIndex.ToString());
-                    tbtCustomerID.Text = dv[0]["Customer_ID"].ToString();
-                    tbtBookRefNo.Text = dv[0]["Booking_Ref_No"].ToString();
-                    tbtName.Text = dv[0]["Name"].ToString();
-                    tbtAddress.Text = dv[0]["Address"].ToString();
-                    tbtPostCode.Text = dv[0]["Postcode"].ToString();
-                    tbtMobile.Text = dv[0]["Mobile"].ToString();
-                    tbtEmail.Text = dv[0]["Email"].ToString();
-                    tbtNumOfGuests.Text = dv[0]["Num_Of_Guests"].ToString();
+                    DataView dv = dtData.DefaultView //Uses Text
+                    
+                        dv.RowFilter = "CONVERT(Customer_ID, 'System.String') LIKE '%" + cbCustID.SelectedValue.ToString() + "%'";
+                        //dv.RowFilter = string.Format("Customer_ID = " + cbCustID.SelectedIndex.ToString());
+                        tbtCustomerID.Text = dv[0]["Customer_ID"].ToString();
+                        tbtBookRefNo.Text = dv[0]["Booking_Ref_No"].ToString();
+                        tbtName.Text = dv[0]["Name"].ToString();
+                        tbtAddress.Text = dv[0]["Address"].ToString();
+                        tbtPostCode.Text = dv[0]["Postcode"].ToString();
+                        tbtMobile.Text = dv[0]["Mobile"].ToString();
+                        tbtEmail.Text = dv[0]["Email"].ToString();
+                        tbtNumOfGuests.Text = dv[0]["Num_Of_Guests"].ToString();
+                  
 
-              
                 }
             }
+            
 
-           catch (Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-           }
+            }
         }
         private void btnClear_Click(object sender, EventArgs e)
         {
@@ -179,7 +182,7 @@ namespace Bay_View
                     Conn.Dispose();
                     Conn.Close();
                 }
-
+               
             }
             catch (Exception ex)
             {
@@ -192,17 +195,19 @@ namespace Bay_View
             {
                 using (SQLiteConnection Conn = new SQLiteConnection(conString))
                 {
-                    DataView dv = dtData.DefaultView; //Uses Text
-                    dv.RowFilter = "CONVERT(Customer_ID, 'System.String') LIKE '%" + cbCustID.Text.ToString() + "%'";
+                    DataView dv = dtData.DefaultView
+                    
+                        dv.RowFilter = "CONVERT(Customer_ID, 'System.String') LIKE '%" + cbCustID.Text.ToString() + "%'";
 
-                    tbtCustomerID.Text = dv[0]["Customer_ID"].ToString();
-                    tbtBookRefNo.Text = dv[0]["Booking_Ref_No"].ToString();
-                    tbtName.Text = dv[0]["Name"].ToString();
-                    tbtAddress.Text = dv[0]["Address"].ToString();
-                    tbtPostCode.Text = dv[0]["Postcode"].ToString();
-                    tbtMobile.Text = dv[0]["Mobile"].ToString();
-                    tbtEmail.Text = dv[0]["Email"].ToString();
-                    tbtNumOfGuests.Text = dv[0]["Num_Of_Guests"].ToString();
+                        tbtCustomerID.Text = dv[0]["Customer_ID"].ToString();
+                        tbtBookRefNo.Text = dv[0]["Booking_Ref_No"].ToString();
+                        tbtName.Text = dv[0]["Name"].ToString();
+                        tbtAddress.Text = dv[0]["Address"].ToString();
+                        tbtPostCode.Text = dv[0]["Postcode"].ToString();
+                        tbtMobile.Text = dv[0]["Mobile"].ToString();
+                        tbtEmail.Text = dv[0]["Email"].ToString();
+                        tbtNumOfGuests.Text = dv[0]["Num_Of_Guests"].ToString();
+                    
                 }
             }
 
@@ -215,7 +220,7 @@ namespace Bay_View
     
 
      
-        //When
+        //When the user presses the enter key they will be able to fill the customer field depending on what they typed
         private void cbCustID_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
