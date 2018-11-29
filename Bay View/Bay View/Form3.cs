@@ -80,9 +80,9 @@ namespace Bay_View
         {
             try
             {
-                using (SQLiteConnection Conn = new SQLiteConnection(conString))
-                {
-                    DataView dv = dtData.DefaultView //Uses Text
+                //using (SQLiteConnection Conn = new SQLiteConnection(conString))
+                //{
+                    DataView dv = dtData.DefaultView; //Uses Text
                     
                         dv.RowFilter = "CONVERT(Customer_ID, 'System.String') LIKE '%" + cbCustID.SelectedValue.ToString() + "%'";
                         //dv.RowFilter = string.Format("Customer_ID = " + cbCustID.SelectedIndex.ToString());
@@ -96,7 +96,7 @@ namespace Bay_View
                         tbtNumOfGuests.Text = dv[0]["Num_Of_Guests"].ToString();
                   
 
-                }
+                //}
             }
             
 
@@ -137,14 +137,11 @@ namespace Bay_View
                         cmd.Parameters.AddWithValue("emails", tbtEmail.Text);
                         cmd.Parameters.AddWithValue("guestamount", tbtNumOfGuests.Text);
                         cmd.ExecuteNonQuery();
-                        Conn.Dispose();
-                        cmd.Dispose();
-                        Conn.Close();
-                        this.Close();
-                        this.Dispose();
                     }
-                    Conn.Dispose();
                     Conn.Close();
+                    Conn.Dispose();
+                    this.Close();
+                    this.Dispose();
                 }
             }
             catch (Exception ex)
@@ -171,16 +168,11 @@ namespace Bay_View
                         cmd.Parameters.AddWithValue("@emails", tbtEmail.Text);
                         cmd.Parameters.AddWithValue("@guestamount", tbtNumOfGuests.Text);
                         cmd.ExecuteNonQuery();
-                        cmd.Parameters.Clear();
-                        cmd.Cancel();
-                        Conn.Dispose();
-                        cmd.Dispose();
-                        Conn.Close();
-                        this.Close();
-                        this.Dispose();
                     }
-                    Conn.Dispose();
                     Conn.Close();
+                    Conn.Dispose();
+                    this.Close();
+                    this.Dispose();
                 }
                
             }
@@ -193,9 +185,9 @@ namespace Bay_View
         {
             try
             {
-                using (SQLiteConnection Conn = new SQLiteConnection(conString))
-                {
-                    DataView dv = dtData.DefaultView
+                //using (SQLiteConnection Conn = new SQLiteConnection(conString))
+                //{
+                    DataView dv = dtData.DefaultView;
                     
                         dv.RowFilter = "CONVERT(Customer_ID, 'System.String') LIKE '%" + cbCustID.Text.ToString() + "%'";
 
@@ -208,7 +200,7 @@ namespace Bay_View
                         tbtEmail.Text = dv[0]["Email"].ToString();
                         tbtNumOfGuests.Text = dv[0]["Num_Of_Guests"].ToString();
                     
-                }
+                //}
             }
 
             catch (Exception ex)

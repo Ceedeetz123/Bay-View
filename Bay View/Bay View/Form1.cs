@@ -23,44 +23,32 @@ namespace Bay_View
         private void btnLogin_Click(object sender, EventArgs e)
         {
             try
-
             {
                 using (SQLiteConnection Conn = new SQLiteConnection(conString)) //Connection Object for linking the database
                 {
-                    Conn.ConnectionString = dbConns.dbSource;
                     Conn.ConnectionString = conString;
+                    Conn.Open();//Database can be edited
                     string sql = "SELECT Staff_ID,Password FROM Staff WHERE Staff_ID = @Username"; //SQL code
                     using (SQLiteCommand cmd = new SQLiteCommand(sql, Conn)) //Creates a connection between the sql code and the database connection
                     {
                         cmd.Parameters.AddWithValue("@Username", tbUsername.Text);//Prevents injection attacks using parameters
 
-                        Conn.Open();//Database can be edited
                         using (SQLiteDataReader DataRead = cmd.ExecuteReader())
                         {
                             //If there is no records
                             if (!DataRead.HasRows)
-                                MessageBox.Show("No Rows!");
-                            //When the password is not correct according to the Database
-                            DataRead.Read();
-                            if (tbPassword.Text != DataRead[1].ToString())
-                                MessageBox.Show("Password Incorrect!");
-                            //If username and Password match the record in the database
-                            else
                             {
-                                string Message = "Successful Login";
-
-                                MessageBox.Show(Message);
-                                Conn.Close();//Closes the database for editing
-
-                                Form3 form3 = new Form3(conString); //Sends connection to form 3 to be used for editing Staff details
-                                form3.ShowDialog();
+                                MessageBox.Show("Login failed - try again!");
+                                return;
                             }
-
-
                         }
                     }
+                    Conn.Close();
                 }
-
+                string Message = "Successful Login";
+                MessageBox.Show(Message);
+                Form3 form3 = new Form3(conString); //Sends connection to form 3 to be used for editing Staff details
+                form3.ShowDialog();
             }
             catch (Exception ex)
             {
