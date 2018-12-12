@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SQLite;
+using System.Configuration;
 
 namespace Bay_View
 {
@@ -16,14 +17,10 @@ namespace Bay_View
         public Form1()
         {
             InitializeComponent();
-
-            string executable = System.Reflection.Assembly.GetExecutingAssembly().Location;
-            string path = (System.IO.Path.GetDirectoryName(executable));
-            AppDomain.CurrentDomain.SetData("DataDirectory", path);
-
         }
 
         string conString = dbConns.dbSource;
+
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
