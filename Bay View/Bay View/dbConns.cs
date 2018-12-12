@@ -10,7 +10,7 @@ namespace Bay_View
     {
         public static string
 
-        dbSource = @"Data Source=F:\University\Year 2\Team Information System Development\Implementation\Database\Bay-View.db";
+        dbSource = @"Data Source=|DataDirectory|\Bay-View.db";
 
     }
 }

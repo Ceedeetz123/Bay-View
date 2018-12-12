@@ -16,6 +16,11 @@ namespace Bay_View
         public Form1()
         {
             InitializeComponent();
+
+            string executable = System.Reflection.Assembly.GetExecutingAssembly().Location;
+            string path = (System.IO.Path.GetDirectoryName(executable));
+            AppDomain.CurrentDomain.SetData("DataDirectory", path);
+
         }
 
         string conString = dbConns.dbSource;
