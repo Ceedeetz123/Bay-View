@@ -1,6 +1,6 @@
 ﻿namespace Bay_View
 {
-    partial class Form3
+    partial class Customers
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form3));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Customers));
             this.tbtName = new System.Windows.Forms.TextBox();
             this.tbtAddress = new System.Windows.Forms.TextBox();
             this.lblName = new System.Windows.Forms.Label();
@@ -236,7 +236,7 @@
             this.pbExit.TabIndex = 23;
             this.pbExit.TabStop = false;
             // 
-            // Form3
+            // Customers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -260,8 +260,8 @@
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.tbtAddress);
             this.Controls.Add(this.tbtName);
-            this.Name = "Form3";
-            this.Text = "Form3";
+            this.Name = "Customers";
+            this.Text = "Customers";
             this.Load += new System.EventHandler(this.Form3_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbExit)).EndInit();

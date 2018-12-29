@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Bay_View
 {
-    public partial class Form4 : Form
+    public partial class Bookings : Form
     {
-        public Form4()
+        public Bookings()
         {
             InitializeComponent();
         }

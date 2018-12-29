@@ -12,9 +12,9 @@ using System.Configuration;
 
 namespace Bay_View
 {
-    public partial class Form1 : Form
+    public partial class Login : Form
     {
-        public Form1()
+        public Login()
         {
             InitializeComponent();
         }
@@ -49,7 +49,7 @@ namespace Bay_View
                 }
                 string Message = "Successful Login";
                 MessageBox.Show(Message);
-                Form3 form3 = new Form3(conString); //Sends connection to form 3 to be used for editing Staff details
+                Customers form3 = new Customers(conString); //Sends connection to form 3 to be used for editing Staff details
                 form3.ShowDialog();
             }
             catch (Exception ex)

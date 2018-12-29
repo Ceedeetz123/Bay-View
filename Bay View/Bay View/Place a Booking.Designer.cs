@@ -1,6 +1,6 @@
 ﻿namespace Bay_View
 {
-    partial class Form4
+    partial class Place_a_Booking
     {
         /// <summary>
         /// Required designer variable.
@@ -28,31 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.cbCustomerID = new System.Windows.Forms.ComboBox();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Place_a_Booking));
+            this.pbLogo = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             this.SuspendLayout();
             // 
-            // cbCustomerID
+            // pbLogo
             // 
-            this.cbCustomerID.FormattingEnabled = true;
-            this.cbCustomerID.Location = new System.Drawing.Point(317, 72);
-            this.cbCustomerID.Name = "cbCustomerID";
-            this.cbCustomerID.Size = new System.Drawing.Size(121, 21);
-            this.cbCustomerID.TabIndex = 0;
+            this.pbLogo.Image = ((System.Drawing.Image)(resources.GetObject("pbLogo.Image")));
+            this.pbLogo.Location = new System.Drawing.Point(12, 12);
+            this.pbLogo.Name = "pbLogo";
+            this.pbLogo.Size = new System.Drawing.Size(113, 111);
+            this.pbLogo.TabIndex = 8;
+            this.pbLogo.TabStop = false;
             // 
-            // Form4
+            // Place_a_Booking
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.PowderBlue;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.cbCustomerID);
-            this.Name = "Form4";
-            this.Text = "Form4";
+            this.Controls.Add(this.pbLogo);
+            this.Name = "Place_a_Booking";
+            this.Text = "Place a Booking";
+            ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.ComboBox cbCustomerID;
+        private System.Windows.Forms.PictureBox pbLogo;
     }
 }
