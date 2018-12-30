@@ -28,12 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tbtCustomerID = new System.Windows.Forms.TextBox();
-            this.tbtBookRefNo = new System.Windows.Forms.TextBox();
+            this.tbtGuestID = new System.Windows.Forms.TextBox();
             this.tbtFirst = new System.Windows.Forms.TextBox();
             this.tbtAddress = new System.Windows.Forms.TextBox();
-            this.custID = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.guestID = new System.Windows.Forms.Label();
             this.lblFirst = new System.Windows.Forms.Label();
             this.lblAddress = new System.Windows.Forms.Label();
             this.lblPostCode = new System.Windows.Forms.Label();
@@ -54,27 +52,18 @@
             this.tbtLast = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // tbtCustomerID
+            // tbtGuestID
             // 
-            this.tbtCustomerID.Location = new System.Drawing.Point(315, 111);
-            this.tbtCustomerID.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.tbtCustomerID.Name = "tbtCustomerID";
-            this.tbtCustomerID.Size = new System.Drawing.Size(132, 25);
-            this.tbtCustomerID.TabIndex = 0;
-            this.tbtCustomerID.Text = " ";
-            // 
-            // tbtBookRefNo
-            // 
-            this.tbtBookRefNo.Location = new System.Drawing.Point(315, 170);
-            this.tbtBookRefNo.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.tbtBookRefNo.Name = "tbtBookRefNo";
-            this.tbtBookRefNo.Size = new System.Drawing.Size(132, 25);
-            this.tbtBookRefNo.TabIndex = 1;
-            this.tbtBookRefNo.Text = " ";
+            this.tbtGuestID.Location = new System.Drawing.Point(315, 111);
+            this.tbtGuestID.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.tbtGuestID.Name = "tbtGuestID";
+            this.tbtGuestID.Size = new System.Drawing.Size(132, 25);
+            this.tbtGuestID.TabIndex = 0;
+            this.tbtGuestID.Text = " ";
             // 
             // tbtFirst
             // 
-            this.tbtFirst.Location = new System.Drawing.Point(315, 231);
+            this.tbtFirst.Location = new System.Drawing.Point(315, 170);
             this.tbtFirst.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tbtFirst.Name = "tbtFirst";
             this.tbtFirst.Size = new System.Drawing.Size(132, 25);
@@ -83,37 +72,27 @@
             // 
             // tbtAddress
             // 
-            this.tbtAddress.Location = new System.Drawing.Point(315, 328);
+            this.tbtAddress.Location = new System.Drawing.Point(315, 267);
             this.tbtAddress.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tbtAddress.Name = "tbtAddress";
             this.tbtAddress.Size = new System.Drawing.Size(132, 25);
             this.tbtAddress.TabIndex = 3;
             this.tbtAddress.Text = " ";
             // 
-            // custID
+            // guestID
             // 
-            this.custID.AutoSize = true;
-            this.custID.Location = new System.Drawing.Point(196, 114);
-            this.custID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.custID.Name = "custID";
-            this.custID.Size = new System.Drawing.Size(103, 15);
-            this.custID.TabIndex = 4;
-            this.custID.Text = "Customer ID ";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(109, 172);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(199, 15);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Booking Reference Number";
+            this.guestID.AutoSize = true;
+            this.guestID.Location = new System.Drawing.Point(196, 114);
+            this.guestID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.guestID.Name = "guestID";
+            this.guestID.Size = new System.Drawing.Size(103, 15);
+            this.guestID.TabIndex = 4;
+            this.guestID.Text = "Customer ID ";
             // 
             // lblFirst
             // 
             this.lblFirst.AutoSize = true;
-            this.lblFirst.Location = new System.Drawing.Point(224, 234);
+            this.lblFirst.Location = new System.Drawing.Point(224, 173);
             this.lblFirst.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFirst.Name = "lblFirst";
             this.lblFirst.Size = new System.Drawing.Size(87, 15);
@@ -123,7 +102,7 @@
             // lblAddress
             // 
             this.lblAddress.AutoSize = true;
-            this.lblAddress.Location = new System.Drawing.Point(245, 332);
+            this.lblAddress.Location = new System.Drawing.Point(245, 271);
             this.lblAddress.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblAddress.Name = "lblAddress";
             this.lblAddress.Size = new System.Drawing.Size(63, 15);
@@ -133,7 +112,7 @@
             // lblPostCode
             // 
             this.lblPostCode.AutoSize = true;
-            this.lblPostCode.Location = new System.Drawing.Point(232, 385);
+            this.lblPostCode.Location = new System.Drawing.Point(232, 324);
             this.lblPostCode.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPostCode.Name = "lblPostCode";
             this.lblPostCode.Size = new System.Drawing.Size(79, 15);
@@ -142,7 +121,7 @@
             // 
             // tbtPostCode
             // 
-            this.tbtPostCode.Location = new System.Drawing.Point(315, 381);
+            this.tbtPostCode.Location = new System.Drawing.Point(315, 320);
             this.tbtPostCode.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tbtPostCode.Name = "tbtPostCode";
             this.tbtPostCode.Size = new System.Drawing.Size(132, 25);
@@ -266,7 +245,7 @@
             // lblLast
             // 
             this.lblLast.AutoSize = true;
-            this.lblLast.Location = new System.Drawing.Point(229, 286);
+            this.lblLast.Location = new System.Drawing.Point(229, 225);
             this.lblLast.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblLast.Name = "lblLast";
             this.lblLast.Size = new System.Drawing.Size(79, 15);
@@ -275,7 +254,7 @@
             // 
             // tbtLast
             // 
-            this.tbtLast.Location = new System.Drawing.Point(315, 283);
+            this.tbtLast.Location = new System.Drawing.Point(315, 222);
             this.tbtLast.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tbtLast.Name = "tbtLast";
             this.tbtLast.Size = new System.Drawing.Size(132, 25);
@@ -305,12 +284,10 @@
             this.Controls.Add(this.tbtPostCode);
             this.Controls.Add(this.lblAddress);
             this.Controls.Add(this.lblFirst);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.custID);
+            this.Controls.Add(this.guestID);
             this.Controls.Add(this.tbtAddress);
             this.Controls.Add(this.tbtFirst);
-            this.Controls.Add(this.tbtBookRefNo);
-            this.Controls.Add(this.tbtCustomerID);
+            this.Controls.Add(this.tbtGuestID);
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "Form3";
             this.Text = "Form3";
@@ -322,12 +299,10 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox tbtCustomerID;
-        private System.Windows.Forms.TextBox tbtBookRefNo;
+        private System.Windows.Forms.TextBox tbtGuestID;
         private System.Windows.Forms.TextBox tbtFirst;
         private System.Windows.Forms.TextBox tbtAddress;
-        private System.Windows.Forms.Label custID;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label guestID;
         private System.Windows.Forms.Label lblFirst;
         private System.Windows.Forms.Label lblAddress;
         private System.Windows.Forms.Label lblPostCode;
