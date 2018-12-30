@@ -196,9 +196,9 @@
             // cbCustID
             // 
             this.cbCustID.FormattingEnabled = true;
-            this.cbCustID.Location = new System.Drawing.Point(451, 74);
+            this.cbCustID.Location = new System.Drawing.Point(414, 58);
             this.cbCustID.Name = "cbCustID";
-            this.cbCustID.Size = new System.Drawing.Size(121, 23);
+            this.cbCustID.Size = new System.Drawing.Size(194, 23);
             this.cbCustID.TabIndex = 17;
             this.cbCustID.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             this.cbCustID.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cbCustID_KeyDown);

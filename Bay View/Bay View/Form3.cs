@@ -35,7 +35,7 @@ namespace Bay_View
                 {
                     //string ID = "SELECT ltrim(Guest_ID,'CI') as new from Guests order by CAST(new as INT)"; //For the Guest ID Combobox 
                     //string Datas = "SELECT *, ltrim(Guest_ID,'CI') as new from Guests order by CAST(new as INT);";
-                    string ID = "SELECT Guest_ID, First_Name, Last_Name from Guests"; //For the Guest ID Combobox
+                    string ID = "SELECT Guest_ID, (First_Name ||' '|| Last_Name) as Name from Guests"; //For the Guest ID Combobox
                     string Datas = "SELECT * FROM Guests";
 
 
@@ -50,7 +50,7 @@ namespace Bay_View
                     }
                             cbCustID.DataSource = dtGuestID;
                             cbCustID.ValueMember = "Guest_ID";//Gets the value of the Guest_ID
-                            cbCustID.DisplayMember = "Guest_ID";//Displays Guest ID's only in the combobox 
+                            cbCustID.DisplayMember = "Name";//Displays Guest ID's only in the combobox 
                             cbCustID.SelectedIndex = 0; //Displays the first record
 
                             //while(dtData.Rows.Count>0)
