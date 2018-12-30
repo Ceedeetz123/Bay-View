@@ -22,8 +22,8 @@ namespace Bay_View
 
 
         DataTable dtGuestID = new DataTable(); //For the Guest ID Combobox.
-        DataTable dtData = new DataTable(); //For the Guest ID Combobox.
-        string insert = "INSERT INTO Guests (Guest_ID, First_Name,Last_Name, Address,Post_Code, Mobile, Email, Num_of_Guests) VALUES (@id, @ref, @firstname, @lastname, @addr, @post, @mobilenum, @emails, @guestamount)";
+        DataTable dtData = new DataTable(); //For filling the Guest details.
+        string insert = "INSERT INTO Guests (First_Name,Last_Name, Address,Post_Code, Mobile, Email, Num_of_Guests) VALUES (@firstname, @lastname, @addr, @post, @mobilenum, @emails, @guestamount)";
         string edit = "Update Guests SET First_Name = @firstname, Last_Name = @lastname, Address = @addr, Post_Code = @post, Mobile = @mobilenum, Email = @emails, Num_of_Guests = @guestamount WHERE Guest_ID = @id";
         string delete = "DELETE FROM Guests WHERE Guest_ID =";
         private void Form3_Load(object sender, EventArgs e)
@@ -107,9 +107,12 @@ namespace Bay_View
         }
         private void btnClear_Click(object sender, EventArgs e)
         {
+            int lastrow = Convert.ToInt32(dtData.Rows[dtData.Rows.Count - 1]["Guest_ID"]); //Gets the last row of the Guest ID column
 
-            tbtGuestID.Text = String.Empty; //auto fill customer ID field with a new value?
+            cbCustID.Text = String.Empty;
+            tbtGuestID.Text = (lastrow + 1).ToString();//adds the last row plus one to make a new 
             tbtFirst.Text = String.Empty;
+            tbtLast.Text = String.Empty;
             tbtAddress.Text = String.Empty;
             tbtPostCode.Text = String.Empty;
             tbtMobile.Text = String.Empty;
@@ -127,7 +130,6 @@ namespace Bay_View
                     using (SQLiteCommand cmd = new SQLiteCommand(insert, Conn))
                     {
                         //cmd.CommandText = "INSERT INTO Guests (Customer_ID, Booking_Ref_No, Name, Address, Postcode, Mobile, Email, Num_of_Guests) VALUES (@id, @ref, @fullname, @addr, @post, @mobilenum, @emails, @guestamount)";
-                        cmd.Parameters.AddWithValue("id", tbtGuestID.Text);
                         cmd.Parameters.AddWithValue("firstname", tbtFirst.Text);
                         cmd.Parameters.AddWithValue("lastname", tbtLast.Text);
                         cmd.Parameters.AddWithValue("addr", tbtAddress.Text);

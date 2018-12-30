@@ -54,6 +54,7 @@
             // 
             // tbtGuestID
             // 
+            this.tbtGuestID.Enabled = false;
             this.tbtGuestID.Location = new System.Drawing.Point(315, 111);
             this.tbtGuestID.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tbtGuestID.Name = "tbtGuestID";
@@ -82,12 +83,12 @@
             // guestID
             // 
             this.guestID.AutoSize = true;
-            this.guestID.Location = new System.Drawing.Point(196, 114);
+            this.guestID.Location = new System.Drawing.Point(216, 114);
             this.guestID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.guestID.Name = "guestID";
-            this.guestID.Size = new System.Drawing.Size(103, 15);
+            this.guestID.Size = new System.Drawing.Size(95, 15);
             this.guestID.TabIndex = 4;
-            this.guestID.Text = "Customer ID ";
+            this.guestID.Text = "Customer ID";
             // 
             // lblFirst
             // 
