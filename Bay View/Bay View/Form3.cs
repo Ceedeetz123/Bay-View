@@ -88,7 +88,8 @@ namespace Bay_View
                         //dv.RowFilter = string.Format("Customer_ID = " + cbCustID.SelectedIndex.ToString());
                         tbtCustomerID.Text = dv[0]["Customer_ID"].ToString();
                         tbtBookRefNo.Text = dv[0]["Booking_Ref_No"].ToString();
-                        tbtName.Text = dv[0]["Name"].ToString();
+                        tbtFirst.Text = dv[0]["First_Name"].ToString();
+                        tbtLast.Text = dv[0]["Last_Name"].ToString();
                         tbtAddress.Text = dv[0]["Address"].ToString();
                         tbtPostCode.Text = dv[0]["Postcode"].ToString();
                         tbtMobile.Text = dv[0]["Mobile"].ToString();
@@ -110,7 +111,7 @@ namespace Bay_View
 
             tbtCustomerID.Text = String.Empty; //auto fill customer ID field with a new value?
             tbtBookRefNo.Text = String.Empty;
-            tbtName.Text = String.Empty;
+            tbtFirst.Text = String.Empty;
             tbtAddress.Text = String.Empty;
             tbtPostCode.Text = String.Empty;
             tbtMobile.Text = String.Empty;
@@ -130,7 +131,7 @@ namespace Bay_View
                         //cmd.CommandText = "INSERT INTO Guests (Customer_ID, Booking_Ref_No, Name, Address, Postcode, Mobile, Email, Num_of_Guests) VALUES (@id, @ref, @fullname, @addr, @post, @mobilenum, @emails, @guestamount)";
                         cmd.Parameters.AddWithValue("id", tbtCustomerID.Text);
                         cmd.Parameters.AddWithValue("ref", tbtBookRefNo.Text);
-                        cmd.Parameters.AddWithValue("fullname", tbtName.Text);
+                        cmd.Parameters.AddWithValue("fullname", tbtFirst.Text);
                         cmd.Parameters.AddWithValue("addr", tbtAddress.Text);
                         cmd.Parameters.AddWithValue("post", tbtPostCode.Text);
                         cmd.Parameters.AddWithValue("mobilenum", tbtMobile.Text);
@@ -161,7 +162,7 @@ namespace Bay_View
                     {
                         cmd.Parameters.AddWithValue("@id", tbtCustomerID.Text);
                         cmd.Parameters.AddWithValue("@ref", tbtBookRefNo.Text);
-                        cmd.Parameters.AddWithValue("@fullname", tbtName.Text);
+                        cmd.Parameters.AddWithValue("@fullname", tbtFirst.Text);
                         cmd.Parameters.AddWithValue("@addr", tbtAddress.Text);
                         cmd.Parameters.AddWithValue("@post", tbtPostCode.Text);
                         cmd.Parameters.AddWithValue("@mobilenum", tbtMobile.Text);
@@ -193,7 +194,7 @@ namespace Bay_View
 
                         tbtCustomerID.Text = dv[0]["Customer_ID"].ToString();
                         tbtBookRefNo.Text = dv[0]["Booking_Ref_No"].ToString();
-                        tbtName.Text = dv[0]["Name"].ToString();
+                        tbtFirst.Text = dv[0]["Name"].ToString();
                         tbtAddress.Text = dv[0]["Address"].ToString();
                         tbtPostCode.Text = dv[0]["Postcode"].ToString();
                         tbtMobile.Text = dv[0]["Mobile"].ToString();
