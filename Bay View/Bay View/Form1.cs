@@ -30,11 +30,11 @@ namespace Bay_View
                 {
                     Conn.ConnectionString = conString;
                     Conn.Open();//Database can be edited
-                    string sql = "SELECT Staff_ID,Password FROM Staff WHERE Staff_ID = @Username"; //SQL code
+                    string sql = "SELECT Staff_ID,Password FROM Staff WHERE Staff_ID = @User AND Password = @Pass"; //SQL code
                     using (SQLiteCommand cmd = new SQLiteCommand(sql, Conn)) //Creates a connection between the sql code and the database connection
                     {
-                        cmd.Parameters.AddWithValue("@Username", tbUsername.Text);//Prevents injection attacks using parameters
-
+                        cmd.Parameters.AddWithValue("User", tbUsername.Text);//Prevents injection attacks using parameters
+                        cmd.Parameters.AddWithValue("Pass", tbPassword.Text);
                         using (SQLiteDataReader DataRead = cmd.ExecuteReader())
                         {
                             //If there is no records
@@ -49,8 +49,8 @@ namespace Bay_View
                 }
                 string Message = "Successful Login";
                 MessageBox.Show(Message);
-                Form3 form3 = new Form3(conString); //Sends connection to form 3 to be used for editing Staff details
-                form3.ShowDialog();
+                Form5 form5 = new Form5(conString); //Sends connection to form 5 to be used for editing Staff details
+                form5.ShowDialog();
             }
             catch (Exception ex)
             {
@@ -71,7 +71,7 @@ namespace Bay_View
 
         private void tbPassword_TextChanged(object sender, EventArgs e)
         {
-            tbPassword.PasswordChar = '*';
+            tbPassword.PasswordChar = '*'; //hides Password field
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e) //Used in the Username and password Textboxes too

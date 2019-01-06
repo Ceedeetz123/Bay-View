@@ -72,21 +72,49 @@ namespace Bay_View
             {
                 using (SQLiteConnection Conn = new SQLiteConnection(conString))
                 {
-                    using (SQLiteCommand cmd = Conn.CreateCommand())
+                    Conn.Open();
+                    string select = @"SELECT Staff_ID,Password FROM Staff 
+                    WHERE Staff_ID = @User and 
+                    Password = @OldPass and
+                    Email = @emessage";
+                    string update = @"Update Staff SET Password = @NewPass WHERE Staff_ID = @User"; //update sql command
+                    using (SQLiteCommand selects = new SQLiteCommand(select, Conn))
                     {
-                        cmd.CommandText = @"Update Staff SET Password = @Password  WHERE Staff_ID = @id "; //update sql command
-                        cmd.Parameters.AddWithValue("id", tbtStaffID.Text); //Security for Customer ID
-                        cmd.Parameters.AddWithValue("Password", tbtPassword.Text); //Security for Password
-                        Conn.Open();
-                        int UpdatedRow= cmd.ExecuteNonQuery();
-                        MessageBox.Show( " Your Password Have been updated");
-                        
-                        Conn.Close();
-                        Conn.Dispose();
-                        this.Close();
-                        this.Dispose();
+                        //cmd.CommandText = @"Update Staff SET Password = @Passes WHERE Staff_ID = @Username" ; //update sql command
+
+                        selects.Parameters.AddWithValue("User", tbtStaffID.Text);
+                        selects.Parameters.AddWithValue("OldPass", tbtOldPass.Text);
+                        selects.Parameters.AddWithValue("emessage", tbtEmail.Text);
+
+                        using (SQLiteDataReader DataRead = selects.ExecuteReader())
+                        {
+                            //If there is no records
+                            if (!DataRead.HasRows)
+                            {
+                                MessageBox.Show("Wrong Details!");
+                                return;
+
+                            }
+                           
+                        }
+                        using (SQLiteCommand updates = new SQLiteCommand(update, Conn))
+                        {
+                            updates.Parameters.AddWithValue("User", tbtStaffID.Text);
+                            updates.Parameters.AddWithValue("NewPass", tbtNewPass.Text); 
+                            updates.ExecuteNonQuery();
+                        }
+
                     }
+                    
+                    Conn.Close();
+                    Conn.Dispose();
                 }
+                //int UpdatedRow= cmd.ExecuteNonQuery();
+                MessageBox.Show(" Your Password Have been updated");
+
+                this.Close();
+                this.Dispose();
+
             }
             catch (Exception ex)
             {
@@ -104,7 +132,7 @@ namespace Bay_View
         private void tbtPassword_TextChanged(object sender, EventArgs e)
         {
 
-            tbtPassword.PasswordChar = '*';//hides the password text
+            tbtNewPass.PasswordChar = '*';//hides the password text
         }
         //when the user presses enter it triggers the submit button event to reset the password
         private void Form2_KeyDown(object sender, KeyEventArgs e)

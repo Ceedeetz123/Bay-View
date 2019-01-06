@@ -31,7 +31,7 @@
             this.tbtGuestID = new System.Windows.Forms.TextBox();
             this.tbtFirst = new System.Windows.Forms.TextBox();
             this.tbtAddress = new System.Windows.Forms.TextBox();
-            this.guestID = new System.Windows.Forms.Label();
+            this.lblGuestID = new System.Windows.Forms.Label();
             this.lblFirst = new System.Windows.Forms.Label();
             this.lblAddress = new System.Windows.Forms.Label();
             this.lblPostCode = new System.Windows.Forms.Label();
@@ -42,7 +42,7 @@
             this.tbtEmail = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tbtNumOfGuests = new System.Windows.Forms.TextBox();
-            this.lblCustomers = new System.Windows.Forms.Label();
+            this.lblGuests = new System.Windows.Forms.Label();
             this.cbCustID = new System.Windows.Forms.ComboBox();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
@@ -80,15 +80,15 @@
             this.tbtAddress.TabIndex = 3;
             this.tbtAddress.Text = " ";
             // 
-            // guestID
+            // lblGuestID
             // 
-            this.guestID.AutoSize = true;
-            this.guestID.Location = new System.Drawing.Point(216, 114);
-            this.guestID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.guestID.Name = "guestID";
-            this.guestID.Size = new System.Drawing.Size(95, 15);
-            this.guestID.TabIndex = 4;
-            this.guestID.Text = "Customer ID";
+            this.lblGuestID.AutoSize = true;
+            this.lblGuestID.Location = new System.Drawing.Point(252, 114);
+            this.lblGuestID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblGuestID.Name = "lblGuestID";
+            this.lblGuestID.Size = new System.Drawing.Size(55, 15);
+            this.lblGuestID.TabIndex = 4;
+            this.lblGuestID.Text = "Guests";
             // 
             // lblFirst
             // 
@@ -184,15 +184,15 @@
             this.tbtNumOfGuests.Size = new System.Drawing.Size(132, 25);
             this.tbtNumOfGuests.TabIndex = 14;
             // 
-            // lblCustomers
+            // lblGuests
             // 
-            this.lblCustomers.AutoSize = true;
-            this.lblCustomers.Location = new System.Drawing.Point(475, 23);
-            this.lblCustomers.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblCustomers.Name = "lblCustomers";
-            this.lblCustomers.Size = new System.Drawing.Size(79, 15);
-            this.lblCustomers.TabIndex = 16;
-            this.lblCustomers.Text = "Customers";
+            this.lblGuests.AutoSize = true;
+            this.lblGuests.Location = new System.Drawing.Point(475, 23);
+            this.lblGuests.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblGuests.Name = "lblGuests";
+            this.lblGuests.Size = new System.Drawing.Size(55, 15);
+            this.lblGuests.TabIndex = 16;
+            this.lblGuests.Text = "Guests";
             // 
             // cbCustID
             // 
@@ -274,7 +274,7 @@
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.cbCustID);
-            this.Controls.Add(this.lblCustomers);
+            this.Controls.Add(this.lblGuests);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tbtNumOfGuests);
             this.Controls.Add(this.lblEmail);
@@ -285,7 +285,7 @@
             this.Controls.Add(this.tbtPostCode);
             this.Controls.Add(this.lblAddress);
             this.Controls.Add(this.lblFirst);
-            this.Controls.Add(this.guestID);
+            this.Controls.Add(this.lblGuestID);
             this.Controls.Add(this.tbtAddress);
             this.Controls.Add(this.tbtFirst);
             this.Controls.Add(this.tbtGuestID);
@@ -303,7 +303,7 @@
         private System.Windows.Forms.TextBox tbtGuestID;
         private System.Windows.Forms.TextBox tbtFirst;
         private System.Windows.Forms.TextBox tbtAddress;
-        private System.Windows.Forms.Label guestID;
+        private System.Windows.Forms.Label lblGuestID;
         private System.Windows.Forms.Label lblFirst;
         private System.Windows.Forms.Label lblAddress;
         private System.Windows.Forms.Label lblPostCode;
@@ -314,7 +314,7 @@
         private System.Windows.Forms.TextBox tbtEmail;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbtNumOfGuests;
-        private System.Windows.Forms.Label lblCustomers;
+        private System.Windows.Forms.Label lblGuests;
         private System.Windows.Forms.ComboBox cbCustID;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnAdd;
