@@ -38,6 +38,8 @@
             this.btnReset = new System.Windows.Forms.Button();
             this.pbLogo = new System.Windows.Forms.PictureBox();
             this.pbExit = new System.Windows.Forms.PictureBox();
+            this.btnCustomers = new System.Windows.Forms.Button();
+            this.btnBooking = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbExit)).BeginInit();
             this.SuspendLayout();
@@ -46,7 +48,7 @@
             // 
             this.lblUsername.AutoSize = true;
             this.lblUsername.Font = new System.Drawing.Font("Candara", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsername.Location = new System.Drawing.Point(187, 39);
+            this.lblUsername.Location = new System.Drawing.Point(171, 24);
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Size = new System.Drawing.Size(72, 18);
             this.lblUsername.TabIndex = 0;
@@ -56,7 +58,7 @@
             // 
             this.lblPassword.AutoSize = true;
             this.lblPassword.Font = new System.Drawing.Font("Candara", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPassword.Location = new System.Drawing.Point(187, 95);
+            this.lblPassword.Location = new System.Drawing.Point(171, 69);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(67, 18);
             this.lblPassword.TabIndex = 1;
@@ -64,7 +66,7 @@
             // 
             // tbUsername
             // 
-            this.tbUsername.Location = new System.Drawing.Point(278, 39);
+            this.tbUsername.Location = new System.Drawing.Point(262, 24);
             this.tbUsername.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbUsername.Name = "tbUsername";
             this.tbUsername.Size = new System.Drawing.Size(176, 23);
@@ -73,7 +75,7 @@
             // 
             // tbPassword
             // 
-            this.tbPassword.Location = new System.Drawing.Point(278, 95);
+            this.tbPassword.Location = new System.Drawing.Point(262, 69);
             this.tbPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.Size = new System.Drawing.Size(176, 23);
@@ -85,10 +87,10 @@
             // 
             this.btnLogin.BackColor = System.Drawing.Color.Silver;
             this.btnLogin.Font = new System.Drawing.Font("Candara", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogin.Location = new System.Drawing.Point(169, 168);
+            this.btnLogin.Location = new System.Drawing.Point(174, 124);
             this.btnLogin.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(129, 45);
+            this.btnLogin.Size = new System.Drawing.Size(109, 45);
             this.btnLogin.TabIndex = 4;
             this.btnLogin.Text = "Log in";
             this.btnLogin.UseVisualStyleBackColor = false;
@@ -102,10 +104,10 @@
             // 
             this.btnReset.BackColor = System.Drawing.Color.Silver;
             this.btnReset.Font = new System.Drawing.Font("Candara", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReset.Location = new System.Drawing.Point(325, 168);
+            this.btnReset.Location = new System.Drawing.Point(329, 124);
             this.btnReset.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(129, 45);
+            this.btnReset.Size = new System.Drawing.Size(109, 45);
             this.btnReset.TabIndex = 5;
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = false;
@@ -123,18 +125,49 @@
             // pbExit
             // 
             this.pbExit.Image = ((System.Drawing.Image)(resources.GetObject("pbExit.Image")));
-            this.pbExit.Location = new System.Drawing.Point(452, 263);
+            this.pbExit.Location = new System.Drawing.Point(523, 156);
             this.pbExit.Name = "pbExit";
             this.pbExit.Size = new System.Drawing.Size(40, 31);
             this.pbExit.TabIndex = 7;
             this.pbExit.TabStop = false;
+            this.pbExit.Click += new System.EventHandler(this.pbExit_Click);
+            // 
+            // btnCustomers
+            // 
+            this.btnCustomers.BackColor = System.Drawing.Color.Silver;
+            this.btnCustomers.Enabled = false;
+            this.btnCustomers.Font = new System.Drawing.Font("Candara", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCustomers.Location = new System.Drawing.Point(469, 28);
+            this.btnCustomers.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnCustomers.Name = "btnCustomers";
+            this.btnCustomers.Size = new System.Drawing.Size(94, 45);
+            this.btnCustomers.TabIndex = 9;
+            this.btnCustomers.Text = "Customers";
+            this.btnCustomers.UseVisualStyleBackColor = false;
+            this.btnCustomers.Click += new System.EventHandler(this.btnCustomers_Click);
+            // 
+            // btnBooking
+            // 
+            this.btnBooking.BackColor = System.Drawing.Color.Silver;
+            this.btnBooking.Enabled = false;
+            this.btnBooking.Font = new System.Drawing.Font("Candara", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBooking.Location = new System.Drawing.Point(469, 81);
+            this.btnBooking.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnBooking.Name = "btnBooking";
+            this.btnBooking.Size = new System.Drawing.Size(94, 45);
+            this.btnBooking.TabIndex = 10;
+            this.btnBooking.Text = "Booking";
+            this.btnBooking.UseVisualStyleBackColor = false;
+            this.btnBooking.Click += new System.EventHandler(this.btnBooking_Click);
             // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PowderBlue;
-            this.ClientSize = new System.Drawing.Size(504, 306);
+            this.ClientSize = new System.Drawing.Size(574, 199);
+            this.Controls.Add(this.btnBooking);
+            this.Controls.Add(this.btnCustomers);
             this.Controls.Add(this.pbExit);
             this.Controls.Add(this.pbLogo);
             this.Controls.Add(this.btnReset);
@@ -166,6 +199,8 @@
         private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.PictureBox pbLogo;
         private System.Windows.Forms.PictureBox pbExit;
+        private System.Windows.Forms.Button btnCustomers;
+        private System.Windows.Forms.Button btnBooking;
     }
 }
 

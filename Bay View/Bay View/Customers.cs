@@ -85,15 +85,12 @@ namespace Bay_View
                     DataView dv = dtData.DefaultView; //Uses Text
                     
                         dv.RowFilter = "CONVERT(Customer_ID, 'System.String') LIKE '%" + cbCustID.SelectedValue.ToString() + "%'";
-                        //dv.RowFilter = string.Format("Customer_ID = " + cbCustID.SelectedIndex.ToString());
-                        tbtCustomerID.Text = dv[0]["Customer_ID"].ToString();
-                        tbtBookRefNo.Text = dv[0]["Booking_Ref_No"].ToString();
+                        //dv.RowFilter = string.Format("Customer_ID = " + cbCustID.SelectedIndex.ToString());                        
                         tbtName.Text = dv[0]["Name"].ToString();
                         tbtAddress.Text = dv[0]["Address"].ToString();
                         tbtPostCode.Text = dv[0]["Postcode"].ToString();
                         tbtMobile.Text = dv[0]["Mobile"].ToString();
                         tbtEmail.Text = dv[0]["Email"].ToString();
-                        tbtNumOfGuests.Text = dv[0]["Num_Of_Guests"].ToString();
                   
 
                 //}
@@ -107,15 +104,12 @@ namespace Bay_View
         }
         private void btnClear_Click(object sender, EventArgs e)
         {
-
-            tbtCustomerID.Text = String.Empty; //auto fill customer ID field with a new value?
-            tbtBookRefNo.Text = String.Empty;
+            
             tbtName.Text = String.Empty;
             tbtAddress.Text = String.Empty;
             tbtPostCode.Text = String.Empty;
             tbtMobile.Text = String.Empty;
             tbtEmail.Text = String.Empty;
-            tbtNumOfGuests.Text = String.Empty;
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -128,14 +122,12 @@ namespace Bay_View
                     using (SQLiteCommand cmd = new SQLiteCommand(insert, Conn))
                     {
                         //cmd.CommandText = "INSERT INTO Guests (Customer_ID, Booking_Ref_No, Name, Address, Postcode, Mobile, Email, Num_of_Guests) VALUES (@id, @ref, @fullname, @addr, @post, @mobilenum, @emails, @guestamount)";
-                        cmd.Parameters.AddWithValue("id", tbtCustomerID.Text);
-                        cmd.Parameters.AddWithValue("ref", tbtBookRefNo.Text);
+                        
                         cmd.Parameters.AddWithValue("fullname", tbtName.Text);
                         cmd.Parameters.AddWithValue("addr", tbtAddress.Text);
                         cmd.Parameters.AddWithValue("post", tbtPostCode.Text);
                         cmd.Parameters.AddWithValue("mobilenum", tbtMobile.Text);
                         cmd.Parameters.AddWithValue("emails", tbtEmail.Text);
-                        cmd.Parameters.AddWithValue("guestamount", tbtNumOfGuests.Text);
                         cmd.ExecuteNonQuery();
                     }
                     Conn.Close();
@@ -159,14 +151,11 @@ namespace Bay_View
                     Conn.Open();
                     using (SQLiteCommand cmd = new SQLiteCommand(edit, Conn))
                     {
-                        cmd.Parameters.AddWithValue("@id", tbtCustomerID.Text);
-                        cmd.Parameters.AddWithValue("@ref", tbtBookRefNo.Text);
                         cmd.Parameters.AddWithValue("@fullname", tbtName.Text);
                         cmd.Parameters.AddWithValue("@addr", tbtAddress.Text);
                         cmd.Parameters.AddWithValue("@post", tbtPostCode.Text);
                         cmd.Parameters.AddWithValue("@mobilenum", tbtMobile.Text);
                         cmd.Parameters.AddWithValue("@emails", tbtEmail.Text);
-                        cmd.Parameters.AddWithValue("@guestamount", tbtNumOfGuests.Text);
                         cmd.ExecuteNonQuery();
                     }
                     Conn.Close();
@@ -190,15 +179,12 @@ namespace Bay_View
                     DataView dv = dtData.DefaultView;
                     
                         dv.RowFilter = "CONVERT(Customer_ID, 'System.String') LIKE '%" + cbCustID.Text.ToString() + "%'";
-
-                        tbtCustomerID.Text = dv[0]["Customer_ID"].ToString();
-                        tbtBookRefNo.Text = dv[0]["Booking_Ref_No"].ToString();
+                
                         tbtName.Text = dv[0]["Name"].ToString();
                         tbtAddress.Text = dv[0]["Address"].ToString();
                         tbtPostCode.Text = dv[0]["Postcode"].ToString();
                         tbtMobile.Text = dv[0]["Mobile"].ToString();
                         tbtEmail.Text = dv[0]["Email"].ToString();
-                        tbtNumOfGuests.Text = dv[0]["Num_Of_Guests"].ToString();
                     
                 //}
             }

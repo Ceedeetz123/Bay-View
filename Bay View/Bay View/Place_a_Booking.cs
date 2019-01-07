@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SQLite;
+using System.Configuration;
 
 namespace Bay_View
 {
@@ -16,5 +18,8 @@ namespace Bay_View
         {
             InitializeComponent();
         }
+        string conString = dbConns.dbSource;
+
+
     }
 }

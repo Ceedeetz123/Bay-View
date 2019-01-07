@@ -22,6 +22,7 @@ namespace Bay_View
         string conString = dbConns.dbSource;
 
 
+        
         private void btnLogin_Click(object sender, EventArgs e)
         {
             try
@@ -49,8 +50,10 @@ namespace Bay_View
                 }
                 string Message = "Successful Login";
                 MessageBox.Show(Message);
-                Customers form3 = new Customers(conString); //Sends connection to form 3 to be used for editing Staff details
-                form3.ShowDialog();
+                //Customers form3 = new Customers(conString); //Sends connection to form 3 to be used for editing Staff details
+                //form3.ShowDialog();
+                btnCustomers.Enabled = true;
+                btnBooking.Enabled = true;
             }
             catch (Exception ex)
             {
@@ -80,6 +83,23 @@ namespace Bay_View
             {
                 btnLogin_Click(this, new EventArgs());//calls the login button function
             }
+        }
+
+        private void pbExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnCustomers_Click(object sender, EventArgs e)
+        {
+            Customers frmcustomers = new Customers(conString); 
+            frmcustomers.ShowDialog();
+        }
+
+        private void btnBooking_Click(object sender, EventArgs e)
+        {
+            Bookings frmbookings = new Bookings(conString);
+            frmbookings.ShowDialog();
         }
     }
 }

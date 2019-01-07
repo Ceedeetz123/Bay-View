@@ -71,11 +71,11 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="Place a Booking.cs">
+    <Compile Include="Place_a_Booking.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Place a Booking.Designer.cs">
-      <DependentUpon>Place a Booking.cs</DependentUpon>
+    <Compile Include="Place_a_Booking.Designer.cs">
+      <DependentUpon>Place_a_Booking.cs</DependentUpon>
     </Compile>
     <Compile Include="Staff Login.cs">
       <SubType>Form</SubType>
@@ -100,8 +100,8 @@
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Place a Booking.resx">
-      <DependentUpon>Place a Booking.cs</DependentUpon>
+    <EmbeddedResource Include="Place_a_Booking.resx">
+      <DependentUpon>Place_a_Booking.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Staff Login.resx">
       <DependentUpon>Staff Login.cs</DependentUpon>
