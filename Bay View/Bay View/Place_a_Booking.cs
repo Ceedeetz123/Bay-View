@@ -14,12 +14,15 @@ namespace Bay_View
 {
     public partial class Place_a_Booking : Form
     {
-        public Place_a_Booking()
+        public Place_a_Booking(string conString)
         {
             InitializeComponent();
         }
         string conString = dbConns.dbSource;
 
+        private void pbExit_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }

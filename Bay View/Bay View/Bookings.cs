@@ -14,7 +14,7 @@ namespace Bay_View
 {
     public partial class Bookings : Form
     {
-        public Bookings()
+        public Bookings(string conString)
         {
             InitializeComponent();
         }
@@ -29,8 +29,8 @@ namespace Bay_View
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            Customers frmcustomers = new Customers(conString);
-            frmcustomers.ShowDialog();
+            //Customers frmcustomers = new Customers(conString);
+            //frmcustomers.ShowDialog();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)

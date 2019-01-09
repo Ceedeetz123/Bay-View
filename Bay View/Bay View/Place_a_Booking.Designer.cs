@@ -285,6 +285,7 @@
             this.pbExit.Size = new System.Drawing.Size(40, 31);
             this.pbExit.TabIndex = 38;
             this.pbExit.TabStop = false;
+            this.pbExit.Click += new System.EventHandler(this.pbExit_Click);
             // 
             // pbBooking
             // 
