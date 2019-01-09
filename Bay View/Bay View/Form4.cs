@@ -42,12 +42,28 @@ namespace Bay_View
                      AND (Start_Date >= @Starts And End_Date <= @Ends))
                      AND Room_Size = @Rooms";
 
+        string disabled = @"Select r.Room_No From Room r
+                     WHERE NOT EXISTS(
+                     SELECT
+                     CASE WHEN Room_Type = 'Disabled' THEN (SELECT b.Room_No FROM Booking b
+                     WHERE b.Room_No = r.Room_No
+                     AND (Start_Date >= '2019-01-01' And End_Date <='2019-01-09' ))
+                     AND Room_Type = 'Disabled')
+                     ELSE(Select r.Room_No From Room r
+                     Where NOT EXISTS
+                     (SELECT b.Room_No FROM Booking b
+                     WHERE b.Room_No = r.Room_No
+                     AND (Start_Date >= '2019-01-01' And End_Date <= '2019-01-09')
+                     AND Room_Size = @Rooms)";
+
         string room = "SELECT Room_Size FROM Room Group By Room_Size";
 
         string ID = "SELECT Guest_ID, (First_Name ||' '|| Last_Name) as Name from Guests";
 
         private void dtpEnd_ValueChanged(object sender, EventArgs e)
         {
+            lbRooms.Items.Clear();
+            btnSearch.Enabled = true;
 
             DateTime Start = dtpStart.Value.Date;
             DateTime End = dtpEnd.Value.Date;
@@ -61,13 +77,15 @@ namespace Bay_View
 
         private void dtpStart_ValueChanged(object sender, EventArgs e)
         {
+            lbRooms.Items.Clear();
+            btnSearch.Enabled = true;
 
             DateTime Start = dtpStart.Value.Date;
             DateTime End = dtpEnd.Value.Date;
             dtpEnd.MinDate = dtpStart.Value.Date; //Does not allow users to choose a end date before the start date
-            TimeSpan t = End - Start;
+            TimeSpan t = End - Start;//Calculates the Duration between the start and end dates
 
-            tbtDuration.Text = t.TotalDays.ToString();
+            tbtDuration.Text = t.TotalDays.ToString(); 
 
         }
 
@@ -82,8 +100,8 @@ namespace Bay_View
                     Conn.Open();
                     using (SQLiteCommand cmd = new SQLiteCommand(avi, Conn))
                     {
-                        cmd.Parameters.AddWithValue("Starts", dtpStart.Value.ToString("dd-mm-yyyy"));
-                        cmd.Parameters.AddWithValue("Ends", dtpEnd.Value.ToString("dd-mm-yyyy"));
+                        cmd.Parameters.AddWithValue("Starts", dtpStart.Value.ToString("yyyy-mm-dd"));
+                        cmd.Parameters.AddWithValue("Ends", dtpEnd.Value.ToString("yyyy-mm-dd"));
                         cmd.Parameters.AddWithValue("Rooms", cbRoomSize.Text);
                         using (SQLiteDataReader DataRead = cmd.ExecuteReader())
                         {
@@ -91,6 +109,7 @@ namespace Bay_View
                             while (DataRead.Read())
                             {
                                 lbRooms.Items.Add(DataRead["Room_No"]); //Keeps adding records
+                                btnSearch.Enabled = false;
                             }
 
                         }
@@ -111,7 +130,7 @@ namespace Bay_View
         {
             try
             {
-                lblStaff.Text = "Staff: " + dbRole.Role;
+                lblStaff.Text = "Staff: " + dbRole.Role;//Displays the Staff's ID from a store variable in a class
                 using (SQLiteConnection Conn = new SQLiteConnection(conString))
                 {
                     using (SQLiteDataAdapter daRoom = new SQLiteDataAdapter(room, Conn))
@@ -122,11 +141,12 @@ namespace Bay_View
                     {
                         daCustomer.Fill(dtCustomer);
                     }
+                    //Customer Combobox
                     cbCustomerID.DataSource = dtCustomer;
                     cbCustomerID.ValueMember = "Guest_ID";
                     cbCustomerID.DisplayMember = "Name";
                     cbCustomerID.SelectedIndex = 0;
-
+                    //Room Combobox
                     cbRoomSize.DataSource = dtRoom;
                     cbRoomSize.ValueMember = "Room_Size";
                     cbRoomSize.DisplayMember = "Room_Size";
@@ -137,8 +157,8 @@ namespace Bay_View
                     using (SQLiteDataAdapter daRooms = new SQLiteDataAdapter(avi, Conn))
                     {
                        //Preloads the parameters for the room reservation list
-                        daRooms.SelectCommand.Parameters.AddWithValue("Starts", dtpStart.Value.ToString("dd-mm-yyyy"));
-                        daRooms.SelectCommand.Parameters.AddWithValue("Ends", dtpStart.Value.ToString("dd-mm-yyyy"));
+                        daRooms.SelectCommand.Parameters.AddWithValue("Starts", dtpStart.Value.ToString("yyyy-mm-dd"));
+                        daRooms.SelectCommand.Parameters.AddWithValue("Ends", dtpStart.Value.ToString("yyyy-mm-dd"));
                         daRooms.SelectCommand.Parameters.AddWithValue("Rooms", cbRoomSize.Text);
                         daRooms.Fill(dtRooms);
 
@@ -152,6 +172,13 @@ namespace Bay_View
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+       
+        private void cbRoomSize_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            lbRooms.Items.Clear();
+            btnSearch.Enabled = true;
         }
     }
 }

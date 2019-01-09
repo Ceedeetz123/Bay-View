@@ -44,6 +44,7 @@
             this.lblTitle = new System.Windows.Forms.Label();
             this.tbtDuration = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
+            this.cbDisabled = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // cbCustomerID
@@ -90,6 +91,7 @@
             this.cbRoomSize.Name = "cbRoomSize";
             this.cbRoomSize.Size = new System.Drawing.Size(160, 23);
             this.cbRoomSize.TabIndex = 3;
+            this.cbRoomSize.SelectedIndexChanged += new System.EventHandler(this.cbRoomSize_SelectedIndexChanged);
             // 
             // dtpStart
             // 
@@ -187,11 +189,22 @@
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
+            // cbDisabled
+            // 
+            this.cbDisabled.AutoSize = true;
+            this.cbDisabled.Location = new System.Drawing.Point(689, 222);
+            this.cbDisabled.Name = "cbDisabled";
+            this.cbDisabled.Size = new System.Drawing.Size(157, 19);
+            this.cbDisabled.TabIndex = 18;
+            this.cbDisabled.Text = "Disabled Access?";
+            this.cbDisabled.UseVisualStyleBackColor = true;
+            // 
             // Form4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1162, 636);
+            this.Controls.Add(this.cbDisabled);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.tbtDuration);
             this.Controls.Add(this.lblTitle);
@@ -235,5 +248,6 @@
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.TextBox tbtDuration;
         private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.CheckBox cbDisabled;
     }
 }

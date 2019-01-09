@@ -25,7 +25,7 @@ namespace Bay_View
         DataTable dtData = new DataTable(); //For filling the Guest details.
         string insert = "INSERT INTO Guests (First_Name,Last_Name, Address,Post_Code, Mobile, Email) VALUES (@firstname, @lastname, @addr, @post, @mobilenum, @emails)";
         string edit = "Update Guests SET First_Name = @firstname, Last_Name = @lastname, Address = @addr, Post_Code = @post, Mobile = @mobilenum, Email = @emails WHERE Guest_ID = @id";
-        string delete = "DELETE FROM Guests WHERE Guest_ID =";
+        //string delete = "DELETE FROM Guests WHERE Guest_ID ="; 
         private void Form3_Load(object sender, EventArgs e)
         {
             try
