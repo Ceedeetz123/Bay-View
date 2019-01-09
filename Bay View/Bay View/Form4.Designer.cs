@@ -32,7 +32,7 @@
             this.lblCustomer = new System.Windows.Forms.Label();
             this.lblStaff = new System.Windows.Forms.Label();
             this.lblRoom = new System.Windows.Forms.Label();
-            this.cbRoomNo = new System.Windows.Forms.ComboBox();
+            this.cbRoomSize = new System.Windows.Forms.ComboBox();
             this.dtpStart = new System.Windows.Forms.DateTimePicker();
             this.dtpEnd = new System.Windows.Forms.DateTimePicker();
             this.lblStart = new System.Windows.Forms.Label();
@@ -41,7 +41,6 @@
             this.chbBreakFast = new System.Windows.Forms.CheckBox();
             this.tbTotal = new System.Windows.Forms.TextBox();
             this.lblTotal = new System.Windows.Forms.Label();
-            this.tbtStaff = new System.Windows.Forms.TextBox();
             this.lblTitle = new System.Windows.Forms.Label();
             this.tbtDuration = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
@@ -83,14 +82,14 @@
             this.lblRoom.TabIndex = 4;
             this.lblRoom.Text = "Room";
             // 
-            // cbRoomNo
+            // cbRoomSize
             // 
-            this.cbRoomNo.FormattingEnabled = true;
-            this.cbRoomNo.Location = new System.Drawing.Point(673, 47);
-            this.cbRoomNo.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.cbRoomNo.Name = "cbRoomNo";
-            this.cbRoomNo.Size = new System.Drawing.Size(160, 23);
-            this.cbRoomNo.TabIndex = 3;
+            this.cbRoomSize.FormattingEnabled = true;
+            this.cbRoomSize.Location = new System.Drawing.Point(673, 47);
+            this.cbRoomSize.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.cbRoomSize.Name = "cbRoomSize";
+            this.cbRoomSize.Size = new System.Drawing.Size(160, 23);
+            this.cbRoomSize.TabIndex = 3;
             // 
             // dtpStart
             // 
@@ -161,13 +160,6 @@
             this.lblTotal.TabIndex = 13;
             this.lblTotal.Text = "Total";
             // 
-            // tbtStaff
-            // 
-            this.tbtStaff.Location = new System.Drawing.Point(65, 6);
-            this.tbtStaff.Name = "tbtStaff";
-            this.tbtStaff.Size = new System.Drawing.Size(100, 25);
-            this.tbtStaff.TabIndex = 14;
-            // 
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
@@ -203,7 +195,6 @@
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.tbtDuration);
             this.Controls.Add(this.lblTitle);
-            this.Controls.Add(this.tbtStaff);
             this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.tbTotal);
             this.Controls.Add(this.chbBreakFast);
@@ -213,7 +204,7 @@
             this.Controls.Add(this.dtpEnd);
             this.Controls.Add(this.dtpStart);
             this.Controls.Add(this.lblRoom);
-            this.Controls.Add(this.cbRoomNo);
+            this.Controls.Add(this.cbRoomSize);
             this.Controls.Add(this.lblStaff);
             this.Controls.Add(this.lblCustomer);
             this.Controls.Add(this.cbCustomerID);
@@ -232,7 +223,7 @@
         private System.Windows.Forms.Label lblCustomer;
         private System.Windows.Forms.Label lblStaff;
         private System.Windows.Forms.Label lblRoom;
-        private System.Windows.Forms.ComboBox cbRoomNo;
+        private System.Windows.Forms.ComboBox cbRoomSize;
         private System.Windows.Forms.DateTimePicker dtpStart;
         private System.Windows.Forms.DateTimePicker dtpEnd;
         private System.Windows.Forms.Label lblStart;
@@ -241,7 +232,6 @@
         private System.Windows.Forms.CheckBox chbBreakFast;
         private System.Windows.Forms.TextBox tbTotal;
         private System.Windows.Forms.Label lblTotal;
-        private System.Windows.Forms.TextBox tbtStaff;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.TextBox tbtDuration;
         private System.Windows.Forms.Button btnSearch;

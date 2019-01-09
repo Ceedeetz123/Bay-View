@@ -47,6 +47,7 @@ namespace Bay_View
                     }
                     Conn.Close();
                 }
+                dbRole.Role = tbUsername.Text;
                 string Message = "Successful Login";
                 MessageBox.Show(Message);
                 Form5 form5 = new Form5(conString); //Sends connection to form 5 to be used for editing Staff details

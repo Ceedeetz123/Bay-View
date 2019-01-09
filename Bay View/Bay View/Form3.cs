@@ -23,8 +23,8 @@ namespace Bay_View
 
         DataTable dtGuestID = new DataTable(); //For the Guest ID Combobox.
         DataTable dtData = new DataTable(); //For filling the Guest details.
-        string insert = "INSERT INTO Guests (First_Name,Last_Name, Address,Post_Code, Mobile, Email, Num_of_Guests) VALUES (@firstname, @lastname, @addr, @post, @mobilenum, @emails, @guestamount)";
-        string edit = "Update Guests SET First_Name = @firstname, Last_Name = @lastname, Address = @addr, Post_Code = @post, Mobile = @mobilenum, Email = @emails, Num_of_Guests = @guestamount WHERE Guest_ID = @id";
+        string insert = "INSERT INTO Guests (First_Name,Last_Name, Address,Post_Code, Mobile, Email) VALUES (@firstname, @lastname, @addr, @post, @mobilenum, @emails)";
+        string edit = "Update Guests SET First_Name = @firstname, Last_Name = @lastname, Address = @addr, Post_Code = @post, Mobile = @mobilenum, Email = @emails WHERE Guest_ID = @id";
         string delete = "DELETE FROM Guests WHERE Guest_ID =";
         private void Form3_Load(object sender, EventArgs e)
         {
@@ -93,7 +93,6 @@ namespace Bay_View
                         tbtPostCode.Text = dv[0]["Post_Code"].ToString();
                         tbtMobile.Text = dv[0]["Mobile"].ToString();
                         tbtEmail.Text = dv[0]["Email"].ToString();
-                        tbtNumOfGuests.Text = dv[0]["Num_Of_Guests"].ToString();
                   
 
                 //}
@@ -117,7 +116,6 @@ namespace Bay_View
             tbtPostCode.Text = String.Empty;
             tbtMobile.Text = String.Empty;
             tbtEmail.Text = String.Empty;
-            tbtNumOfGuests.Text = String.Empty;
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -136,7 +134,6 @@ namespace Bay_View
                         cmd.Parameters.AddWithValue("post", tbtPostCode.Text);
                         cmd.Parameters.AddWithValue("mobilenum", tbtMobile.Text);
                         cmd.Parameters.AddWithValue("emails", tbtEmail.Text);
-                        cmd.Parameters.AddWithValue("guestamount", tbtNumOfGuests.Text);
                         cmd.ExecuteNonQuery();
                     }
                     Conn.Close();
@@ -167,7 +164,6 @@ namespace Bay_View
                         cmd.Parameters.AddWithValue("@post", tbtPostCode.Text);
                         cmd.Parameters.AddWithValue("@mobilenum", tbtMobile.Text);
                         cmd.Parameters.AddWithValue("@emails", tbtEmail.Text);
-                        cmd.Parameters.AddWithValue("@guestamount", tbtNumOfGuests.Text);
                         cmd.ExecuteNonQuery();
                     }
                     Conn.Close();
@@ -199,7 +195,6 @@ namespace Bay_View
                         tbtPostCode.Text = dv[0]["Post_Code"].ToString();
                         tbtMobile.Text = dv[0]["Mobile"].ToString();
                         tbtEmail.Text = dv[0]["Email"].ToString();
-                        tbtNumOfGuests.Text = dv[0]["Num_Of_Guests"].ToString();
                     
                 //}
             }

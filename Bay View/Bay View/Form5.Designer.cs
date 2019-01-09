@@ -33,7 +33,7 @@
             this.btnGuests = new System.Windows.Forms.Button();
             this.btnAnalysis = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblRole = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblTitle
@@ -83,21 +83,21 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "Welcome To Bay View!";
             // 
-            // label2
+            // lblRole
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(245, 110);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(71, 15);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "You are:";
+            this.lblRole.AutoSize = true;
+            this.lblRole.Location = new System.Drawing.Point(289, 108);
+            this.lblRole.Name = "lblRole";
+            this.lblRole.Size = new System.Drawing.Size(71, 15);
+            this.lblRole.TabIndex = 5;
+            this.lblRole.Text = "You are:";
             // 
             // Form5
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblRole);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnAnalysis);
             this.Controls.Add(this.btnGuests);
@@ -105,6 +105,7 @@
             this.Controls.Add(this.lblTitle);
             this.Name = "Form5";
             this.Text = "Form5";
+            this.Load += new System.EventHandler(this.Form5_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -117,6 +118,6 @@
         private System.Windows.Forms.Button btnGuests;
         private System.Windows.Forms.Button btnAnalysis;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblRole;
     }
 }

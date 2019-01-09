@@ -65,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="dbConns.cs" />
+    <Compile Include="dbRole.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

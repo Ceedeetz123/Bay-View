@@ -27,19 +27,24 @@ namespace Bay_View
             DateTime End = dtpEnd.Value.Date;
             TimeSpan t = End - Start;
         }
-
-        DataTable dtRooms = new DataTable();
-
         string conString = dbConns.dbSource;
 
-        //string Rooms = "SELECT Room_No from Room";
-        string avi = @"Select Room_No From Room r 
-                     Where NOT EXISTS
-                     (SELECT * FROM Booking
-                     WHERE  Room_No = R.Room_No
-                     AND End_Date >= @Ends
-                     AND Start_Date <= @Starts)";
 
+        DataTable dtRooms = new DataTable(); //Datatable for Room reservation
+        DataTable dtRoom = new DataTable(); //Datatable for Room Types
+        DataTable dtCustomer = new DataTable(); //Datatable for customers
+
+        //string Rooms = "SELECT Room_No from Room";
+        string avi = @"Select r.Room_No From Room r
+                     Where NOT EXISTS
+                     (SELECT b.Room_No FROM Booking b
+                     WHERE b.Room_No = r.Room_No
+                     AND (Start_Date >= @Starts And End_Date <= @Ends))
+                     AND Room_Size = @Rooms";
+
+        string room = "SELECT Room_Size FROM Room Group By Room_Size";
+
+        string ID = "SELECT Guest_ID, (First_Name ||' '|| Last_Name) as Name from Guests";
 
         private void dtpEnd_ValueChanged(object sender, EventArgs e)
         {
@@ -50,7 +55,7 @@ namespace Bay_View
             TimeSpan t = End - Start;
             
             tbtDuration.Text = t.TotalDays.ToString();
-
+            
 
         }
 
@@ -79,6 +84,7 @@ namespace Bay_View
                     {
                         cmd.Parameters.AddWithValue("Starts", dtpStart.Value.ToString("dd-mm-yyyy"));
                         cmd.Parameters.AddWithValue("Ends", dtpEnd.Value.ToString("dd-mm-yyyy"));
+                        cmd.Parameters.AddWithValue("Rooms", cbRoomSize.Text);
                         using (SQLiteDataReader DataRead = cmd.ExecuteReader())
                         {
                           
@@ -105,15 +111,35 @@ namespace Bay_View
         {
             try
             {
+                lblStaff.Text = "Staff: " + dbRole.Role;
                 using (SQLiteConnection Conn = new SQLiteConnection(conString))
                 {
+                    using (SQLiteDataAdapter daRoom = new SQLiteDataAdapter(room, Conn))
+                    {
+                        daRoom.Fill(dtRoom);
+                    }
+                    using (SQLiteDataAdapter daCustomer= new SQLiteDataAdapter(ID, Conn))
+                    {
+                        daCustomer.Fill(dtCustomer);
+                    }
+                    cbCustomerID.DataSource = dtCustomer;
+                    cbCustomerID.ValueMember = "Guest_ID";
+                    cbCustomerID.DisplayMember = "Name";
+                    cbCustomerID.SelectedIndex = 0;
+
+                    cbRoomSize.DataSource = dtRoom;
+                    cbRoomSize.ValueMember = "Room_Size";
+                    cbRoomSize.DisplayMember = "Room_Size";
+                    cbRoomSize.SelectedIndex = 0;
+
                     Conn.Open();
 
                     using (SQLiteDataAdapter daRooms = new SQLiteDataAdapter(avi, Conn))
                     {
-                       
+                       //Preloads the parameters for the room reservation list
                         daRooms.SelectCommand.Parameters.AddWithValue("Starts", dtpStart.Value.ToString("dd-mm-yyyy"));
                         daRooms.SelectCommand.Parameters.AddWithValue("Ends", dtpStart.Value.ToString("dd-mm-yyyy"));
+                        daRooms.SelectCommand.Parameters.AddWithValue("Rooms", cbRoomSize.Text);
                         daRooms.Fill(dtRooms);
 
                     }

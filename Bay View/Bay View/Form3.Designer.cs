@@ -40,8 +40,6 @@
             this.tbtMobile = new System.Windows.Forms.TextBox();
             this.lblEmail = new System.Windows.Forms.Label();
             this.tbtEmail = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.tbtNumOfGuests = new System.Windows.Forms.TextBox();
             this.lblGuests = new System.Windows.Forms.Label();
             this.cbCustID = new System.Windows.Forms.ComboBox();
             this.btnClear = new System.Windows.Forms.Button();
@@ -166,24 +164,6 @@
             this.tbtEmail.Size = new System.Drawing.Size(132, 25);
             this.tbtEmail.TabIndex = 12;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(488, 241);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(135, 15);
-            this.label1.TabIndex = 15;
-            this.label1.Text = "Number of Guests";
-            // 
-            // tbtNumOfGuests
-            // 
-            this.tbtNumOfGuests.Location = new System.Drawing.Point(627, 238);
-            this.tbtNumOfGuests.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.tbtNumOfGuests.Name = "tbtNumOfGuests";
-            this.tbtNumOfGuests.Size = new System.Drawing.Size(132, 25);
-            this.tbtNumOfGuests.TabIndex = 14;
-            // 
             // lblGuests
             // 
             this.lblGuests.AutoSize = true;
@@ -275,8 +255,6 @@
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.cbCustID);
             this.Controls.Add(this.lblGuests);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.tbtNumOfGuests);
             this.Controls.Add(this.lblEmail);
             this.Controls.Add(this.tbtEmail);
             this.Controls.Add(this.lblMobile);
@@ -312,8 +290,6 @@
         private System.Windows.Forms.TextBox tbtMobile;
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.TextBox tbtEmail;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox tbtNumOfGuests;
         private System.Windows.Forms.Label lblGuests;
         private System.Windows.Forms.ComboBox cbCustID;
         private System.Windows.Forms.Button btnClear;
