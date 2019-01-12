@@ -29,36 +29,42 @@ namespace Bay_View
         }
         string conString = dbConns.dbSource;
 
+        string disables;
+
+        int Total;
 
         DataTable dtRooms = new DataTable(); //Datatable for Room reservation
         DataTable dtRoom = new DataTable(); //Datatable for Room Types
         DataTable dtCustomer = new DataTable(); //Datatable for customers
 
-        //string Rooms = "SELECT Room_No from Room";
         string avi = @"Select r.Room_No From Room r
                      Where NOT EXISTS
                      (SELECT b.Room_No FROM Booking b
                      WHERE b.Room_No = r.Room_No
                      AND (Start_Date >= @Starts And End_Date <= @Ends))
-                     AND Room_Size = @Rooms";
+                     AND Room_Size = @Rooms
+                     AND Room_Type = @Disableds";
 
-        string disabled = @"Select r.Room_No From Room r
-                     WHERE NOT EXISTS(
-                     SELECT
-                     CASE WHEN Room_Type = 'Disabled' THEN (SELECT b.Room_No FROM Booking b
-                     WHERE b.Room_No = r.Room_No
-                     AND (Start_Date >= '2019-01-01' And End_Date <='2019-01-09' ))
-                     AND Room_Type = 'Disabled')
-                     ELSE(Select r.Room_No From Room r
-                     Where NOT EXISTS
-                     (SELECT b.Room_No FROM Booking b
-                     WHERE b.Room_No = r.Room_No
-                     AND (Start_Date >= '2019-01-01' And End_Date <= '2019-01-09')
-                     AND Room_Size = @Rooms)";
+        //string disabled = @"Select r.Room_No From Room r
+                     //WHERE NOT EXISTS(
+                     //SELECT
+                     //CASE WHEN Room_Type = 'Disabled' THEN (SELECT b.Room_No FROM Booking b
+                     //WHERE b.Room_No = r.Room_No
+                    // AND (Start_Date >= '2019-01-01' And End_Date <='2019-01-09' ))
+                     //AND Room_Type = 'Disabled')
+                     //ELSE(Select r.Room_No From Room r
+                     //Where NOT EXISTS
+                     //(SELECT b.Room_No FROM Booking b
+                     //WHERE b.Room_No = r.Room_No
+                    // AND (Start_Date >= '2019-01-01' And End_Date <= '2019-01-09')
+                     //AND Room_Size = @Rooms)";
 
         string room = "SELECT Room_Size FROM Room Group By Room_Size";
 
         string ID = "SELECT Guest_ID, (First_Name ||' '|| Last_Name) as Name from Guests";
+
+        string booking = @"INSERT INTO(Staff_ID, Guest_ID, Room_No, Start_Date, End_Date, Duration, Children, Adults, Disabled, Breakfast, Total_Cost)
+        VALUES (@Staffs, @Guests, @RoomNO, @Starts, @Ends, @Period, @Child, @Adult, @Disableds, @Breakfasts, @Amount)";
 
         private void dtpEnd_ValueChanged(object sender, EventArgs e)
         {
@@ -69,9 +75,9 @@ namespace Bay_View
             DateTime End = dtpEnd.Value.Date;
             dtpStart.MaxDate = dtpEnd.Value.Date; //Does not allow the user to choose a start date after the end date
             TimeSpan t = End - Start;
-            
+
             tbtDuration.Text = t.TotalDays.ToString();
-            
+
 
         }
 
@@ -85,7 +91,7 @@ namespace Bay_View
             dtpEnd.MinDate = dtpStart.Value.Date; //Does not allow users to choose a end date before the start date
             TimeSpan t = End - Start;//Calculates the Duration between the start and end dates
 
-            tbtDuration.Text = t.TotalDays.ToString(); 
+            tbtDuration.Text = t.TotalDays.ToString();
 
         }
 
@@ -95,17 +101,18 @@ namespace Bay_View
             try
             {
                 using (SQLiteConnection Conn = new SQLiteConnection(conString))
-                {   
-                    
+                {
+
                     Conn.Open();
                     using (SQLiteCommand cmd = new SQLiteCommand(avi, Conn))
                     {
                         cmd.Parameters.AddWithValue("Starts", dtpStart.Value.ToString("yyyy-mm-dd"));
                         cmd.Parameters.AddWithValue("Ends", dtpEnd.Value.ToString("yyyy-mm-dd"));
                         cmd.Parameters.AddWithValue("Rooms", cbRoomSize.Text);
+                        cmd.Parameters.AddWithValue("Disableds", disables);
                         using (SQLiteDataReader DataRead = cmd.ExecuteReader())
                         {
-                          
+
                             while (DataRead.Read())
                             {
                                 lbRooms.Items.Add(DataRead["Room_No"]); //Keeps adding records
@@ -121,7 +128,7 @@ namespace Bay_View
             }
             catch (Exception ex)
             {
-               MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message);
             }
 
         }
@@ -130,6 +137,9 @@ namespace Bay_View
         {
             try
             {
+                nudAdults.Maximum = 4;
+                nudChildren.Maximum = 4;
+
                 lblStaff.Text = "Staff: " + dbRole.Role;//Displays the Staff's ID from a store variable in a class
                 using (SQLiteConnection Conn = new SQLiteConnection(conString))
                 {
@@ -137,7 +147,7 @@ namespace Bay_View
                     {
                         daRoom.Fill(dtRoom);
                     }
-                    using (SQLiteDataAdapter daCustomer= new SQLiteDataAdapter(ID, Conn))
+                    using (SQLiteDataAdapter daCustomer = new SQLiteDataAdapter(ID, Conn))
                     {
                         daCustomer.Fill(dtCustomer);
                     }
@@ -156,29 +166,107 @@ namespace Bay_View
 
                     using (SQLiteDataAdapter daRooms = new SQLiteDataAdapter(avi, Conn))
                     {
-                       //Preloads the parameters for the room reservation list
+                        //Preloads the parameters for the room reservation list
                         daRooms.SelectCommand.Parameters.AddWithValue("Starts", dtpStart.Value.ToString("yyyy-mm-dd"));
                         daRooms.SelectCommand.Parameters.AddWithValue("Ends", dtpStart.Value.ToString("yyyy-mm-dd"));
                         daRooms.SelectCommand.Parameters.AddWithValue("Rooms", cbRoomSize.Text);
+                        daRooms.SelectCommand.Parameters.AddWithValue("Disableds", disables);
                         daRooms.Fill(dtRooms);
 
                     }
-                 
+
 
                 }
-                
+
             }
-            catch(Exception ex)
+            
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
         }
-
+    
        
         private void cbRoomSize_SelectedIndexChanged(object sender, EventArgs e)
         {
             lbRooms.Items.Clear();
             btnSearch.Enabled = true;
+        }
+
+        private void cbDisabled_CheckedChanged(object sender, EventArgs e)
+        {
+                
+            if (cbDisabled.Checked)
+            {
+                disables = "Disabled";
+            }
+
+            else if (!cbDisabled.Checked)
+            {
+                disables = "Non-disabled";
+            }
+
+            lbRooms.Items.Clear();
+            btnSearch.Enabled = true;
+        }
+
+        private void btnCalculate_Click(object sender, EventArgs e)
+        {
+           if (chbBreakFast.Checked && cbRoomSize.Text == "Single")//Single Room with breakfast
+            {
+                Total += 75 * (Convert.ToInt32(tbtDuration.Text));
+                lblTotal.Text = Total.ToString();
+            }
+           else
+           if(cbRoomSize.Text == "Single")//Single Room
+            {
+                Total += 70 * (Convert.ToInt32(tbtDuration.Text));
+                lblTotal.Text = Total.ToString();
+            }
+            else
+           if (cbRoomSize.Text == "Double" && nudAdults.Value == 1 )//One adult in a double bed
+            {
+                Total += 90 * (Convert.ToInt32(tbtDuration.Text));
+                lblTotal.Text = Total.ToString();
+            }
+           else
+            if (cbRoomSize.Text == "Double" && nudAdults.Value == 1 && chbBreakFast.Checked)//One adult in a double bed with breakfast
+            {
+                Total += 95 * (Convert.ToInt32(tbtDuration.Text));
+                lblTotal.Text = Total.ToString();
+            }
+            else
+           if (cbRoomSize.Text == "Double" && nudAdults.Value == 2 || cbRoomSize.Text == "Double" && nudAdults.Value == 1 && nudChildren.Value == 1)//Two adult or one adult with one children in a double bed
+            {
+                Total += 110 * (Convert.ToInt32(tbtDuration.Text));
+                lblTotal.Text = Total.ToString();
+            }
+            else
+           if (cbRoomSize.Text == "Double" && nudAdults.Value == 2 && chbBreakFast.Checked || cbRoomSize.Text == "Double" && nudAdults.Value == 1 && nudChildren.Value == 1 && chbBreakFast.Checked)//Two adult or one adult with one children in a double bed with breakfast
+            {
+                Total += 120 * (Convert.ToInt32(tbtDuration.Text));
+                lblTotal.Text = Total.ToString();
+            }
+            else
+            if (cbRoomSize.Text == "Family")//Family Room
+            {
+                Total += 160 * (Convert.ToInt32(tbtDuration.Text));
+                lblTotal.Text = Total.ToString();
+            }
+            else
+            if (cbRoomSize.Text == "Family" && chbBreakFast.Checked)//Family Room
+            {
+                Total += 175 * (Convert.ToInt32(tbtDuration.Text));
+                lblTotal.Text = Total.ToString();
+            }
+             
+
+        }
+
+        private void lbRooms_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            lblSelectedRoom.Text = "Your selected room: " + Convert.ToInt32(lbRooms.SelectedItem).ToString();
+                
         }
     }
 }
