@@ -153,6 +153,7 @@
             this.chbBreakFast.TabIndex = 11;
             this.chbBreakFast.Text = "Breakfast?";
             this.chbBreakFast.UseVisualStyleBackColor = true;
+            this.chbBreakFast.CheckedChanged += new System.EventHandler(this.chbBreakFast_CheckedChanged);
             // 
             // lblTotal
             // 
