@@ -34,6 +34,7 @@
             this.btnAnalysis = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.lblRole = new System.Windows.Forms.Label();
+            this.btnEditBookings = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblTitle
@@ -92,11 +93,22 @@
             this.lblRole.TabIndex = 5;
             this.lblRole.Text = "You are:";
             // 
+            // btnEditBookings
+            // 
+            this.btnEditBookings.Location = new System.Drawing.Point(91, 338);
+            this.btnEditBookings.Name = "btnEditBookings";
+            this.btnEditBookings.Size = new System.Drawing.Size(110, 56);
+            this.btnEditBookings.TabIndex = 6;
+            this.btnEditBookings.Text = "Change Bookings";
+            this.btnEditBookings.UseVisualStyleBackColor = true;
+            this.btnEditBookings.Click += new System.EventHandler(this.btnEditBookings_Click);
+            // 
             // Form5
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnEditBookings);
             this.Controls.Add(this.lblRole);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnAnalysis);
@@ -119,5 +131,6 @@
         private System.Windows.Forms.Button btnAnalysis;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblRole;
+        private System.Windows.Forms.Button btnEditBookings;
     }
 }

@@ -61,5 +61,15 @@ namespace Bay_View
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void btnEditBookings_Click(object sender, EventArgs e)
+        {
+            Form6 form6 = new Form6(conString); //Sends connection to form 6 to be used for editing booking details
+            this.Hide();
+            form6.ShowDialog();
+            this.Show();
+        }
+
+
     }
 }

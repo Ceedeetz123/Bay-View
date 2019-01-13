@@ -18,14 +18,13 @@ namespace Bay_View
             InitializeComponent();
             conString = instring;
         }
-        string conString;
+        string  conString = dbConns.dbSource;
 
 
         DataTable dtGuestID = new DataTable(); //For the Guest ID Combobox.
         DataTable dtData = new DataTable(); //For filling the Guest details.
         string insert = "INSERT INTO Guests (First_Name,Last_Name, Address,Post_Code, Mobile, Email) VALUES (@firstname, @lastname, @addr, @post, @mobilenum, @emails)";
         string edit = "Update Guests SET First_Name = @firstname, Last_Name = @lastname, Address = @addr, Post_Code = @post, Mobile = @mobilenum, Email = @emails WHERE Guest_ID = @id";
-        //string delete = "DELETE FROM Guests WHERE Guest_ID ="; 
         private void Form3_Load(object sender, EventArgs e)
         {
             try
@@ -33,8 +32,7 @@ namespace Bay_View
 
                 using (SQLiteConnection Conn = new SQLiteConnection(conString))
                 {
-                    //string ID = "SELECT ltrim(Guest_ID,'CI') as new from Guests order by CAST(new as INT)"; //For the Guest ID Combobox 
-                    //string Datas = "SELECT *, ltrim(Guest_ID,'CI') as new from Guests order by CAST(new as INT);";
+                   
                     string ID = "SELECT Guest_ID, (First_Name ||' '|| Last_Name) as Name from Guests"; //For the Guest ID Combobox
                     string Datas = "SELECT * FROM Guests";
 
@@ -53,17 +51,6 @@ namespace Bay_View
                             cbCustID.DisplayMember = "Name";//Displays Guest ID's only in the combobox 
                             cbCustID.SelectedIndex = 0; //Displays the first record
 
-                            //while(dtData.Rows.Count>0)
-                            // {
-                            //tbtCustomerID.Text = dtData.Rows[0]["Guest_ID"].ToString();
-                            //tbtBookRefNo.Text = dtData.Rows[0]["Booking_Ref_No"].ToString();
-                            //tbtName.Text = dtData.Rows[0]["Name"].ToString();
-                            //tbtAddress.Text = dtData.Rows[0]["Address"].ToString();
-                            //tbtPostCode.Text = dtData.Rows[0]["Postcode"].ToString();
-                            //tbtMobile.Text = dtData.Rows[0]["Mobile"].ToString();
-                            //tbtEmail.Text = dtData.Rows[0]["Email"].ToString();
-                            //tbtNumOfGuests.Text = dtData.Rows[0]["Num_Of_Guests"].ToString();
-                            // }
                      
 
                  }
@@ -80,12 +67,11 @@ namespace Bay_View
         {
             try
             {
-                //using (SQLiteConnection Conn = new SQLiteConnection(conString))
-                //{
+            
                     DataView dv = dtData.DefaultView; //Uses Text
                     
                         dv.RowFilter = "CONVERT(Guest_ID, 'System.String') LIKE '%" + cbCustID.SelectedValue.ToString() + "%'";
-                        //dv.RowFilter = string.Format("Customer_ID = " + cbCustID.SelectedIndex.ToString());
+                      
                         tbtGuestID.Text = dv[0]["Guest_ID"].ToString();
                         tbtFirst.Text = dv[0]["First_Name"].ToString();
                         tbtLast.Text = dv[0]["Last_Name"].ToString();
@@ -95,7 +81,7 @@ namespace Bay_View
                         tbtEmail.Text = dv[0]["Email"].ToString();
                   
 
-                //}
+
             }
             
 
@@ -182,8 +168,7 @@ namespace Bay_View
         {
             try
             {
-                //using (SQLiteConnection Conn = new SQLiteConnection(conString))
-                //{
+
                     DataView dv = dtData.DefaultView;
                     
                         dv.RowFilter = "CONVERT(Guest_ID, 'System.String') LIKE '%" + cbCustID.Text.ToString() + "%'";
@@ -196,7 +181,7 @@ namespace Bay_View
                         tbtMobile.Text = dv[0]["Mobile"].ToString();
                         tbtEmail.Text = dv[0]["Email"].ToString();
                     
-                //}
+
             }
 
             catch (Exception ex)

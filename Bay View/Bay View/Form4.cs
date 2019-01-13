@@ -67,9 +67,6 @@ namespace Bay_View
 
         string ID = "SELECT Guest_ID, (First_Name ||' '|| Last_Name) as Name from Guests";
 
-        string booking = @"INSERT INTO(Staff_ID, Guest_ID, Room_No, Start_Date, End_Date, Duration, Children, Adults, Disabled, Breakfast, Total_Cost)
-        VALUES (@Staffs, @Guests, @RoomNO, @Starts, @Ends, @Period, @Child, @Adult, @Disableds, @Breakfasts, @Amount)";
-
         private void dtpEnd_ValueChanged(object sender, EventArgs e)
         {
             lbRooms.Items.Clear();
@@ -273,7 +270,7 @@ namespace Bay_View
                     Conn.Open();
                     using (SQLiteCommand cmd = new SQLiteCommand(booking, Conn))
                     {
-                        //cmd.CommandText = "INSERT INTO Guests (Customer_ID, Booking_Ref_No, Name, Address, Postcode, Mobile, Email, Num_of_Guests) VALUES (@id, @ref, @fullname, @addr, @post, @mobilenum, @emails, @guestamount)";
+                    
                         cmd.Parameters.AddWithValue("Staffs", dbRole.Role);
                         cmd.Parameters.AddWithValue("Guests", cbCustomerID.ValueMember);
                         cmd.Parameters.AddWithValue("RoomNO", cbRoomSize.ValueMember);//
@@ -284,7 +281,7 @@ namespace Bay_View
                         cmd.Parameters.AddWithValue("Adult", nudAdults.Text);
                         cmd.Parameters.AddWithValue("Disableds", amountdisables);
                         cmd.Parameters.AddWithValue("Breakfast", breakfast);
-                        cmd.Parameters.AddWithValue("Amount", lblTotal.Text);
+                        cmd.Parameters.AddWithValue("Amount", Total);
                         cmd.ExecuteNonQuery();
                     }
                     Conn.Close();
