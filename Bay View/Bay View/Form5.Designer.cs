@@ -95,9 +95,9 @@
             // 
             // btnEditBookings
             // 
-            this.btnEditBookings.Location = new System.Drawing.Point(91, 338);
+            this.btnEditBookings.Location = new System.Drawing.Point(55, 341);
             this.btnEditBookings.Name = "btnEditBookings";
-            this.btnEditBookings.Size = new System.Drawing.Size(110, 56);
+            this.btnEditBookings.Size = new System.Drawing.Size(181, 69);
             this.btnEditBookings.TabIndex = 6;
             this.btnEditBookings.Text = "Change Bookings";
             this.btnEditBookings.UseVisualStyleBackColor = true;

@@ -39,6 +39,7 @@ namespace Bay_View
         private void Form5_Load(object sender, EventArgs e)
         {
 
+
             try
             {
                 using (SQLiteConnection Conn = new SQLiteConnection(conString)) //Connection Object for linking the database
@@ -51,6 +52,14 @@ namespace Bay_View
                         cmd.Parameters.AddWithValue("Name", Roles);//Prevents injection attacks using parameters and allows input to be entered into the sql string
                         Roles = (string)cmd.ExecuteScalar(); //executes the sql code to find the staffs role from the staff's ID which is then stored in the 'Roles' variable
                         lblRole.Text = "You are: " + Roles;
+                        if (Roles == "Staff")
+                        {
+                            btnAnalysis.Visible = false;
+                        }
+                        else
+                        {
+                            btnAnalysis.Visible= true;
+                        }
                     }
                 }
             }
