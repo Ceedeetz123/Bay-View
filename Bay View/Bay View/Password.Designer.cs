@@ -1,6 +1,6 @@
 ﻿namespace Bay_View
 {
-    partial class Form2
+    partial class Password
     {
         /// <summary>
         /// Required designer variable.

@@ -1,6 +1,6 @@
 ﻿namespace Bay_View
 {
-    partial class Form5
+    partial class Menu
     {
         /// <summary>
         /// Required designer variable.

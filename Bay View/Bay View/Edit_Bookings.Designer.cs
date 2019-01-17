@@ -1,6 +1,6 @@
 ﻿namespace Bay_View
 {
-    partial class Form6
+    partial class Edit_Bookings
     {
         /// <summary>
         /// Required designer variable.

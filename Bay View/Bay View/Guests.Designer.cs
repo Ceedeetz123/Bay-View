@@ -1,6 +1,6 @@
 ﻿namespace Bay_View
 {
-    partial class Form3
+    partial class Guests
     {
         /// <summary>
         /// Required designer variable.

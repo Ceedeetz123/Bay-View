@@ -12,9 +12,9 @@ using System.Configuration;
 
 namespace Bay_View
 {
-    public partial class Form1 : Form
+    public partial class Login : Form
     {
-        public Form1()
+        public Login()
         {
             InitializeComponent();
         }
@@ -50,7 +50,7 @@ namespace Bay_View
                 dbRole.Role = tbUsername.Text;
                 string Message = "Successful Login";
                 MessageBox.Show(Message);
-                Form5 form5 = new Form5(conString); //Sends connection to form 5 to be used for editing Staff details
+                Menu form5 = new Menu(conString); //Sends connection to form 5 to be used for editing Staff details
                 form5.ShowDialog();
             }
             catch (Exception ex)
@@ -64,7 +64,7 @@ namespace Bay_View
 
         private void btnReset_Click(object sender, EventArgs e)
         {
-            Form2 form2 = new Form2(conString); //Sends connection to form 2 to be used for editing Staff details
+            Password form2 = new Password(conString); //Sends connection to form 2 to be used for editing Staff details
             this.Hide();
             form2.ShowDialog();
             this.Show();

@@ -1,6 +1,6 @@
 ﻿namespace Bay_View
 {
-    partial class Form4
+    partial class Bookings
     {
         /// <summary>
         /// Required designer variable.
