@@ -71,15 +71,16 @@ namespace Bay_View
                     DataView dv = dtData.DefaultView; //Uses Text
                     
                         dv.RowFilter = "CONVERT(Guest_ID, 'System.String') LIKE '%" + cbCustID.SelectedValue.ToString() + "%'";
-                      
-                        tbtGuestID.Text = dv[0]["Guest_ID"].ToString();
-                        tbtFirst.Text = dv[0]["First_Name"].ToString();
-                        tbtLast.Text = dv[0]["Last_Name"].ToString();
-                        tbtAddress.Text = dv[0]["Address"].ToString();
-                        tbtPostCode.Text = dv[0]["Post_Code"].ToString();
-                        tbtMobile.Text = dv[0]["Mobile"].ToString();
-                        tbtEmail.Text = dv[0]["Email"].ToString();
-                  
+                if (dv.Count > 0)
+                {
+                    tbtGuestID.Text = dv[0]["Guest_ID"].ToString();
+                    tbtFirst.Text = dv[0]["First_Name"].ToString();
+                    tbtLast.Text = dv[0]["Last_Name"].ToString();
+                    tbtAddress.Text = dv[0]["Address"].ToString();
+                    tbtPostCode.Text = dv[0]["Post_Code"].ToString();
+                    tbtMobile.Text = dv[0]["Mobile"].ToString();
+                    tbtEmail.Text = dv[0]["Email"].ToString();
+                }
 
 
             }
@@ -172,15 +173,16 @@ namespace Bay_View
                     DataView dv = dtData.DefaultView;
                     
                         dv.RowFilter = "CONVERT(Guest_ID, 'System.String') LIKE '%" + cbCustID.Text.ToString() + "%'";
-
-                        tbtGuestID.Text = dv[0]["Guest_ID"].ToString();
-                        tbtFirst.Text = dv[0]["First_Name"].ToString();
-                        tbtLast.Text = dv[0]["Last_Name"].ToString();
-                        tbtAddress.Text = dv[0]["Address"].ToString();
-                        tbtPostCode.Text = dv[0]["Post_Code"].ToString();
-                        tbtMobile.Text = dv[0]["Mobile"].ToString();
-                        tbtEmail.Text = dv[0]["Email"].ToString();
-                    
+                if (dv.Count > 0)
+                {
+                    tbtGuestID.Text = dv[0]["Guest_ID"].ToString();
+                    tbtFirst.Text = dv[0]["First_Name"].ToString();
+                    tbtLast.Text = dv[0]["Last_Name"].ToString();
+                    tbtAddress.Text = dv[0]["Address"].ToString();
+                    tbtPostCode.Text = dv[0]["Post_Code"].ToString();
+                    tbtMobile.Text = dv[0]["Mobile"].ToString();
+                    tbtEmail.Text = dv[0]["Email"].ToString();
+                }
 
             }
 

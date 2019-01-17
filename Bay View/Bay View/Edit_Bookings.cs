@@ -67,33 +67,35 @@ namespace Bay_View
                 DataView dv = dtBooking.DefaultView; //Uses Text
 
                 dv.RowFilter = "CONVERT(Booking_Ref_No, 'System.String') LIKE '%" + chbBooking.SelectedValue.ToString() + "%'";
+                if (dv.Count > 0)
+                {
+                    tbtBookingNo.Text = dv[0]["Booking_Ref_No"].ToString();
+                    tbtGuestID.Text = dv[0]["Guest_ID"].ToString();
+                    tbtRoomNo.Text = dv[0]["Room_No"].ToString();
+                    dtpStart.Value = (DateTime)dv[0]["Start_Date"];
+                    dtpEnd.Value = (DateTime)dv[0]["End_Date"];
+                    tbtDuration.Text = dv[0]["Duration"].ToString();
+                    tbtChildren.Text = dv[0]["Children"].ToString();
+                    tbtAdults.Text = dv[0]["Adults"].ToString();
+                    tbtTotal.Text = dv[0]["Total_Cost"].ToString();
 
-                tbtBookingNo.Text = dv[0]["Booking_Ref_No"].ToString();
-                tbtGuestID.Text = dv[0]["Guest_ID"].ToString();
-                tbtRoomNo.Text = dv[0]["Room_No"].ToString();
-                dtpStart.Value = (DateTime)dv[0]["Start_Date"];
-                dtpEnd.Value = (DateTime)dv[0]["End_Date"];
-                tbtDuration.Text = dv[0]["Duration"].ToString();
-                tbtChildren.Text = dv[0]["Children"].ToString();
-                tbtAdults.Text = dv[0]["Adults"].ToString();
-                tbtTotal.Text = dv[0]["Total_Cost"].ToString();
+                    if (dv[0]["Disabled"].ToString() == "1")
+                    {
+                        cbDisabled.Checked = true;
+                    }
+                    else
+                    {
+                        cbDisabled.Checked = false;
+                    }
+                    if (dv[0]["Breakfast"].ToString() == "1")
+                    {
+                        cbBreakfast.Checked = true;
 
-                if (dv[0]["Disabled"].ToString() == "1")
-                {
-                    cbDisabled.Checked = true;
-                }
-                else
-                {
-                    cbDisabled.Checked = false;
-                }
-                if (dv[0]["Breakfast"].ToString() == "1")
-                {
-                    cbBreakfast.Checked = true;
-
-                }
-                else
-                {
-                    cbBreakfast.Checked = false;
+                    }
+                    else
+                    {
+                        cbBreakfast.Checked = false;
+                    }
                 }
             }
 
