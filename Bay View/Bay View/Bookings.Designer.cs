@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Bookings));
             this.cbCustomerID = new System.Windows.Forms.ComboBox();
             this.lblCustomer = new System.Windows.Forms.Label();
             this.lblStaff = new System.Windows.Forms.Label();
@@ -50,106 +51,126 @@
             this.nudAdults = new System.Windows.Forms.NumericUpDown();
             this.nudChildren = new System.Windows.Forms.NumericUpDown();
             this.lblSelectedRoom = new System.Windows.Forms.Label();
+            this.pbLogo = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.nudAdults)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudChildren)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // cbCustomerID
             // 
+            this.cbCustomerID.Font = new System.Drawing.Font("Adobe Fan Heiti Std B", 10F, System.Drawing.FontStyle.Bold);
             this.cbCustomerID.FormattingEnabled = true;
-            this.cbCustomerID.Location = new System.Drawing.Point(256, 47);
-            this.cbCustomerID.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.cbCustomerID.Location = new System.Drawing.Point(209, 40);
             this.cbCustomerID.Name = "cbCustomerID";
-            this.cbCustomerID.Size = new System.Drawing.Size(160, 23);
+            this.cbCustomerID.Size = new System.Drawing.Size(121, 24);
             this.cbCustomerID.TabIndex = 0;
             // 
             // lblCustomer
             // 
             this.lblCustomer.AutoSize = true;
-            this.lblCustomer.Location = new System.Drawing.Point(192, 50);
+            this.lblCustomer.Font = new System.Drawing.Font("Adobe Fan Heiti Std B", 10F, System.Drawing.FontStyle.Bold);
+            this.lblCustomer.Location = new System.Drawing.Point(144, 43);
+            this.lblCustomer.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCustomer.Name = "lblCustomer";
-            this.lblCustomer.Size = new System.Drawing.Size(47, 15);
+            this.lblCustomer.Size = new System.Drawing.Size(45, 18);
             this.lblCustomer.TabIndex = 1;
             this.lblCustomer.Text = "Guest";
             // 
             // lblStaff
             // 
             this.lblStaff.AutoSize = true;
-            this.lblStaff.Location = new System.Drawing.Point(12, 9);
+            this.lblStaff.Font = new System.Drawing.Font("Adobe Fan Heiti Std B", 10F, System.Drawing.FontStyle.Bold);
+            this.lblStaff.Location = new System.Drawing.Point(657, 9);
+            this.lblStaff.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblStaff.Name = "lblStaff";
-            this.lblStaff.Size = new System.Drawing.Size(47, 15);
+            this.lblStaff.Size = new System.Drawing.Size(38, 18);
             this.lblStaff.TabIndex = 2;
             this.lblStaff.Text = "Staff";
             // 
             // lblRoom
             // 
             this.lblRoom.AutoSize = true;
-            this.lblRoom.Location = new System.Drawing.Point(627, 50);
+            this.lblRoom.Font = new System.Drawing.Font("Adobe Fan Heiti Std B", 10F, System.Drawing.FontStyle.Bold);
+            this.lblRoom.Location = new System.Drawing.Point(406, 43);
+            this.lblRoom.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblRoom.Name = "lblRoom";
-            this.lblRoom.Size = new System.Drawing.Size(39, 15);
+            this.lblRoom.Size = new System.Drawing.Size(45, 18);
             this.lblRoom.TabIndex = 4;
             this.lblRoom.Text = "Room";
             // 
             // cbRoomSize
             // 
+            this.cbRoomSize.Font = new System.Drawing.Font("Adobe Fan Heiti Std B", 10F, System.Drawing.FontStyle.Bold);
             this.cbRoomSize.FormattingEnabled = true;
-            this.cbRoomSize.Location = new System.Drawing.Point(673, 47);
-            this.cbRoomSize.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.cbRoomSize.Location = new System.Drawing.Point(462, 40);
             this.cbRoomSize.Name = "cbRoomSize";
-            this.cbRoomSize.Size = new System.Drawing.Size(160, 23);
+            this.cbRoomSize.Size = new System.Drawing.Size(121, 24);
             this.cbRoomSize.TabIndex = 3;
             this.cbRoomSize.SelectedIndexChanged += new System.EventHandler(this.cbRoomSize_SelectedIndexChanged);
             // 
             // dtpStart
             // 
-            this.dtpStart.Location = new System.Drawing.Point(452, 128);
+            this.dtpStart.Font = new System.Drawing.Font("Adobe Fan Heiti Std B", 10F, System.Drawing.FontStyle.Bold);
+            this.dtpStart.Location = new System.Drawing.Point(339, 111);
+            this.dtpStart.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.dtpStart.Name = "dtpStart";
-            this.dtpStart.Size = new System.Drawing.Size(200, 25);
+            this.dtpStart.Size = new System.Drawing.Size(151, 34);
             this.dtpStart.TabIndex = 5;
             this.dtpStart.ValueChanged += new System.EventHandler(this.dtpStart_ValueChanged);
             // 
             // dtpEnd
             // 
-            this.dtpEnd.Location = new System.Drawing.Point(452, 185);
+            this.dtpEnd.Font = new System.Drawing.Font("Adobe Fan Heiti Std B", 10F, System.Drawing.FontStyle.Bold);
+            this.dtpEnd.Location = new System.Drawing.Point(339, 160);
+            this.dtpEnd.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.dtpEnd.Name = "dtpEnd";
-            this.dtpEnd.Size = new System.Drawing.Size(200, 25);
+            this.dtpEnd.Size = new System.Drawing.Size(151, 34);
             this.dtpEnd.TabIndex = 6;
             this.dtpEnd.ValueChanged += new System.EventHandler(this.dtpEnd_ValueChanged);
             // 
             // lblStart
             // 
             this.lblStart.AutoSize = true;
-            this.lblStart.Location = new System.Drawing.Point(359, 135);
+            this.lblStart.Font = new System.Drawing.Font("Adobe Fan Heiti Std B", 10F, System.Drawing.FontStyle.Bold);
+            this.lblStart.Location = new System.Drawing.Point(259, 122);
+            this.lblStart.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblStart.Name = "lblStart";
-            this.lblStart.Size = new System.Drawing.Size(87, 15);
+            this.lblStart.Size = new System.Drawing.Size(71, 18);
             this.lblStart.TabIndex = 8;
             this.lblStart.Text = "Start Date";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(375, 192);
+            this.label1.Font = new System.Drawing.Font("Adobe Fan Heiti Std B", 10F, System.Drawing.FontStyle.Bold);
+            this.label1.Location = new System.Drawing.Point(265, 171);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(71, 15);
+            this.label1.Size = new System.Drawing.Size(65, 18);
             this.label1.TabIndex = 9;
             this.label1.Text = "End Date";
             // 
             // lbRooms
             // 
+            this.lbRooms.Font = new System.Drawing.Font("Adobe Fan Heiti Std B", 10F, System.Drawing.FontStyle.Bold);
             this.lbRooms.FormattingEnabled = true;
-            this.lbRooms.ItemHeight = 15;
-            this.lbRooms.Location = new System.Drawing.Point(405, 264);
+            this.lbRooms.ItemHeight = 16;
+            this.lbRooms.Location = new System.Drawing.Point(304, 229);
+            this.lbRooms.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.lbRooms.Name = "lbRooms";
-            this.lbRooms.Size = new System.Drawing.Size(270, 169);
+            this.lbRooms.Size = new System.Drawing.Size(204, 132);
             this.lbRooms.TabIndex = 10;
             this.lbRooms.SelectedIndexChanged += new System.EventHandler(this.lbRooms_SelectedIndexChanged);
             // 
             // chbBreakFast
             // 
             this.chbBreakFast.AutoSize = true;
-            this.chbBreakFast.Location = new System.Drawing.Point(724, 313);
+            this.chbBreakFast.Font = new System.Drawing.Font("Adobe Fan Heiti Std B", 10F, System.Drawing.FontStyle.Bold);
+            this.chbBreakFast.Location = new System.Drawing.Point(543, 271);
+            this.chbBreakFast.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.chbBreakFast.Name = "chbBreakFast";
-            this.chbBreakFast.Size = new System.Drawing.Size(109, 19);
+            this.chbBreakFast.Size = new System.Drawing.Size(91, 22);
             this.chbBreakFast.TabIndex = 11;
             this.chbBreakFast.Text = "Breakfast?";
             this.chbBreakFast.UseVisualStyleBackColor = true;
@@ -158,34 +179,42 @@
             // lblTotal
             // 
             this.lblTotal.AutoSize = true;
-            this.lblTotal.Location = new System.Drawing.Point(458, 582);
+            this.lblTotal.Font = new System.Drawing.Font("Adobe Fan Heiti Std B", 10F, System.Drawing.FontStyle.Bold);
+            this.lblTotal.Location = new System.Drawing.Point(499, 390);
+            this.lblTotal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(47, 15);
+            this.lblTotal.Size = new System.Drawing.Size(40, 18);
             this.lblTotal.TabIndex = 13;
             this.lblTotal.Text = "Total";
             // 
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
-            this.lblTitle.Location = new System.Drawing.Point(504, 9);
+            this.lblTitle.Font = new System.Drawing.Font("Adobe Fan Heiti Std B", 10F, System.Drawing.FontStyle.Bold);
+            this.lblTitle.Location = new System.Drawing.Point(378, 8);
+            this.lblTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(71, 15);
+            this.lblTitle.Size = new System.Drawing.Size(65, 18);
             this.lblTitle.TabIndex = 15;
             this.lblTitle.Text = "Bookings";
             // 
             // tbtDuration
             // 
             this.tbtDuration.Enabled = false;
-            this.tbtDuration.Location = new System.Drawing.Point(702, 152);
+            this.tbtDuration.Font = new System.Drawing.Font("Adobe Fan Heiti Std B", 10F, System.Drawing.FontStyle.Bold);
+            this.tbtDuration.Location = new System.Drawing.Point(526, 132);
+            this.tbtDuration.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.tbtDuration.Name = "tbtDuration";
-            this.tbtDuration.Size = new System.Drawing.Size(100, 25);
+            this.tbtDuration.Size = new System.Drawing.Size(76, 34);
             this.tbtDuration.TabIndex = 16;
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(507, 235);
+            this.btnSearch.Font = new System.Drawing.Font("Adobe Fan Heiti Std B", 10F, System.Drawing.FontStyle.Bold);
+            this.btnSearch.Location = new System.Drawing.Point(380, 204);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnSearch.Size = new System.Drawing.Size(56, 20);
             this.btnSearch.TabIndex = 17;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -194,9 +223,11 @@
             // cbDisabled
             // 
             this.cbDisabled.AutoSize = true;
-            this.cbDisabled.Location = new System.Drawing.Point(718, 225);
+            this.cbDisabled.Font = new System.Drawing.Font("Adobe Fan Heiti Std B", 10F, System.Drawing.FontStyle.Bold);
+            this.cbDisabled.Location = new System.Drawing.Point(538, 195);
+            this.cbDisabled.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.cbDisabled.Name = "cbDisabled";
-            this.cbDisabled.Size = new System.Drawing.Size(157, 19);
+            this.cbDisabled.Size = new System.Drawing.Size(136, 22);
             this.cbDisabled.TabIndex = 18;
             this.cbDisabled.Text = "Disabled Access?";
             this.cbDisabled.UseVisualStyleBackColor = true;
@@ -205,26 +236,32 @@
             // lblAdults
             // 
             this.lblAdults.AutoSize = true;
-            this.lblAdults.Location = new System.Drawing.Point(142, 267);
+            this.lblAdults.Font = new System.Drawing.Font("Adobe Fan Heiti Std B", 10F, System.Drawing.FontStyle.Bold);
+            this.lblAdults.Location = new System.Drawing.Point(106, 231);
+            this.lblAdults.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblAdults.Name = "lblAdults";
-            this.lblAdults.Size = new System.Drawing.Size(55, 15);
+            this.lblAdults.Size = new System.Drawing.Size(49, 18);
             this.lblAdults.TabIndex = 21;
             this.lblAdults.Text = "Adults";
             // 
             // lblChildren
             // 
             this.lblChildren.AutoSize = true;
-            this.lblChildren.Location = new System.Drawing.Point(126, 333);
+            this.lblChildren.Font = new System.Drawing.Font("Adobe Fan Heiti Std B", 10F, System.Drawing.FontStyle.Bold);
+            this.lblChildren.Location = new System.Drawing.Point(94, 289);
+            this.lblChildren.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblChildren.Name = "lblChildren";
-            this.lblChildren.Size = new System.Drawing.Size(71, 15);
+            this.lblChildren.Size = new System.Drawing.Size(63, 18);
             this.lblChildren.TabIndex = 22;
             this.lblChildren.Text = "Children";
             // 
             // btnCalculate
             // 
-            this.btnCalculate.Location = new System.Drawing.Point(470, 494);
+            this.btnCalculate.Font = new System.Drawing.Font("Adobe Fan Heiti Std B", 10F, System.Drawing.FontStyle.Bold);
+            this.btnCalculate.Location = new System.Drawing.Point(352, 428);
+            this.btnCalculate.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnCalculate.Name = "btnCalculate";
-            this.btnCalculate.Size = new System.Drawing.Size(129, 44);
+            this.btnCalculate.Size = new System.Drawing.Size(97, 38);
             this.btnCalculate.TabIndex = 23;
             this.btnCalculate.Text = "Calculate";
             this.btnCalculate.UseVisualStyleBackColor = true;
@@ -232,32 +269,49 @@
             // 
             // nudAdults
             // 
-            this.nudAdults.Location = new System.Drawing.Point(216, 264);
+            this.nudAdults.Font = new System.Drawing.Font("Adobe Fan Heiti Std B", 10F, System.Drawing.FontStyle.Bold);
+            this.nudAdults.Location = new System.Drawing.Point(162, 229);
+            this.nudAdults.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.nudAdults.Name = "nudAdults";
-            this.nudAdults.Size = new System.Drawing.Size(120, 25);
+            this.nudAdults.Size = new System.Drawing.Size(90, 34);
             this.nudAdults.TabIndex = 24;
             // 
             // nudChildren
             // 
-            this.nudChildren.Location = new System.Drawing.Point(216, 333);
+            this.nudChildren.Font = new System.Drawing.Font("Adobe Fan Heiti Std B", 10F, System.Drawing.FontStyle.Bold);
+            this.nudChildren.Location = new System.Drawing.Point(162, 289);
+            this.nudChildren.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.nudChildren.Name = "nudChildren";
-            this.nudChildren.Size = new System.Drawing.Size(120, 25);
+            this.nudChildren.Size = new System.Drawing.Size(90, 34);
             this.nudChildren.TabIndex = 25;
             // 
             // lblSelectedRoom
             // 
             this.lblSelectedRoom.AutoSize = true;
-            this.lblSelectedRoom.Location = new System.Drawing.Point(423, 450);
+            this.lblSelectedRoom.Font = new System.Drawing.Font("Adobe Fan Heiti Std B", 10F, System.Drawing.FontStyle.Bold);
+            this.lblSelectedRoom.Location = new System.Drawing.Point(317, 390);
+            this.lblSelectedRoom.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSelectedRoom.Name = "lblSelectedRoom";
-            this.lblSelectedRoom.Size = new System.Drawing.Size(159, 15);
+            this.lblSelectedRoom.Size = new System.Drawing.Size(135, 18);
             this.lblSelectedRoom.TabIndex = 26;
             this.lblSelectedRoom.Text = "Your selected room:";
             // 
-            // Form4
+            // pbLogo
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.pbLogo.Image = ((System.Drawing.Image)(resources.GetObject("pbLogo.Image")));
+            this.pbLogo.Location = new System.Drawing.Point(12, 12);
+            this.pbLogo.Name = "pbLogo";
+            this.pbLogo.Size = new System.Drawing.Size(113, 111);
+            this.pbLogo.TabIndex = 27;
+            this.pbLogo.TabStop = false;
+            // 
+            // Bookings
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1162, 636);
+            this.BackColor = System.Drawing.Color.PowderBlue;
+            this.ClientSize = new System.Drawing.Size(706, 478);
+            this.Controls.Add(this.pbLogo);
             this.Controls.Add(this.lblSelectedRoom);
             this.Controls.Add(this.nudChildren);
             this.Controls.Add(this.nudAdults);
@@ -280,12 +334,12 @@
             this.Controls.Add(this.lblStaff);
             this.Controls.Add(this.lblCustomer);
             this.Controls.Add(this.cbCustomerID);
-            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.Name = "Form4";
+            this.Name = "Bookings";
             this.Text = "Form4";
             this.Load += new System.EventHandler(this.Form4_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nudAdults)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudChildren)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -315,5 +369,6 @@
         private System.Windows.Forms.NumericUpDown nudAdults;
         private System.Windows.Forms.NumericUpDown nudChildren;
         private System.Windows.Forms.Label lblSelectedRoom;
+        private System.Windows.Forms.PictureBox pbLogo;
     }
 }
