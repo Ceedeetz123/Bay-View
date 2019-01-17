@@ -73,12 +73,18 @@ namespace Bay_View
 
         private void btnEditBookings_Click(object sender, EventArgs e)
         {
-            Edit_Bookings form6 = new Edit_Bookings(conString); //Sends connection to form 6 to be used for editing booking details
+            Edit_Bookings booking = new Edit_Bookings(conString); //Sends connection to form 6 to be used for editing booking details
             this.Hide();
-            form6.ShowDialog();
+            booking.ShowDialog();
             this.Show();
         }
 
-
+        private void btnAnalysis_Click(object sender, EventArgs e)
+        {
+            Analysis analyse = new Analysis(conString); //Sends connection to form 6 to be used for editing booking details
+            this.Hide();
+            analyse.ShowDialog();
+            this.Show();
+        }
     }
 }

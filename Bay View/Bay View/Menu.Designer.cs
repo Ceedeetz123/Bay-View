@@ -85,6 +85,7 @@
             this.btnAnalysis.TabIndex = 3;
             this.btnAnalysis.Text = "Analysis";
             this.btnAnalysis.UseVisualStyleBackColor = true;
+            this.btnAnalysis.Click += new System.EventHandler(this.btnAnalysis_Click);
             // 
             // label1
             // 
