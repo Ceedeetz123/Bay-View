@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SQLite;
+using System.Globalization;
 
 namespace Bay_View
 {
@@ -48,7 +49,14 @@ namespace Bay_View
                      AND (Start_Date >= @Starts And End_Date <= @Ends))
                      AND Room_Size = @Rooms
                      AND Room_Type = @Disableds";
-
+        string test = @"Select r.Room_No From Room r
+                     Where NOT EXISTS
+                     (SELECT b.Room_No FROM Booking b
+                     WHERE b.Room_No = r.Room_No
+                     AND (Start_Date >= '2018-02-02' And End_Date <= '2019-02-31'))
+                     AND Room_Size = @Rooms
+                     AND Room_Type = @Disableds";
+                     
 
         string room = "SELECT Room_Size FROM Room Group By Room_Size";
 
@@ -88,18 +96,25 @@ namespace Bay_View
 
             try
             {
-                string Start = dtpStart.Value.Date.ToString("yyyy-MM-dd"); //Converts date picker format to Years-Months-Days
-                string End = dtpEnd.Value.Date.ToString("yyyy-MM-dd");
                 using (SQLiteConnection Conn = new SQLiteConnection(conString))
                 {
-
+                    string avi = @"Select r.Room_No From Room r
+                     Where NOT EXISTS
+                     (SELECT b.Room_No FROM Booking b
+                     WHERE b.Room_No = r.Room_No
+                     AND (End_Date >= @Starts And Start_Date <= @Ends))
+                     AND Room_Size = @Rooms
+                     AND Room_Type = @Disableds";
                     Conn.Open();
                     using (SQLiteCommand cmd = new SQLiteCommand(avi, Conn))
                     {
-                        cmd.Parameters.AddWithValue("Starts", Start);
-                        cmd.Parameters.AddWithValue("Ends", End);
-                        cmd.Parameters.AddWithValue("Rooms", cbRoomSize.Text);
-                        cmd.Parameters.AddWithValue("Disableds", disables);
+                        string Start = dtpStart.Value.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture); //Converts date picker format to Years-Months-Days
+                        string End = dtpEnd.Value.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture);
+                        
+                        cmd.Parameters.AddWithValue("@Starts",Start);
+                        cmd.Parameters.AddWithValue("@Ends",End);
+                        cmd.Parameters.AddWithValue("@Rooms", cbRoomSize.Text);
+                        cmd.Parameters.AddWithValue("@Disableds", disables);
                         using (SQLiteDataReader DataRead = cmd.ExecuteReader())
                         {
 
@@ -129,9 +144,11 @@ namespace Bay_View
             {
                 nudAdults.Maximum = 4;
                 nudChildren.Maximum = 4;
+                disables = "Non-disabled";
 
-                string Start = dtpStart.Value.Date.ToString("yyyy-MM-dd"); //Converts date picker format to Years-Months-Days
-                string End = dtpEnd.Value.Date.ToString("yyyy-MM-dd");
+
+                string Start = dtpStart.Value.ToShortDateString(); //Converts date picker format to Years-Months-Days
+                string End = dtpEnd.Value.ToShortDateString();
 
                 lblStaff.Text = "Staff: " + dbRole.Role;//Displays the Staff's ID from a store variable in a class
                 using (SQLiteConnection Conn = new SQLiteConnection(conString))
@@ -260,15 +277,15 @@ namespace Bay_View
 
                 using (SQLiteConnection Conn = new SQLiteConnection(conString))
                 {
-                    string booking = @"INSERT INTO Booking(Staff_ID, Guest_ID, Room_No, Start_Date, End_Date, Duration, Children, Adults, Disabled, Breakfast, Total_Cost)
-                     VALUES (@Staffs, @Guests, @RoomNO, @Starts, @Ends, @Period, @Child, @Adult, @Disableds, @Breakfasts, @Amount)";
+                    string booking = @"INSERT INTO Booking(Staff_ID, Guest_ID, Room_No, Start_Date, End_Date, Duration, Children, Adults, Disabled, Breakfast, Total_Cost,Cancelled)
+                     VALUES (@Staffs, @Guests, @RoomNO, @Starts, @Ends, @Period, @Child, @Adult, @Disableds, @Breakfasts, @Amount,@Cancel)";
                     Conn.Open();
                     using (SQLiteCommand cmd = new SQLiteCommand(booking, Conn))
                     {
                     
                         cmd.Parameters.AddWithValue("Staffs", dbRole.Role);
-                        cmd.Parameters.AddWithValue("Guests", cbCustomerID.ValueMember);
-                        cmd.Parameters.AddWithValue("RoomNO", cbRoomSize.ValueMember);//
+                        cmd.Parameters.AddWithValue("Guests", cbCustomerID.SelectedValue);
+                        cmd.Parameters.AddWithValue("RoomNO", lbRooms.SelectedItem);//
                         cmd.Parameters.AddWithValue("Starts", Start);
                         cmd.Parameters.AddWithValue("Ends", End);
                         cmd.Parameters.AddWithValue("Period", tbtDuration.Text);
@@ -277,6 +294,7 @@ namespace Bay_View
                         cmd.Parameters.AddWithValue("Disableds", amountdisables);
                         cmd.Parameters.AddWithValue("Breakfasts", breakfast);
                         cmd.Parameters.AddWithValue("Amount", Total);
+                        cmd.Parameters.AddWithValue("Cancel", "0");
                         cmd.ExecuteNonQuery();
                     }
                     Conn.Close();

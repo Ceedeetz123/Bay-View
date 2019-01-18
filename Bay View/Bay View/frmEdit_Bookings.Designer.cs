@@ -166,7 +166,7 @@
             // 
             this.lblStaffID.AutoSize = true;
             this.lblStaffID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.lblStaffID.Location = new System.Drawing.Point(733, 17);
+            this.lblStaffID.Location = new System.Drawing.Point(655, 14);
             this.lblStaffID.Name = "lblStaffID";
             this.lblStaffID.Size = new System.Drawing.Size(74, 20);
             this.lblStaffID.TabIndex = 17;
@@ -246,7 +246,7 @@
             // 
             this.lblAmount.AutoSize = true;
             this.lblAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.lblAmount.Location = new System.Drawing.Point(600, 365);
+            this.lblAmount.Location = new System.Drawing.Point(598, 357);
             this.lblAmount.Name = "lblAmount";
             this.lblAmount.Size = new System.Drawing.Size(96, 20);
             this.lblAmount.TabIndex = 27;

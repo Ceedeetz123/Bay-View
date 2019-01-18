@@ -46,7 +46,7 @@
             this.btnClear = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnHide = new System.Windows.Forms.Button();
             this.lblLast = new System.Windows.Forms.Label();
             this.tbtLast = new System.Windows.Forms.TextBox();
             this.pbLogo = new System.Windows.Forms.PictureBox();
@@ -234,16 +234,16 @@
             this.btnEdit.UseVisualStyleBackColor = true;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
-            // btnDelete
+            // btnHide
             // 
-            this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.btnDelete.Location = new System.Drawing.Point(704, 297);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(95, 50);
-            this.btnDelete.TabIndex = 21;
-            this.btnDelete.Text = "Delete";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            this.btnHide.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.btnHide.Location = new System.Drawing.Point(704, 297);
+            this.btnHide.Name = "btnHide";
+            this.btnHide.Size = new System.Drawing.Size(95, 50);
+            this.btnHide.TabIndex = 21;
+            this.btnHide.Text = "Hide";
+            this.btnHide.UseVisualStyleBackColor = true;
+            this.btnHide.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // lblLast
             // 
@@ -285,7 +285,7 @@
             this.Controls.Add(this.pbLogo);
             this.Controls.Add(this.lblLast);
             this.Controls.Add(this.tbtLast);
-            this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.btnHide);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnClear);
@@ -332,7 +332,7 @@
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnEdit;
-        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnHide;
         private System.Windows.Forms.Label lblLast;
         private System.Windows.Forms.TextBox tbtLast;
         private System.Windows.Forms.PictureBox pbLogo;

@@ -110,7 +110,9 @@
             // 
             // dtpStart
             // 
+            this.dtpStart.CustomFormat = "yyyy/MM/dd";
             this.dtpStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.dtpStart.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpStart.Location = new System.Drawing.Point(452, 128);
             this.dtpStart.Name = "dtpStart";
             this.dtpStart.Size = new System.Drawing.Size(200, 26);
@@ -119,7 +121,9 @@
             // 
             // dtpEnd
             // 
+            this.dtpEnd.CustomFormat = "yyy/MM/dd";
             this.dtpEnd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.dtpEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpEnd.Location = new System.Drawing.Point(452, 185);
             this.dtpEnd.Name = "dtpEnd";
             this.dtpEnd.Size = new System.Drawing.Size(200, 26);
@@ -248,7 +252,7 @@
             this.btnCalculate.Name = "btnCalculate";
             this.btnCalculate.Size = new System.Drawing.Size(129, 44);
             this.btnCalculate.TabIndex = 23;
-            this.btnCalculate.Text = "Calculate";
+            this.btnCalculate.Text = "Book";
             this.btnCalculate.UseVisualStyleBackColor = true;
             this.btnCalculate.Click += new System.EventHandler(this.btnCalculate_Click);
             // 
