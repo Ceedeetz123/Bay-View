@@ -11,9 +11,9 @@ using System.Data.SQLite;
 
 namespace Bay_View
 {
-    public partial class Password : Form
+    public partial class frmPassword : Form
     {
-        public Password(string instring)
+        public frmPassword(string instring)
         {
             InitializeComponent();
             conString = instring;

@@ -12,9 +12,9 @@ using System.Globalization;
 
 namespace Bay_View
 {
-    public partial class Edit_Bookings : Form
+    public partial class frmEdit_Bookings : Form
     {
-        public Edit_Bookings(string instring)
+        public frmEdit_Bookings(string instring)
         {
             InitializeComponent();
             conString = instring;

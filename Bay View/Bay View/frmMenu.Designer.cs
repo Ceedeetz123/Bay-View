@@ -1,6 +1,6 @@
 ﻿namespace Bay_View
 {
-    partial class Menu
+    partial class frmMenu
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menu));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMenu));
             this.lblTitle = new System.Windows.Forms.Label();
             this.btnBooking = new System.Windows.Forms.Button();
             this.btnGuests = new System.Windows.Forms.Button();

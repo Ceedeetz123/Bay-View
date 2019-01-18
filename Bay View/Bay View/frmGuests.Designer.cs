@@ -1,6 +1,6 @@
 ﻿namespace Bay_View
 {
-    partial class Guests
+    partial class frmGuests
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Guests));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGuests));
             this.tbtGuestID = new System.Windows.Forms.TextBox();
             this.tbtFirst = new System.Windows.Forms.TextBox();
             this.tbtAddress = new System.Windows.Forms.TextBox();

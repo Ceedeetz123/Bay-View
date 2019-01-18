@@ -12,9 +12,9 @@ using System.Windows.Forms.DataVisualization.Charting;
 
 namespace Bay_View
 {
-    public partial class Analysis : Form
+    public partial class frmRoomOccupancy : Form
     {
-        public Analysis(string instring)
+        public frmRoomOccupancy(string instring)
         {
             InitializeComponent();
             conString = instring;
@@ -84,5 +84,13 @@ namespace Bay_View
                 Analysis_Load(this, new EventArgs());
             }
         }
+
+        private void btnSubmit_Click(object sender, EventArgs e)
+        {
+    
+            Analysis_Load(this, new EventArgs());
+           
+        }
     }
-}
+    }
+

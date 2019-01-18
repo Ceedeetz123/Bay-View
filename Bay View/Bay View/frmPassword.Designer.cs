@@ -1,6 +1,6 @@
 ﻿namespace Bay_View
 {
-    partial class Password
+    partial class frmPassword
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Password));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPassword));
             this.tbtNewPass = new System.Windows.Forms.TextBox();
             this.lblNewPass = new System.Windows.Forms.Label();
             this.lblStaffID = new System.Windows.Forms.Label();

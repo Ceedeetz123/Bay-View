@@ -1,6 +1,6 @@
 ﻿namespace Bay_View
 {
-    partial class Edit_Bookings
+    partial class frmEdit_Bookings
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Edit_Bookings));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEdit_Bookings));
             this.lblEdit = new System.Windows.Forms.Label();
             this.chbBooking = new System.Windows.Forms.ComboBox();
             this.tbtBookingNo = new System.Windows.Forms.TextBox();

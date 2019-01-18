@@ -65,72 +65,105 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Analysis.cs">
+    <Compile Include="frmAnalysis.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Analysis.Designer.cs">
-      <DependentUpon>Analysis.cs</DependentUpon>
+    <Compile Include="frmAnalysis.Designer.cs">
+      <DependentUpon>frmAnalysis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmBookingData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBookingData.Designer.cs">
+      <DependentUpon>frmBookingData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmOccupancyTypes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmOccupancyTypes.Designer.cs">
+      <DependentUpon>frmOccupancyTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRoomOccupancy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRoomOccupancy.Designer.cs">
+      <DependentUpon>frmRoomOccupancy.cs</DependentUpon>
     </Compile>
     <Compile Include="dbConns.cs" />
     <Compile Include="dbRole.cs" />
-    <Compile Include="Login.cs">
+    <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Login.Designer.cs">
-      <DependentUpon>Login.cs</DependentUpon>
+    <Compile Include="frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Password.cs">
+    <Compile Include="frmPassword.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Password.Designer.cs">
-      <DependentUpon>Password.cs</DependentUpon>
+    <Compile Include="frmPassword.Designer.cs">
+      <DependentUpon>frmPassword.cs</DependentUpon>
     </Compile>
-    <Compile Include="Guests.cs">
+    <Compile Include="frmGuests.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Guests.Designer.cs">
-      <DependentUpon>Guests.cs</DependentUpon>
+    <Compile Include="frmGuests.Designer.cs">
+      <DependentUpon>frmGuests.cs</DependentUpon>
     </Compile>
-    <Compile Include="Bookings.cs">
+    <Compile Include="frmBookings.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Bookings.Designer.cs">
-      <DependentUpon>Bookings.cs</DependentUpon>
+    <Compile Include="frmBookings.Designer.cs">
+      <DependentUpon>frmBookings.cs</DependentUpon>
     </Compile>
-    <Compile Include="Menu.cs">
+    <Compile Include="frmMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Menu.Designer.cs">
-      <DependentUpon>Menu.cs</DependentUpon>
+    <Compile Include="frmMenu.Designer.cs">
+      <DependentUpon>frmMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="Edit_Bookings.cs">
+    <Compile Include="frmEdit_Bookings.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Edit_Bookings.Designer.cs">
-      <DependentUpon>Edit_Bookings.cs</DependentUpon>
+    <Compile Include="frmEdit_Bookings.Designer.cs">
+      <DependentUpon>frmEdit_Bookings.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Analysis.resx">
-      <DependentUpon>Analysis.cs</DependentUpon>
+    <Compile Include="frmYearCost.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmYearCost.Designer.cs">
+      <DependentUpon>frmYearCost.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="frmAnalysis.resx">
+      <DependentUpon>frmAnalysis.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Login.resx">
-      <DependentUpon>Login.cs</DependentUpon>
+    <EmbeddedResource Include="frmBookingData.resx">
+      <DependentUpon>frmBookingData.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Password.resx">
-      <DependentUpon>Password.cs</DependentUpon>
+    <EmbeddedResource Include="frmOccupancyTypes.resx">
+      <DependentUpon>frmOccupancyTypes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Guests.resx">
-      <DependentUpon>Guests.cs</DependentUpon>
+    <EmbeddedResource Include="frmRoomOccupancy.resx">
+      <DependentUpon>frmRoomOccupancy.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Bookings.resx">
-      <DependentUpon>Bookings.cs</DependentUpon>
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Menu.resx">
-      <DependentUpon>Menu.cs</DependentUpon>
+    <EmbeddedResource Include="frmPassword.resx">
+      <DependentUpon>frmPassword.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Edit_Bookings.resx">
-      <DependentUpon>Edit_Bookings.cs</DependentUpon>
+    <EmbeddedResource Include="frmGuests.resx">
+      <DependentUpon>frmGuests.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBookings.resx">
+      <DependentUpon>frmBookings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMenu.resx">
+      <DependentUpon>frmMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEdit_Bookings.resx">
+      <DependentUpon>frmEdit_Bookings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -141,6 +174,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="frmYearCost.resx">
+      <DependentUpon>frmYearCost.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

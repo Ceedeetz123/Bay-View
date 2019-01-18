@@ -11,9 +11,9 @@ using System.Data.SQLite;
 
 namespace Bay_View
 {
-    public partial class Menu : Form
+    public partial class frmMenu : Form
     {
-        public Menu(string instring)
+        public frmMenu(string instring)
         {
             InitializeComponent();
             conString = instring;
@@ -23,7 +23,7 @@ namespace Bay_View
         string Roles = dbRole.Role;
         private void lblBooking_Click(object sender, EventArgs e)
         {
-            Bookings form4 = new Bookings(conString); //Sends connection to form 4 to be used for editing Staff details
+            frmBookings form4 = new frmBookings(conString); //Sends connection to form 4 to be used for editing Staff details
             this.Hide();
             form4.ShowDialog();
             this.Show();
@@ -31,7 +31,7 @@ namespace Bay_View
 
         private void btnGuests_Click(object sender, EventArgs e)
         {
-            Guests form3 = new Guests(conString); //Sends connection to form 3 to be used for editing Staff details
+            frmGuests form3 = new frmGuests(conString); //Sends connection to form 3 to be used for editing Staff details
             this.Hide();
             form3.ShowDialog();
             this.Show();
@@ -73,7 +73,7 @@ namespace Bay_View
 
         private void btnEditBookings_Click(object sender, EventArgs e)
         {
-            Edit_Bookings booking = new Edit_Bookings(conString); //Sends connection to form 6 to be used for editing booking details
+            frmEdit_Bookings booking = new frmEdit_Bookings(conString); //Sends connection to form 6 to be used for editing booking details
             this.Hide();
             booking.ShowDialog();
             this.Show();
@@ -81,7 +81,7 @@ namespace Bay_View
 
         private void btnAnalysis_Click(object sender, EventArgs e)
         {
-            Analysis analyse = new Analysis(conString); //Sends connection to form 6 to be used for editing booking details
+            frmAnalysis analyse = new frmAnalysis(conString); 
             this.Hide();
             analyse.ShowDialog();
             this.Show();

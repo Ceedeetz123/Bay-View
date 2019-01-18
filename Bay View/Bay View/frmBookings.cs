@@ -11,9 +11,9 @@ using System.Data.SQLite;
 
 namespace Bay_View
 {
-    public partial class Bookings : Form
+    public partial class frmBookings : Form
     {
-        public Bookings(string instring)
+        public frmBookings(string instring)
         {
             InitializeComponent();
             conString = instring;
