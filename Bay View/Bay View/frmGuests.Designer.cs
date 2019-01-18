@@ -56,146 +56,157 @@
             // tbtGuestID
             // 
             this.tbtGuestID.Enabled = false;
-            this.tbtGuestID.Font = new System.Drawing.Font("Adobe Fan Heiti Std B", 10F, System.Drawing.FontStyle.Bold);
-            this.tbtGuestID.Location = new System.Drawing.Point(240, 99);
+            this.tbtGuestID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.tbtGuestID.Location = new System.Drawing.Point(320, 114);
+            this.tbtGuestID.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tbtGuestID.Name = "tbtGuestID";
-            this.tbtGuestID.Size = new System.Drawing.Size(100, 34);
+            this.tbtGuestID.Size = new System.Drawing.Size(132, 26);
             this.tbtGuestID.TabIndex = 0;
             this.tbtGuestID.Text = " ";
             // 
             // tbtFirst
             // 
-            this.tbtFirst.Font = new System.Drawing.Font("Adobe Fan Heiti Std B", 10F, System.Drawing.FontStyle.Bold);
-            this.tbtFirst.Location = new System.Drawing.Point(240, 150);
+            this.tbtFirst.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.tbtFirst.Location = new System.Drawing.Point(320, 173);
+            this.tbtFirst.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tbtFirst.Name = "tbtFirst";
-            this.tbtFirst.Size = new System.Drawing.Size(100, 34);
+            this.tbtFirst.Size = new System.Drawing.Size(132, 26);
             this.tbtFirst.TabIndex = 2;
             this.tbtFirst.Text = " ";
             // 
             // tbtAddress
             // 
-            this.tbtAddress.Font = new System.Drawing.Font("Adobe Fan Heiti Std B", 10F, System.Drawing.FontStyle.Bold);
-            this.tbtAddress.Location = new System.Drawing.Point(240, 238);
+            this.tbtAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.tbtAddress.Location = new System.Drawing.Point(320, 275);
+            this.tbtAddress.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tbtAddress.Name = "tbtAddress";
-            this.tbtAddress.Size = new System.Drawing.Size(100, 34);
+            this.tbtAddress.Size = new System.Drawing.Size(132, 26);
             this.tbtAddress.TabIndex = 3;
             this.tbtAddress.Text = " ";
             // 
             // lblGuestID
             // 
             this.lblGuestID.AutoSize = true;
-            this.lblGuestID.Font = new System.Drawing.Font("Adobe Fan Heiti Std B", 10F, System.Drawing.FontStyle.Bold);
-            this.lblGuestID.Location = new System.Drawing.Point(157, 102);
+            this.lblGuestID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.lblGuestID.Location = new System.Drawing.Point(209, 118);
+            this.lblGuestID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblGuestID.Name = "lblGuestID";
-            this.lblGuestID.Size = new System.Drawing.Size(51, 18);
+            this.lblGuestID.Size = new System.Drawing.Size(69, 20);
             this.lblGuestID.TabIndex = 4;
             this.lblGuestID.Text = "Guests";
             // 
             // lblFirst
             // 
             this.lblFirst.AutoSize = true;
-            this.lblFirst.Font = new System.Drawing.Font("Adobe Fan Heiti Std B", 10F, System.Drawing.FontStyle.Bold);
-            this.lblFirst.Location = new System.Drawing.Point(136, 153);
+            this.lblFirst.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.lblFirst.Location = new System.Drawing.Point(181, 177);
+            this.lblFirst.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFirst.Name = "lblFirst";
-            this.lblFirst.Size = new System.Drawing.Size(76, 18);
+            this.lblFirst.Size = new System.Drawing.Size(102, 20);
             this.lblFirst.TabIndex = 6;
             this.lblFirst.Text = "First Name";
             // 
             // lblAddress
             // 
             this.lblAddress.AutoSize = true;
-            this.lblAddress.Font = new System.Drawing.Font("Adobe Fan Heiti Std B", 10F, System.Drawing.FontStyle.Bold);
-            this.lblAddress.Location = new System.Drawing.Point(152, 241);
+            this.lblAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.lblAddress.Location = new System.Drawing.Point(203, 278);
+            this.lblAddress.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblAddress.Name = "lblAddress";
-            this.lblAddress.Size = new System.Drawing.Size(60, 18);
+            this.lblAddress.Size = new System.Drawing.Size(78, 20);
             this.lblAddress.TabIndex = 7;
             this.lblAddress.Text = "Address";
             // 
             // lblPostCode
             // 
             this.lblPostCode.AutoSize = true;
-            this.lblPostCode.Font = new System.Drawing.Font("Adobe Fan Heiti Std B", 10F, System.Drawing.FontStyle.Bold);
-            this.lblPostCode.Location = new System.Drawing.Point(377, 101);
+            this.lblPostCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.lblPostCode.Location = new System.Drawing.Point(503, 117);
+            this.lblPostCode.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPostCode.Name = "lblPostCode";
-            this.lblPostCode.Size = new System.Drawing.Size(72, 18);
+            this.lblPostCode.Size = new System.Drawing.Size(96, 20);
             this.lblPostCode.TabIndex = 9;
             this.lblPostCode.Text = "Post Code";
             // 
             // tbtPostCode
             // 
-            this.tbtPostCode.Font = new System.Drawing.Font("Adobe Fan Heiti Std B", 10F, System.Drawing.FontStyle.Bold);
-            this.tbtPostCode.Location = new System.Drawing.Point(475, 97);
+            this.tbtPostCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.tbtPostCode.Location = new System.Drawing.Point(633, 112);
+            this.tbtPostCode.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tbtPostCode.Name = "tbtPostCode";
-            this.tbtPostCode.Size = new System.Drawing.Size(100, 34);
+            this.tbtPostCode.Size = new System.Drawing.Size(132, 26);
             this.tbtPostCode.TabIndex = 8;
             this.tbtPostCode.Text = " ";
             // 
             // lblMobile
             // 
             this.lblMobile.AutoSize = true;
-            this.lblMobile.Font = new System.Drawing.Font("Adobe Fan Heiti Std B", 10F, System.Drawing.FontStyle.Bold);
-            this.lblMobile.Location = new System.Drawing.Point(390, 146);
+            this.lblMobile.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.lblMobile.Location = new System.Drawing.Point(520, 168);
+            this.lblMobile.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMobile.Name = "lblMobile";
-            this.lblMobile.Size = new System.Drawing.Size(53, 18);
+            this.lblMobile.Size = new System.Drawing.Size(64, 20);
             this.lblMobile.TabIndex = 11;
             this.lblMobile.Text = "Mobile";
             // 
             // tbtMobile
             // 
-            this.tbtMobile.Font = new System.Drawing.Font("Adobe Fan Heiti Std B", 10F, System.Drawing.FontStyle.Bold);
-            this.tbtMobile.Location = new System.Drawing.Point(475, 143);
+            this.tbtMobile.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.tbtMobile.Location = new System.Drawing.Point(633, 165);
+            this.tbtMobile.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tbtMobile.Name = "tbtMobile";
-            this.tbtMobile.Size = new System.Drawing.Size(100, 34);
+            this.tbtMobile.Size = new System.Drawing.Size(132, 26);
             this.tbtMobile.TabIndex = 10;
             this.tbtMobile.Text = " ";
             // 
             // lblEmail
             // 
             this.lblEmail.AutoSize = true;
-            this.lblEmail.Font = new System.Drawing.Font("Adobe Fan Heiti Std B", 10F, System.Drawing.FontStyle.Bold);
-            this.lblEmail.Location = new System.Drawing.Point(400, 195);
+            this.lblEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.lblEmail.Location = new System.Drawing.Point(533, 225);
+            this.lblEmail.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(43, 18);
+            this.lblEmail.Size = new System.Drawing.Size(56, 20);
             this.lblEmail.TabIndex = 13;
             this.lblEmail.Text = "Email";
             // 
             // tbtEmail
             // 
-            this.tbtEmail.Font = new System.Drawing.Font("Adobe Fan Heiti Std B", 10F, System.Drawing.FontStyle.Bold);
-            this.tbtEmail.Location = new System.Drawing.Point(475, 192);
+            this.tbtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.tbtEmail.Location = new System.Drawing.Point(633, 222);
+            this.tbtEmail.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tbtEmail.Name = "tbtEmail";
-            this.tbtEmail.Size = new System.Drawing.Size(100, 34);
+            this.tbtEmail.Size = new System.Drawing.Size(132, 26);
             this.tbtEmail.TabIndex = 12;
             // 
             // lblGuests
             // 
             this.lblGuests.AutoSize = true;
-            this.lblGuests.Font = new System.Drawing.Font("Adobe Fan Heiti Std B", 10F, System.Drawing.FontStyle.Bold);
-            this.lblGuests.Location = new System.Drawing.Point(356, 20);
+            this.lblGuests.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.lblGuests.Location = new System.Drawing.Point(475, 23);
+            this.lblGuests.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblGuests.Name = "lblGuests";
-            this.lblGuests.Size = new System.Drawing.Size(51, 18);
+            this.lblGuests.Size = new System.Drawing.Size(69, 20);
             this.lblGuests.TabIndex = 16;
             this.lblGuests.Text = "Guests";
             // 
             // cbCustID
             // 
-            this.cbCustID.Font = new System.Drawing.Font("Adobe Fan Heiti Std B", 10F, System.Drawing.FontStyle.Bold);
+            this.cbCustID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
             this.cbCustID.FormattingEnabled = true;
-            this.cbCustID.Location = new System.Drawing.Point(310, 50);
-            this.cbCustID.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.cbCustID.Location = new System.Drawing.Point(413, 58);
             this.cbCustID.Name = "cbCustID";
-            this.cbCustID.Size = new System.Drawing.Size(146, 24);
+            this.cbCustID.Size = new System.Drawing.Size(193, 28);
             this.cbCustID.TabIndex = 17;
             this.cbCustID.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             this.cbCustID.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cbCustID_KeyDown);
             // 
             // btnClear
             // 
-            this.btnClear.Font = new System.Drawing.Font("Adobe Fan Heiti Std B", 10F, System.Drawing.FontStyle.Bold);
-            this.btnClear.Location = new System.Drawing.Point(566, 12);
-            this.btnClear.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.btnClear.Location = new System.Drawing.Point(755, 14);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(80, 49);
+            this.btnClear.Size = new System.Drawing.Size(107, 57);
             this.btnClear.TabIndex = 18;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = true;
@@ -203,11 +214,10 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Font = new System.Drawing.Font("Adobe Fan Heiti Std B", 10F, System.Drawing.FontStyle.Bold);
-            this.btnAdd.Location = new System.Drawing.Point(378, 257);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.btnAdd.Location = new System.Drawing.Point(504, 297);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(71, 43);
+            this.btnAdd.Size = new System.Drawing.Size(95, 50);
             this.btnAdd.TabIndex = 19;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -215,11 +225,10 @@
             // 
             // btnEdit
             // 
-            this.btnEdit.Font = new System.Drawing.Font("Adobe Fan Heiti Std B", 10F, System.Drawing.FontStyle.Bold);
-            this.btnEdit.Location = new System.Drawing.Point(453, 257);
-            this.btnEdit.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.btnEdit.Location = new System.Drawing.Point(604, 297);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(71, 43);
+            this.btnEdit.Size = new System.Drawing.Size(95, 50);
             this.btnEdit.TabIndex = 20;
             this.btnEdit.Text = "Edit";
             this.btnEdit.UseVisualStyleBackColor = true;
@@ -227,49 +236,52 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Font = new System.Drawing.Font("Adobe Fan Heiti Std B", 10F, System.Drawing.FontStyle.Bold);
-            this.btnDelete.Location = new System.Drawing.Point(528, 257);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.btnDelete.Location = new System.Drawing.Point(704, 297);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(71, 43);
+            this.btnDelete.Size = new System.Drawing.Size(95, 50);
             this.btnDelete.TabIndex = 21;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // lblLast
             // 
             this.lblLast.AutoSize = true;
-            this.lblLast.Font = new System.Drawing.Font("Adobe Fan Heiti Std B", 10F, System.Drawing.FontStyle.Bold);
-            this.lblLast.Location = new System.Drawing.Point(140, 198);
+            this.lblLast.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.lblLast.Location = new System.Drawing.Point(187, 228);
+            this.lblLast.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblLast.Name = "lblLast";
-            this.lblLast.Size = new System.Drawing.Size(74, 18);
+            this.lblLast.Size = new System.Drawing.Size(100, 20);
             this.lblLast.TabIndex = 23;
             this.lblLast.Text = "Last Name";
             // 
             // tbtLast
             // 
-            this.tbtLast.Font = new System.Drawing.Font("Adobe Fan Heiti Std B", 10F, System.Drawing.FontStyle.Bold);
-            this.tbtLast.Location = new System.Drawing.Point(240, 195);
+            this.tbtLast.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.tbtLast.Location = new System.Drawing.Point(320, 225);
+            this.tbtLast.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tbtLast.Name = "tbtLast";
-            this.tbtLast.Size = new System.Drawing.Size(100, 34);
+            this.tbtLast.Size = new System.Drawing.Size(132, 26);
             this.tbtLast.TabIndex = 22;
             this.tbtLast.Text = " ";
             // 
             // pbLogo
             // 
             this.pbLogo.Image = ((System.Drawing.Image)(resources.GetObject("pbLogo.Image")));
-            this.pbLogo.Location = new System.Drawing.Point(12, 12);
+            this.pbLogo.Location = new System.Drawing.Point(16, 14);
+            this.pbLogo.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.pbLogo.Name = "pbLogo";
-            this.pbLogo.Size = new System.Drawing.Size(113, 111);
+            this.pbLogo.Size = new System.Drawing.Size(151, 128);
             this.pbLogo.TabIndex = 24;
             this.pbLogo.TabStop = false;
             // 
-            // Guests
+            // frmGuests
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PowderBlue;
-            this.ClientSize = new System.Drawing.Size(657, 337);
+            this.ClientSize = new System.Drawing.Size(876, 389);
             this.Controls.Add(this.pbLogo);
             this.Controls.Add(this.lblLast);
             this.Controls.Add(this.tbtLast);
@@ -291,7 +303,8 @@
             this.Controls.Add(this.tbtAddress);
             this.Controls.Add(this.tbtFirst);
             this.Controls.Add(this.tbtGuestID);
-            this.Name = "Guests";
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.Name = "frmGuests";
             this.Text = "Guests";
             this.Load += new System.EventHandler(this.Form3_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();

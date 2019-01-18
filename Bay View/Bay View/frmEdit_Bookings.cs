@@ -179,11 +179,13 @@ namespace Bay_View
             {
                 using (SQLiteConnection Conn = new SQLiteConnection(conString))
                 {
-                    string Delete = "DELETE FROM Booking WHERE Booking_Ref_No = @ID";
+                    string Delete = @"UPDATE Bookings SET Cancelled = 1, Staff_ID = @Staffs
+                    WHERE Booking_Ref_No = @ID";
                     Conn.Open();
                     using (SQLiteCommand cmd = new SQLiteCommand(Delete, Conn))
                     {
                         cmd.Parameters.AddWithValue("Staffs", dbRole.Role);
+                        cmd.Parameters.AddWithValue("ID", tbtBookingNo.Text);
                         cmd.ExecuteNonQuery();
                     }
                 }

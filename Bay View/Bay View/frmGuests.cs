@@ -203,5 +203,30 @@ namespace Bay_View
                 cbCustID_TextChanged(this, new EventArgs());
             }
         }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (SQLiteConnection Conn = new SQLiteConnection(conString))
+                {
+                    string Delete = @"UPDATE Guests SET Removed = 1 WHERE Guest_ID = @ID";
+                    Conn.Open();
+                    using (SQLiteCommand cmd = new SQLiteCommand(Delete, Conn))
+                    {
+
+                        cmd.Parameters.AddWithValue("ID", tbtGuestID.Text);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+        }
     }
     }
+  
